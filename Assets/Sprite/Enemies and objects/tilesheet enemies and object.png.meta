@@ -1,0 +1,3348 @@
+fileFormatVersion: 2
+guid: 39c2bfffe11d73842a1eaf8b7a86fbe9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8798464395092789755
+    second: tilesheet enemies and object_0
+  - first:
+      213: -5790316276545570101
+    second: tilesheet enemies and object_1
+  - first:
+      213: -4124543861156519444
+    second: tilesheet enemies and object_2
+  - first:
+      213: -1893297720502380756
+    second: tilesheet enemies and object_3
+  - first:
+      213: 3599113069738200561
+    second: tilesheet enemies and object_4
+  - first:
+      213: -1733954977300140356
+    second: tilesheet enemies and object_5
+  - first:
+      213: 8185259933748862562
+    second: tilesheet enemies and object_6
+  - first:
+      213: -4490932151102821385
+    second: tilesheet enemies and object_7
+  - first:
+      213: 8424645169236164363
+    second: tilesheet enemies and object_8
+  - first:
+      213: 6409526891342240175
+    second: tilesheet enemies and object_9
+  - first:
+      213: 7704167625317791696
+    second: tilesheet enemies and object_10
+  - first:
+      213: 3165975096160979119
+    second: tilesheet enemies and object_11
+  - first:
+      213: -3363946538302065135
+    second: tilesheet enemies and object_12
+  - first:
+      213: -2164215384588027602
+    second: tilesheet enemies and object_13
+  - first:
+      213: 503141892507063767
+    second: tilesheet enemies and object_14
+  - first:
+      213: 6956690488239633613
+    second: tilesheet enemies and object_15
+  - first:
+      213: -5138315625058581481
+    second: tilesheet enemies and object_16
+  - first:
+      213: -4636641407348883204
+    second: tilesheet enemies and object_17
+  - first:
+      213: -2296311233071874508
+    second: tilesheet enemies and object_18
+  - first:
+      213: -4553213555200182813
+    second: tilesheet enemies and object_19
+  - first:
+      213: 8642817411884227759
+    second: tilesheet enemies and object_20
+  - first:
+      213: 2752276732908975689
+    second: tilesheet enemies and object_21
+  - first:
+      213: 8483614199699637695
+    second: tilesheet enemies and object_22
+  - first:
+      213: 358726119702920548
+    second: tilesheet enemies and object_23
+  - first:
+      213: -1687100528328571994
+    second: tilesheet enemies and object_24
+  - first:
+      213: -1337997306830170147
+    second: tilesheet enemies and object_25
+  - first:
+      213: -606580488701597797
+    second: tilesheet enemies and object_26
+  - first:
+      213: 5015989154103142396
+    second: tilesheet enemies and object_27
+  - first:
+      213: -3195963932987387645
+    second: tilesheet enemies and object_28
+  - first:
+      213: -7660500753099141012
+    second: tilesheet enemies and object_29
+  - first:
+      213: -633706390548084038
+    second: tilesheet enemies and object_30
+  - first:
+      213: 490034494197519373
+    second: tilesheet enemies and object_31
+  - first:
+      213: 6745530344358597124
+    second: tilesheet enemies and object_32
+  - first:
+      213: -1071663838313275390
+    second: tilesheet enemies and object_33
+  - first:
+      213: -5710778281367420153
+    second: tilesheet enemies and object_34
+  - first:
+      213: -6579935717476216817
+    second: tilesheet enemies and object_35
+  - first:
+      213: 2010981276929564522
+    second: tilesheet enemies and object_36
+  - first:
+      213: 1594463224767742776
+    second: tilesheet enemies and object_37
+  - first:
+      213: -1397917089540397815
+    second: tilesheet enemies and object_38
+  - first:
+      213: 7345066160634532953
+    second: tilesheet enemies and object_39
+  - first:
+      213: -2882523637798308837
+    second: tilesheet enemies and object_40
+  - first:
+      213: -8819790559189731808
+    second: tilesheet enemies and object_41
+  - first:
+      213: -6620163289657989850
+    second: tilesheet enemies and object_42
+  - first:
+      213: -8184534674200769333
+    second: tilesheet enemies and object_43
+  - first:
+      213: 3931211374049061146
+    second: tilesheet enemies and object_44
+  - first:
+      213: 410249995218930371
+    second: tilesheet enemies and object_45
+  - first:
+      213: -5523994414350437296
+    second: tilesheet enemies and object_46
+  - first:
+      213: -6876913612575040175
+    second: tilesheet enemies and object_47
+  - first:
+      213: -6979875252313716917
+    second: tilesheet enemies and object_48
+  - first:
+      213: -7270158659261589950
+    second: tilesheet enemies and object_49
+  - first:
+      213: 4609959825972519474
+    second: tilesheet enemies and object_50
+  - first:
+      213: -6460859566303795989
+    second: tilesheet enemies and object_51
+  - first:
+      213: 8723467296892928476
+    second: tilesheet enemies and object_52
+  - first:
+      213: -4002850221502106520
+    second: tilesheet enemies and object_53
+  - first:
+      213: 4993098874929714069
+    second: tilesheet enemies and object_54
+  - first:
+      213: -4818399482140843018
+    second: tilesheet enemies and object_55
+  - first:
+      213: 6451881652635553917
+    second: tilesheet enemies and object_56
+  - first:
+      213: 5746573085683327840
+    second: tilesheet enemies and object_57
+  - first:
+      213: -98066050337010587
+    second: tilesheet enemies and object_58
+  - first:
+      213: 8861171106991871603
+    second: tilesheet enemies and object_59
+  - first:
+      213: -1303392206386036717
+    second: tilesheet enemies and object_60
+  - first:
+      213: 4043965454935019022
+    second: tilesheet enemies and object_61
+  - first:
+      213: 20523899256606348
+    second: tilesheet enemies and object_62
+  - first:
+      213: -8556193689104777243
+    second: tilesheet enemies and object_63
+  - first:
+      213: 8677189906093480756
+    second: tilesheet enemies and object_64
+  - first:
+      213: 9144398295655188085
+    second: tilesheet enemies and object_65
+  - first:
+      213: -7397332388599969040
+    second: tilesheet enemies and object_66
+  - first:
+      213: 8303052554669122188
+    second: tilesheet enemies and object_67
+  - first:
+      213: -3189475920703955561
+    second: tilesheet enemies and object_68
+  - first:
+      213: -2254387620139530176
+    second: tilesheet enemies and object_69
+  - first:
+      213: 2318525957017579874
+    second: tilesheet enemies and object_70
+  - first:
+      213: -6311312692801410774
+    second: tilesheet enemies and object_71
+  - first:
+      213: -5715042125926328642
+    second: tilesheet enemies and object_72
+  - first:
+      213: 6361218484836102730
+    second: tilesheet enemies and object_73
+  - first:
+      213: 6770460486999202607
+    second: tilesheet enemies and object_74
+  - first:
+      213: 8821532643925935224
+    second: tilesheet enemies and object_75
+  - first:
+      213: 5602175896694324366
+    second: tilesheet enemies and object_76
+  - first:
+      213: 7215513898988189075
+    second: tilesheet enemies and object_77
+  - first:
+      213: -8029647976468081704
+    second: tilesheet enemies and object_78
+  - first:
+      213: 9197630721071580829
+    second: tilesheet enemies and object_79
+  - first:
+      213: -7699891630194346581
+    second: tilesheet enemies and object_80
+  - first:
+      213: -4402097376305964952
+    second: tilesheet enemies and object_81
+  - first:
+      213: -3601612904149177985
+    second: tilesheet enemies and object_82
+  - first:
+      213: -6108592983354876524
+    second: tilesheet enemies and object_83
+  - first:
+      213: 6230304115956807494
+    second: tilesheet enemies and object_84
+  - first:
+      213: 8113658379974657995
+    second: tilesheet enemies and object_85
+  - first:
+      213: -6690560965117681363
+    second: tilesheet enemies and object_86
+  - first:
+      213: 5107378407134053542
+    second: tilesheet enemies and object_87
+  - first:
+      213: 2032142890820301606
+    second: tilesheet enemies and object_88
+  - first:
+      213: -6784674991805199432
+    second: tilesheet enemies and object_89
+  - first:
+      213: -5193373487846326789
+    second: tilesheet enemies and object_90
+  - first:
+      213: 8022362611284952429
+    second: tilesheet enemies and object_91
+  - first:
+      213: -5566006787263778554
+    second: tilesheet enemies and object_92
+  - first:
+      213: -1477371096478546608
+    second: tilesheet enemies and object_93
+  - first:
+      213: 1426821558003484251
+    second: tilesheet enemies and object_94
+  - first:
+      213: -865984763392358574
+    second: tilesheet enemies and object_95
+  - first:
+      213: 1128260874148705637
+    second: tilesheet enemies and object_96
+  - first:
+      213: 2801319308039725342
+    second: tilesheet enemies and object_97
+  - first:
+      213: -1965731727320927739
+    second: tilesheet enemies and object_98
+  - first:
+      213: -386143634790129771
+    second: tilesheet enemies and object_99
+  - first:
+      213: -1681195392733636372
+    second: tilesheet enemies and object_100
+  - first:
+      213: -7259930042901878171
+    second: tilesheet enemies and object_101
+  - first:
+      213: -2849640487949614298
+    second: tilesheet enemies and object_102
+  - first:
+      213: -5450758359253350922
+    second: tilesheet enemies and object_103
+  - first:
+      213: 4855926022167139235
+    second: tilesheet enemies and object_104
+  - first:
+      213: 7045378017608950238
+    second: tilesheet enemies and object_105
+  - first:
+      213: 7857974844816559476
+    second: tilesheet enemies and object_106
+  - first:
+      213: -1114197684908458099
+    second: tilesheet enemies and object_107
+  - first:
+      213: 8414272287645573573
+    second: tilesheet enemies and object_108
+  - first:
+      213: -8216581738720308705
+    second: tilesheet enemies and object_109
+  - first:
+      213: -1818395556444447160
+    second: tilesheet enemies and object_110
+  - first:
+      213: -2787007696391214869
+    second: tilesheet enemies and object_111
+  - first:
+      213: -5999854765730007297
+    second: tilesheet enemies and object_112
+  - first:
+      213: 1517242679790917644
+    second: tilesheet enemies and object_113
+  - first:
+      213: -478430787593800781
+    second: tilesheet enemies and object_114
+  - first:
+      213: -8734047967316080767
+    second: tilesheet enemies and object_115
+  - first:
+      213: 4325014216033957019
+    second: tilesheet enemies and object_116
+  - first:
+      213: 2005242840639943418
+    second: tilesheet enemies and object_117
+  - first:
+      213: 4418054370889921303
+    second: tilesheet enemies and object_118
+  - first:
+      213: 2202408773519187279
+    second: tilesheet enemies and object_119
+  - first:
+      213: 153278059687423474
+    second: tilesheet enemies and object_120
+  - first:
+      213: 1137913410082236832
+    second: tilesheet enemies and object_121
+  - first:
+      213: -3584189509442015841
+    second: tilesheet enemies and object_122
+  - first:
+      213: -1454084400351767923
+    second: tilesheet enemies and object_123
+  - first:
+      213: -5960442019494657087
+    second: tilesheet enemies and object_124
+  - first:
+      213: -7928449909391686015
+    second: tilesheet enemies and object_125
+  - first:
+      213: 8149580276513962380
+    second: tilesheet enemies and object_126
+  - first:
+      213: -4953179915277651308
+    second: tilesheet enemies and object_127
+  - first:
+      213: 7428113870530200551
+    second: tilesheet enemies and object_128
+  - first:
+      213: -2240707348862955065
+    second: tilesheet enemies and object_129
+  - first:
+      213: -1214647982783874203
+    second: tilesheet enemies and object_130
+  - first:
+      213: -6909585703511889232
+    second: tilesheet enemies and object_131
+  - first:
+      213: -4954759555073433425
+    second: tilesheet enemies and object_132
+  - first:
+      213: 8687620313972778712
+    second: tilesheet enemies and object_133
+  - first:
+      213: -4149326171397488221
+    second: tilesheet enemies and object_134
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 18
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tilesheet enemies and object_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf98d6640cc6a1a70800000000000000
+      internalID: 8798464395092789755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcab65f560aa4afa0800000000000000
+      internalID: -5790316276545570101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce16f37063da2c6c0800000000000000
+      internalID: -4124543861156519444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_3
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27166b11c7a9b5e0800000000000000
+      internalID: -1893297720502380756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fd063c944e92f130800000000000000
+      internalID: 3599113069738200561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe21819221cfe7e0800000000000000
+      internalID: -1733954977300140356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_6
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e9659da82e79170800000000000000
+      internalID: 8185259933748862562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fba227a0010da1c0800000000000000
+      internalID: -4490932151102821385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_8
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f380f452a5ae470800000000000000
+      internalID: 8424645169236164363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_9
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa994c0afb633f850800000000000000
+      internalID: 6409526891342240175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_10
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7b12503a3baea60800000000000000
+      internalID: 7704167625317791696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_11
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8886e639dcfeb20800000000000000
+      internalID: 3165975096160979119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_12
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116b915427cd051d0800000000000000
+      internalID: -3363946538302065135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_13
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29f130039927f1e0800000000000000
+      internalID: -2164215384588027602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_14
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d5508ea2e48bf600800000000000000
+      internalID: 503141892507063767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_15
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4bcd314212b8060800000000000000
+      internalID: 6956690488239633613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_16
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7144b88b92901b8b0800000000000000
+      internalID: -5138315625058581481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_17
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf04a1cb43757afb0800000000000000
+      internalID: -4636641407348883204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_18
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43ef203991dd120e0800000000000000
+      internalID: -2296311233071874508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_19
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5bccf356cbfc0c0800000000000000
+      internalID: -4553213555200182813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_20
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac9bedf4a471f770800000000000000
+      internalID: 8642817411884227759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_21
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 946bc9c3b1d023620800000000000000
+      internalID: 2752276732908975689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_22
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb58e80aa2adbb570800000000000000
+      internalID: 8483614199699637695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_23
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46dfb8851837af400800000000000000
+      internalID: 358726119702920548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_24
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a30a9412073698e0800000000000000
+      internalID: -1687100528328571994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_25
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd755f7d98a7e6de0800000000000000
+      internalID: -1337997306830170147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_26
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 122
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b972243624ef497f0800000000000000
+      internalID: -606580488701597797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf7a78f4f8f5c9540800000000000000
+      internalID: 5015989154103142396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_28
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30193536cb7a5a3d0800000000000000
+      internalID: -3195963932987387645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_29
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60d9e1f62f60b590800000000000000
+      internalID: -7660500753099141012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_30
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba8c73356f9437f0800000000000000
+      internalID: -633706390548084038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_31
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04d452b6c3fcc600800000000000000
+      internalID: 490034494197519373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_32
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 402dc1ddb10fc9d50800000000000000
+      internalID: 6745530344358597124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_33
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200a4beba6fa021f0800000000000000
+      internalID: -1071663838313275390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_34
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703441cf86d3fb0b0800000000000000
+      internalID: -5710778281367420153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f00dce2b35f5fa4a0800000000000000
+      internalID: -6579935717476216817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_36
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f195511d078eb10800000000000000
+      internalID: 2010981276929564522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_37
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83384b7eadba02610800000000000000
+      internalID: 1594463224767742776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_38
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9052f7440d9999ce0800000000000000
+      internalID: -1397917089540397815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_39
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9541d5cd1caeee560800000000000000
+      internalID: 7345066160634532953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_40
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b147d5016083ff7d0800000000000000
+      internalID: -2882523637798308837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_41
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 026f626373fc99580800000000000000
+      internalID: -8819790559189731808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_42
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 625aadc20947024a0800000000000000
+      internalID: -6620163289657989850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_43
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc456cc311ba6e80800000000000000
+      internalID: -8184534674200769333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_44
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a196b2f8ae77e8630800000000000000
+      internalID: 3931211374049061146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_45
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca4122723081b500800000000000000
+      internalID: 410249995218930371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_46
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0547667f854d653b0800000000000000
+      internalID: -5523994414350437296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_47
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d9a6b318b4090a0800000000000000
+      internalID: -6876913612575040175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_48
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b470d416070822f90800000000000000
+      internalID: -6979875252313716917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_49
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2469bf5e7353b1b90800000000000000
+      internalID: -7270158659261589950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_50
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 232e9ef790ed9ff30800000000000000
+      internalID: 4609959825972519474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_51
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be427ce947a6656a0800000000000000
+      internalID: -6460859566303795989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_52
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd14a01a94bff0970800000000000000
+      internalID: 8723467296892928476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_53
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 92
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 864f54a7ee40378c0800000000000000
+      internalID: -4002850221502106520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5939690e8fc0b4540800000000000000
+      internalID: 4993098874929714069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_55
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f3a111333b912db0800000000000000
+      internalID: -4818399482140843018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_56
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70d336fd20b98950800000000000000
+      internalID: 6451881652635553917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_57
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063a9f756cdefbf40800000000000000
+      internalID: 5746573085683327840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_58
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c0321627993aef0800000000000000
+      internalID: -98066050337010587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_59
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376943e5c2439fa70800000000000000
+      internalID: 8861171106991871603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_60
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3100957a1bb69ede0800000000000000
+      internalID: -1303392206386036717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_61
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e4a59c72d0f1830800000000000000
+      internalID: 4043965454935019022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_62
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8e889ca06ae84000800000000000000
+      internalID: 20523899256606348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_63
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ef78732c2b424980800000000000000
+      internalID: -8556193689104777243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_64
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43b9e41fe329b6870800000000000000
+      internalID: 8677189906093480756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_65
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57607310dcd67ee70800000000000000
+      internalID: 9144398295655188085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_66
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fac104a265675990800000000000000
+      internalID: -7397332388599969040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_67
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c82e3789e4e5a3370800000000000000
+      internalID: 8303052554669122188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_68
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d57c67c84bcb3d0800000000000000
+      internalID: -3189475920703955561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_69
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0488b8b576ec6b0e0800000000000000
+      internalID: -2254387620139530176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_70
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2613e86e21f0d2020800000000000000
+      internalID: 2318525957017579874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_71
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a29682f6b86b968a0800000000000000
+      internalID: -6311312692801410774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_72
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb694cf477710b0b0800000000000000
+      internalID: -5715042125926328642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_73
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42fd4f3286974850800000000000000
+      internalID: 6361218484836102730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_74
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2bd76501f185fd50800000000000000
+      internalID: 6770460486999202607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_75
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874c7bf73316c6a70800000000000000
+      internalID: 8821532643925935224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_76
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c78b3eb4deebd40800000000000000
+      internalID: 5602175896694324366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_77
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395b51569a7a22460800000000000000
+      internalID: 7215513898988189075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_78
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d39f2355b5f09090800000000000000
+      internalID: -8029647976468081704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_79
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9601b0e86c84af70800000000000000
+      internalID: 9197630721071580829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_80
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 62
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba5334dab5d742590800000000000000
+      internalID: -7699891630194346581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_81
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8689a9272cb98e2c0800000000000000
+      internalID: -4402097376305964952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_82
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79a9b55520840ec0800000000000000
+      internalID: -3601612904149177985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_83
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49d50bddb0be93ba0800000000000000
+      internalID: -6108592983354876524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_84
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 647724a759c767650800000000000000
+      internalID: 6230304115956807494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_85
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc7c24ffe41899070800000000000000
+      internalID: 8113658379974657995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_86
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21e016104a5623a0800000000000000
+      internalID: -6690560965117681363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_87
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4c9bae99d01e640800000000000000
+      internalID: 5107378407134053542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_88
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623fd24413f933c10800000000000000
+      internalID: 2032142890820301606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_89
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb89fcaa0ef7d1a0800000000000000
+      internalID: -6784674991805199432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_90
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfdfcf6145e6de7b0800000000000000
+      internalID: -5193373487846326789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_91
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65c3096a48255f60800000000000000
+      internalID: 8022362611284952429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_92
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601bab3215291c2b0800000000000000
+      internalID: -5566006787263778554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_93
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05587f0b0d25f7be0800000000000000
+      internalID: -1477371096478546608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_94
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56caaab5a61dc310800000000000000
+      internalID: 1426821558003484251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_95
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 257091522776bf3f0800000000000000
+      internalID: -865984763392358574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_96
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565fa99894368af00800000000000000
+      internalID: 1128260874148705637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_97
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11a622911940e620800000000000000
+      internalID: 2801319308039725342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_98
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502325da86158b4e0800000000000000
+      internalID: -1965731727320927739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_99
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f5e08f86424aaf0800000000000000
+      internalID: -386143634790129771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_100
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce8961a92b13ba8e0800000000000000
+      internalID: -1681195392733636372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_101
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56aa5aa371c8f3b90800000000000000
+      internalID: -7259930042901878171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_102
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6234132031b0478d0800000000000000
+      internalID: -2849640487949614298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_103
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f58630d6240b54b0800000000000000
+      internalID: -5450758359253350922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_104
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a319d64df6b36340800000000000000
+      internalID: 4855926022167139235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_105
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed16def9af536c160800000000000000
+      internalID: 7045378017608950238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_106
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d0f3fec722d0d60800000000000000
+      internalID: 7857974844816559476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_107
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 32
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8ff77ddb139980f0800000000000000
+      internalID: -1114197684908458099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1278c901085c470800000000000000
+      internalID: 8414272287645573573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_109
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f125d932176d8fd80800000000000000
+      internalID: -8216581738720308705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_110
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84edafc20e2c3c6e0800000000000000
+      internalID: -1818395556444447160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_111
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8625e244f8259d0800000000000000
+      internalID: -2787007696391214869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_112
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff67ab011eb3cbca0800000000000000
+      internalID: -5999854765730007297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_113
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08dff6bd245e0510800000000000000
+      internalID: 1517242679790917644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_114
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b37cd7cbb54c59f0800000000000000
+      internalID: -478430787593800781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_115
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18707e016ad6ac680800000000000000
+      internalID: -8734047967316080767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_116
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94f73bb389850c30800000000000000
+      internalID: 4325014216033957019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_117
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af23db44dbd04db10800000000000000
+      internalID: 2005242840639943418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_118
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 713714fda05105d30800000000000000
+      internalID: 4418054370889921303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_119
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d90d35c17809e10800000000000000
+      internalID: 2202408773519187279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_120
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fda78b459d802200800000000000000
+      internalID: 153278059687423474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_121
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a9ea11b73eaacf00800000000000000
+      internalID: 1137913410082236832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_122
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9de60a81a6624ec0800000000000000
+      internalID: -3584189509442015841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_123
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d82989321fd02dbe0800000000000000
+      internalID: -1454084400351767923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_124
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c385b32091484da0800000000000000
+      internalID: -5960442019494657087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_125
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1860b3b60dc78f190800000000000000
+      internalID: -7928449909391686015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_126
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89f42a4510291170800000000000000
+      internalID: 8149580276513962380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_127
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 492b6413c15c24bb0800000000000000
+      internalID: -4953179915277651308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_128
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3ca1c9536f51760800000000000000
+      internalID: 7428113870530200551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_129
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c19a69b98867e0e0800000000000000
+      internalID: -2240707348862955065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_130
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56bb50b5814b42fe0800000000000000
+      internalID: -1214647982783874203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_131
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ba6e0549683c10a0800000000000000
+      internalID: -6909585703511889232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_132
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa02064af682d3bb0800000000000000
+      internalID: -4954759555073433425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_133
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d6a0d585a0a09870800000000000000
+      internalID: 8687620313972778712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet enemies and object_134
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a10f98c4d1aa66c0800000000000000
+      internalID: -4149326171397488221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
