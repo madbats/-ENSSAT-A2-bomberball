@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //Attributs
     public float movingSpeed;
+    public float smoothTime;
 
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
@@ -22,6 +23,6 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer(float _horizontalMovement, float _verticalMovement)
     {
         Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, 0.05f);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);
     }
 }
