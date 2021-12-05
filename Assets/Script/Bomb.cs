@@ -37,7 +37,7 @@ public class Bomb : MonoBehaviour
         }
     }
 
-    void Explosion() {
+    /*void Explosion() {
         GameObject[,] m = GameObject.Find("map").GetComponent<Map>().mapItems;
         if (x >= 0 && x < 5 && y >= 0 && y < 5) { 
             Destroy(m[x,y]);
@@ -63,9 +63,9 @@ public class Bomb : MonoBehaviour
             Debug.Log("destruction ("+x+","+i+")");
             Destroy(m[x,i]);
         }
-    }
+    }*/
 
     void OnDestroy() {
-        Explosion();
+        //Explosion();
     }
 }
