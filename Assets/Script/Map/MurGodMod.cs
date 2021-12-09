@@ -10,7 +10,7 @@ public class MurGodMod : MurCassable
         
     }
 
-    public override void OnDestroy()
+    public void OnDestroy()
     {
 
     }

@@ -2,16 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class MurCassable : Mur
+public class MurCassable : Mur
 {
+    public GameObject sol;
     // Start is called before the first frame update
     void Start()
     {
         this.isBreakable = true;
         
     }
+    
+    public void OnDestroy()
+    {
+        GameObject qqc;
+        qqc=Instantiate(sol, gameObject.transform.position, Quaternion.identity);
+        qqc.transform.SetParent(transform.parent,false);
 
-    public abstract void OnDestroy();
+    }
 
     // Update is called once per frame
     void Update()

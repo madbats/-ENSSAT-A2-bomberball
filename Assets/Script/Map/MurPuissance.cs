@@ -10,7 +10,7 @@ public class MurPuissance : MurCassable
         
     }
 
-    public override void OnDestroy()
+    public void OnDestroy()
     {
 
     }
