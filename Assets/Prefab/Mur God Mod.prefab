@@ -100,4 +100,4 @@ MonoBehaviour:
   isConsumable: 0
   x: 0
   y: 0
-  sol: {fileID: 0}
+  sol: {fileID: 1591775013636994503, guid: feac78b9501920749991007b6307e238, type: 3}
