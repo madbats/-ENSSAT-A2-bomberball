@@ -16,6 +16,6 @@ public class MurCassable : Mur
         GameObject qqc;
         qqc=Instantiate(sol, gameObject.transform.position, Quaternion.identity);
         qqc.transform.SetParent(transform.parent,false);
-
+        qqc.transform.parent.GetComponent<Map>().mapItemsList[(int)transform.position.x, (int)transform.position.y] = qqc.GetComponent<MapItem>();
     }
 }
