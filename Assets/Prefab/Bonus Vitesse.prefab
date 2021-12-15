@@ -98,7 +98,8 @@ MonoBehaviour:
   sprite: {fileID: 8022362611284952429, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
   isBreakable: 0
   isConsumable: 1
-  x: 0
-  y: 0
+  light: 0
+  discover: 0
   duration: 5
   power: 1
+  sol: {fileID: 4722635489715105607, guid: aa116e37f0d62b64c8928b9d1a994932, type: 3}

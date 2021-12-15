@@ -9,7 +9,6 @@ public class MurCassable : Mur
     void Start()
     {
         this.isBreakable = true;
-        
     }
     
     public void OnDestroy()
@@ -18,11 +17,5 @@ public class MurCassable : Mur
         qqc=Instantiate(sol, gameObject.transform.position, Quaternion.identity);
         qqc.transform.SetParent(transform.parent,false);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

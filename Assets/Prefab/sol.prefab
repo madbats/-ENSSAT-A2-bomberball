@@ -98,5 +98,5 @@ MonoBehaviour:
   sprite: {fileID: -3087832342392415706, guid: 3a844880a10c81c4aafe1b83788b043c, type: 3}
   isBreakable: 0
   isConsumable: 0
-  x: 0
-  y: 0
+  light: 0
+  discover: 0
