@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-	public float timeLeft = 15;
+	public float timeLeft;
     public int x;
     public int y;
-    public int puissance = 1;
+    public int puissance;
+    public Sprite FirstStage;
+    public Sprite SecondStage;
+    public Sprite ThirdStage;
 
     // Start is called before the first frame update
     void Start()
     {
         x = (int) transform.position.x;
         y = (int) transform.position.y;
-     	gameObject.GetComponent<Renderer>().material.color= Color.black;
+     	this.gameObject.GetComponent<SpriteRenderer>().sprite= FirstStage;
     }
 
     // Update is called once per frame
@@ -23,49 +26,45 @@ public class Bomb : MonoBehaviour
         timeLeft -= Time.deltaTime;
 
         switch (timeLeft) {
-        	case float i when i > 5 && i <= 10:
-        		gameObject.GetComponent<Renderer>().material.color= Color.yellow;
+        	case float i when i > 5 && i <= timeLeft*0.75:
+        		gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
         		break;
-        	case float i when i > 0 && i <= 5:
-        		gameObject.GetComponent<Renderer>().material.color= Color.red;
+        	case float i when i > 0 && i <= timeLeft*0.40:
+        		gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
         		break;
         	case float i when i <= 0:
-        		Destroy(gameObject);
+                Explosion();
         		break;
         	default:
         		break;
         }
     }
 
-    /*void Explosion() {
-        GameObject[,] m = GameObject.Find("map").GetComponent<Map>().mapItems;
-        if (x >= 0 && x < 5 && y >= 0 && y < 5) { 
-            Destroy(m[x,y]);
+    void Explosion() {
+        MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
+        /*if (x >= 0 && x < 5 && y >= 0 && y < 5) {
+            if(mapItemsList[x,y].isBreakable)
+                ((MurCassable)mapItemsList[x,y]).OnBreak();
+        }*/
+        Debug.Log("Starting destroy");
+        for (int i = x - puissance; i <= x+puissance && i<13; i++) {
+            if (i >= 0 ) {
+                if(mapItemsList[i,y].isBreakable)
+                    ((MurCassable)mapItemsList[i,y]).OnBreak();
+            }
         }
         
-        for (int i = x - puissance; i < x; i++) {
-            if (i >= 0) {
-                Debug.Log("destruction ("+i+","+y+")");
-                Destroy(m[i,y]);
+        Debug.Log("X finished");
+        for (int i = y - puissance; i <= y+puissance && i<11; i++) {
+            if (i >= 0 ) {
+                if(mapItemsList[x,i].isBreakable)
+                    ((MurCassable)mapItemsList[x,i]).OnBreak();
             }
         }
-        for (int i = x + 1; i <= x + puissance && i < 5; i++){
-            Debug.Log("destruction ("+i+","+y+")");
-            Destroy(m[i,y]);
-        }
-        for (int i = y - puissance; i < y; i++) {
-            if (i >= 0) {
-                Debug.Log("destruction ("+x+","+i+")");
-                Destroy(m[x,i]);
-            }
-        }
-        for (int i = y + 1; i <= y + puissance && i < 5; i++){
-            Debug.Log("destruction ("+x+","+i+")");
-            Destroy(m[x,i]);
-        }
-    }*/
-
-    void OnDestroy() {
-        //Explosion();
+        Debug.Log("End destroy");
+        GameObject.Find("Player").GetComponent<PlayerMovement>().BombSet=false;
+        
+        Debug.Log("destroy Me");
+        Destroy(this.gameObject);
     }
 }

@@ -2,25 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum items { 
-    SOL = 0, 
-    OBJET_PUISSANCE = 1, 
-    OBJET_DEPLACEMENT = 2, 
-    OBJET_POUSSEE = 3, 
-    OBJET_GODMOD = 4, 
-    MUR_CASSABLE = 10, 
-    MUR_CASSABLE_PUISSANCE = 11, 
-    MUR_CASSABLE_DEPLACEMENT = 12, 
-    MUR_CASSABLE_POUSSEE = 13, 
-    MUR_CASSABLE_GODMODE = 14, 
-    MUR_INCASSABLE = 20 
-}; 
-
 public class Map : MonoBehaviour { 
-    public int[,] symboleMap = new int[13, 11]; // liste stylisés des objets de la carte
+    public int[,] symboleMap = new int[13, 11]; // liste stylisï¿½s des objets de la carte
     public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.     
-    public int seed; //seed de la génération
-    public int difficulty; //difficulté du niveau
+    public int seed; //seed de la gï¿½nï¿½ration
+    public int difficulty; //difficultï¿½ du niveau
     public int number; //Niveau de la campagne
     public GameObject sol;
     public GameObject objet_puissance;
@@ -101,9 +87,5 @@ public class Map : MonoBehaviour {
                 mapItemsList[j, i] = qqc.GetComponent<MapItem>();
             }
         }
-        Debug.Log(mapItemsList[1, 1].transform.position);
-        Debug.Log(mapItemsList[1, 5].transform.position);
-        Debug.Log(mapItemsList[10, 2].transform.position);
-
     }
 }

@@ -16,7 +16,6 @@ public abstract class Bonus : Sol
 
     public void OnDestroy()
     {
-        OnConsumption();
     }
 
     public void OnConsumption() //Gestion de la consommation de l'item

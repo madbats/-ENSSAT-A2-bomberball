@@ -7,40 +7,51 @@ public class PlayerMovement : MonoBehaviour
     //Attributs
     public float movingSpeed;
     public float smoothTime;
+    public bool BombSet=false;
 
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
 
     public Bomb bomb;
 
+    void Start(){
+        
+    }
+
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         /* float horizontalMovement = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
         float verticalMovement = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
         MovePlayer(horizontalMovement, verticalMovement); */
-
-        float x = this.transform.position.x;
-        float y = this.transform.position.y;
-        if (Input.GetKeyDown(KeyCode.UpArrow) && y+1 < 5) {
+        MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
+        int x = (int)this.transform.position.x;
+        int y = (int)this.transform.position.y;
+        if (Input.GetKeyDown(KeyCode.UpArrow) && mapItemsList[x,y+1] is Sol) {
+            Debug.Log("Up");
         	MovePlayer(x,y+1);
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) && y-1 > -5) {
+        if (Input.GetKeyDown(KeyCode.DownArrow) && mapItemsList[x,y-1] is Sol) {
+            Debug.Log("Down");
         	MovePlayer(x,y-1);
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && x-1 > -6) {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && mapItemsList[x-1,y] is Sol) {
+            Debug.Log("Left");
         	MovePlayer(x-1,y);
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && x+1 < 6) {
+        if (Input.GetKeyDown(KeyCode.RightArrow) && mapItemsList[x+1,y] is Sol) {
+            Debug.Log("Right");
         	MovePlayer(x+1,y);
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && !BombSet)
         {
-            Bomb newBomb = Instantiate(bomb, new Vector3(x, y, 0), Quaternion.identity);
+            Debug.Log("Bomb");
+            BombSet=true;
+            Bomb newBomb = Instantiate(bomb, new Vector3(x, y, -10), Quaternion.identity);
             newBomb.transform.SetParent(this.transform.parent, false);
         }
     }

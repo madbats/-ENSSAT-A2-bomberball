@@ -198,15 +198,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3730362087366411716, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3730362087366411716, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.26
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3730362087366411716, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.08
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3730362087366411716, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
       propertyPath: m_LocalPosition.z
@@ -242,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3730362087366411721, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
       propertyPath: m_Name
-      value: player
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
@@ -270,7 +270,7 @@ AudioListener:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235427594}
+  m_GameObject: {fileID: 519420028}
   m_Enabled: 1
 --- !u!20 &1235427596
 Camera:
@@ -278,7 +278,7 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235427594}
+  m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -321,7 +321,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235427594}
+  m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6, y: 5, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -384,5 +384,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

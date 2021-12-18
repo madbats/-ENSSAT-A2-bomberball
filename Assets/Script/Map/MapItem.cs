@@ -11,6 +11,4 @@ public abstract class MapItem : MonoBehaviour
     public bool light=false;
     public bool discover=false;
 
-
-
 }
