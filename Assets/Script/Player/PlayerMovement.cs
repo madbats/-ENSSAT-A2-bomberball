@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
         float verticalMovement = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
         MovePlayer(horizontalMovement, verticalMovement); */
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
+
+
         int x = (int)this.transform.position.x;
         int y = (int)this.transform.position.y;
         if (Input.GetKeyDown(KeyCode.UpArrow) && mapItemsList[x,y+1] is Sol) {
@@ -54,6 +56,10 @@ public class PlayerMovement : MonoBehaviour
             Bomb newBomb = Instantiate(bomb, new Vector3(x, y, -10), Quaternion.identity);
             newBomb.transform.SetParent(this.transform.parent, false);
         }
+
+       
+
+
     }
 
     void MovePlayer(float _horizontalMovement, float _verticalMovement)
