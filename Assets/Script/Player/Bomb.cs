@@ -42,7 +42,8 @@ public class Bomb : MonoBehaviour
 
     void Explosion() {
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
-        //Ennemis[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
+        Transform player = GameObject.Find("Player").GetComponent<Transform>();
+        Ennemis[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
 
         /**
          * Parcourt de chaque direction (nord,sud,est,ouest) et destruction des objects/ennemis
@@ -63,10 +64,14 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
                 }
-                //if(mapEnnemisList != null)
-                //{
-                //    mapEnnemisList[x, i].Kill();
-                //}
+                if(mapEnnemisList[x, i] != null)
+                {
+                    mapEnnemisList[x, i].Kill();
+                }
+                if(player.position.x == x && player.position.y == i)
+                {
+                    Destroy(player.gameObject);
+                }
             }
         }
         // sud
@@ -83,10 +88,14 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
                 }
-                //if (mapEnnemisList != null)
-                //{
-                //    mapEnnemisList[x, i].Kill();
-                //}
+                if (mapEnnemisList[x, i] != null)
+                {
+                    mapEnnemisList[x, i].Kill();
+                }
+                if (player.position.x == x && player.position.y == i)
+                {
+                    Destroy(player.gameObject);
+                }
             }
         }
         // east
@@ -103,10 +112,14 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[i, y]).OnBreak();
                 }
-                //if (mapEnnemisList != null)
-                //{
-                //    mapEnnemisList[i, x].Kill();
-                //}
+                if (mapEnnemisList[i, y] != null)
+                {
+                    mapEnnemisList[i, y].Kill();
+                }
+                if (player.position.x == i && player.position.y == y)
+                {
+                    Destroy(player.gameObject);
+                }
             }
         }
         // ouest
@@ -123,10 +136,14 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[i, y]).OnBreak();
                 }
-                //if (mapEnnemisList != null)
-                //{
-                //    mapEnnemisList[i, x].Kill();
-                //}
+                if (mapEnnemisList[i, y] != null)
+                {
+                    mapEnnemisList[i, y].Kill();
+                }
+                if (player.position.x == i && player.position.y == y)
+                {
+                    Destroy(player.gameObject);
+                }
             }
         }
         GameObject.Find("Player").GetComponent<PlayerMovement>().BombSet=false;

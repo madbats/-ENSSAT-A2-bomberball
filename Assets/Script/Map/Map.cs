@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class Map : MonoBehaviour { 
     public int[,] symboleMap = new int[13, 11]; // liste stylis�s des objets de la carte
-    public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.     
+    public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.
+    //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte.
+    public Ennemis[,] mapEnnemisList  = {
+            { null, null, null, null, null, null, null, null, null, null, null, null, null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null, null, null, null, null, null, null, null, null, null, null, null, null }};
     public int seed; //seed de la g�n�ration
     public int difficulty; //difficult� du niveau
     public int number; //Niveau de la campagne
@@ -36,7 +49,7 @@ public class Map : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start()    
-    {
+    { 
         GameObject newObject;
         GameObject qqc;
         for (int i = 0; i < 11; i++)
