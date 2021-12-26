@@ -42,29 +42,95 @@ public class Bomb : MonoBehaviour
 
     void Explosion() {
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
-        /*if (x >= 0 && x < 5 && y >= 0 && y < 5) {
-            if(mapItemsList[x,y].isBreakable)
-                ((MurCassable)mapItemsList[x,y]).OnBreak();
-        }*/
-        Debug.Log("Starting destroy");
-        for (int i = x - puissance; i <= x+puissance && i<13; i++) {
-            if (i >= 0 ) {
-                if(mapItemsList[i,y].isBreakable)
-                    ((MurCassable)mapItemsList[i,y]).OnBreak();
+        //Ennemis[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
+
+        /**
+         * Parcourt de chaque direction (nord,sud,est,ouest) et destruction des objects/ennemis
+         */
+        bool blocked;
+
+        // nord
+        blocked = false;
+        for (int i= y+1; i <= y + puissance && i < 13 && !blocked; i++)
+        {
+            if (mapItemsList[x, i] is MurIncassable)
+            {
+                blocked = true;
+            }
+            else
+            {
+                if (mapItemsList[x, i].isBreakable)
+                {
+                    ((MurCassable)mapItemsList[x, i]).OnBreak();
+                }
+                //if(mapEnnemisList != null)
+                //{
+                //    mapEnnemisList[x, i].Kill();
+                //}
             }
         }
-        
-        Debug.Log("X finished");
-        for (int i = y - puissance; i <= y+puissance && i<11; i++) {
-            if (i >= 0 ) {
-                if(mapItemsList[x,i].isBreakable)
-                    ((MurCassable)mapItemsList[x,i]).OnBreak();
+        // sud
+        blocked = false;
+        for (int i = y - 1; i >= y - puissance && i >0 && !blocked; i--)
+        {
+            if (mapItemsList[x, i] is MurIncassable)
+            {
+                blocked = true;
+            }
+            else
+            {
+                if (mapItemsList[x, i].isBreakable)
+                {
+                    ((MurCassable)mapItemsList[x, i]).OnBreak();
+                }
+                //if (mapEnnemisList != null)
+                //{
+                //    mapEnnemisList[x, i].Kill();
+                //}
             }
         }
-        Debug.Log("End destroy");
+        // east
+        blocked = false;
+        for (int i = x + 1; i <= x + puissance && i < 13 && !blocked; i++)
+        {
+            if (mapItemsList[i, y] is MurIncassable)
+            {
+                blocked = true;
+            }
+            else
+            {
+                if (mapItemsList[i, y].isBreakable)
+                {
+                    ((MurCassable)mapItemsList[i, y]).OnBreak();
+                }
+                //if (mapEnnemisList != null)
+                //{
+                //    mapEnnemisList[i, x].Kill();
+                //}
+            }
+        }
+        // ouest
+        blocked = false;
+        for (int i = x - 1; i >= x - puissance && i > 0 && !blocked; i--)
+        {
+            if (mapItemsList[i, y] is MurIncassable)
+            {
+                blocked = true;
+            }
+            else
+            {
+                if (mapItemsList[i, y].isBreakable)
+                {
+                    ((MurCassable)mapItemsList[i, y]).OnBreak();
+                }
+                //if (mapEnnemisList != null)
+                //{
+                //    mapEnnemisList[i, x].Kill();
+                //}
+            }
+        }
         GameObject.Find("Player").GetComponent<PlayerMovement>().BombSet=false;
         
-        Debug.Log("destroy Me");
         Destroy(this.gameObject);
     }
 }
