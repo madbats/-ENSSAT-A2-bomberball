@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private float startTime;
     private float holdTime;
 
+    //public bool poussee = false;
+
     void Start(){
         startTime = Time.time;
         holdTime = 0.0f;
@@ -43,10 +45,10 @@ public class PlayerMovement : MonoBehaviour
         int x = (int)this.transform.position.x;
         int y = (int)this.transform.position.y;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))//Détection input bas
         {
             Debug.Log("Up");
-            if (movingSpeed <= (float)Time.time - (float)startTime)
+            if (movingSpeed <= (float)Time.time - (float)startTime)//Pour eviter le bourrage
             {
                 startTime = (float)Time.time;
                 firstUp = true;
@@ -54,11 +56,10 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        if ((Input.GetKey(KeyCode.UpArrow) || firstUp) && mapItemsList[x,y+1] is Sol) {
+        if ((Input.GetKey(KeyCode.UpArrow) || firstUp) && mapItemsList[x,y+1] is Sol) { //Maintien de la touche
             
             holdTime = (float)Time.time - (float)startTime;
-            Debug.Log(holdTime);
-            if ( movingSpeed <= holdTime || firstUp)
+            if ( movingSpeed <= holdTime || firstUp)//On augmente si le temps de maintien est supérieur à la vitesse (=temps entre 2 déplacements)
             {
                 MovePlayer(x, y + 1);
                 startTime = Time.time;
@@ -81,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
         {
 
             holdTime = (float)Time.time - (float)startTime;
-            Debug.Log(holdTime);
             if (movingSpeed <= holdTime || firstDown)
             {
                 MovePlayer(x, y - 1);
@@ -105,7 +105,6 @@ public class PlayerMovement : MonoBehaviour
         {
 
             holdTime = (float)Time.time - (float)startTime;
-            Debug.Log(holdTime);
             if (movingSpeed <= holdTime || firstLeft)
             {
                 MovePlayer(x-1, y);
@@ -129,7 +128,6 @@ public class PlayerMovement : MonoBehaviour
         {
 
             holdTime = (float)Time.time - (float)startTime;
-            Debug.Log(holdTime);
             if (movingSpeed <= holdTime || firstRight)
             {
                 MovePlayer(x + 1, y);
@@ -146,9 +144,18 @@ public class PlayerMovement : MonoBehaviour
             Bomb newBomb = Instantiate(bomb, new Vector3(x, y, -10), Quaternion.identity);
             newBomb.transform.SetParent(this.transform.parent, false);
         }
-
-       
-
+        /*
+        if (poussee)
+        {
+            if ((Input.GetKey(KeyCode.RightArrow)) && mapItemsList[x + 1, y] is Bomb) //Bombe sur le chemin
+            {
+                if(mapItemsList[x + 2, y] is Sol) //Sol derrière la bombe
+                {
+                    MoveBomb(x + 1, y);
+                }
+            }
+        }
+        */
 
     }
 
@@ -158,4 +165,11 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);*/
         transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
     }
+    /*
+    void MoveBomb(float _horizontalMovement, float _verticalMovement)
+    {
+
+        Bomb bomb = GameObject.Find("Bomb").GetComponent<Bomb>();
+        bomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
+    }*/
 }

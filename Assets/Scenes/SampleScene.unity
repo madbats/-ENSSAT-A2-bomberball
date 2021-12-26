@@ -260,6 +260,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puissance: 0
   poussee: 0
+  bonusList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  nbBonus: 0
 --- !u!81 &1235427595
 AudioListener:
   m_ObjectHideFlags: 0

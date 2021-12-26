@@ -16,10 +16,15 @@ public class PlayerBonus : MonoBehaviour
 
     public int puissance;
     public int poussee;
+    public Bonus[] bonusList;
+    public int nbBonus;
 
     void Start()
     {
-
+        bonusList = new Bonus[30];
+        Debug.Log(bonusList.Length);
+        nbBonus = 0;
+        Debug.Log(nbBonus);
     }
 
     // Update is called once per frame
@@ -30,31 +35,33 @@ public class PlayerBonus : MonoBehaviour
         MovePlayer(horizontalMovement, verticalMovement); */
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
 
-
         int x = (int)this.transform.position.x;
         int y = (int)this.transform.position.y;
         
 
-        /*Appel des fonction pour les bonus*/
+        /*Appel des fonctions pour les bonus*/
 
-        if (mapItemsList[x, y] is BonusPuissance)
+        if (mapItemsList[x, y] is Bonus)
         {
-            ((Bonus)mapItemsList[x, y]).OnConsumption();
+            if (((Bonus)mapItemsList[x, y]).OnConsumption())
+            {
+                bonusList[nbBonus] = (Bonus)mapItemsList[x, y];
+                nbBonus += 1;
+            }
+            
         }
 
-        if (mapItemsList[x, y] is BonusGodMod)
+        foreach(Bonus bonus in bonusList)
         {
-            ((Bonus)mapItemsList[x, y]).OnConsumption();
-        }
+            
+            if(bonus != null)
+            {
+                if (bonus.CheckEnd())
+                {
+                    bonus.Destruction();
 
-        if (mapItemsList[x, y] is BonusPoussee)
-        {
-            ((Bonus)mapItemsList[x, y]).OnConsumption();
-        }
-
-        if (mapItemsList[x, y] is BonusVitesse)
-        {
-            ((Bonus)mapItemsList[x, y]).OnConsumption();
+                }
+            }
         }
 
 
