@@ -28,28 +28,23 @@ public class PlayerMovement : MonoBehaviour
         int x = (int)this.transform.position.x;
         int y = (int)this.transform.position.y;
         if (Input.GetKeyDown(KeyCode.UpArrow) && mapItemsList[x,y+1] is Sol) {
-            Debug.Log("Up");
         	MovePlayer(x,y+1);
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && mapItemsList[x,y-1] is Sol) {
-            Debug.Log("Down");
         	MovePlayer(x,y-1);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && mapItemsList[x-1,y] is Sol) {
-            Debug.Log("Left");
         	MovePlayer(x-1,y);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && mapItemsList[x+1,y] is Sol) {
-            Debug.Log("Right");
         	MovePlayer(x+1,y);
         }
 
         if (Input.GetKeyDown(KeyCode.B) && !BombSet)
         {
-            Debug.Log("Bomb");
             BombSet=true;
             Bomb newBomb = Instantiate(bomb, new Vector3(x, y, -10), Quaternion.identity);
             newBomb.transform.SetParent(this.transform.parent, false);
