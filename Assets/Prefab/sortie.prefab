@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 51508204869913221}
   - component: {fileID: 6656311254165712322}
-  - component: {fileID: 7241338536929750897}
+  - component: {fileID: 3901344021438856059}
   m_Layer: 0
   m_Name: sortie
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7241338536929750897
+--- !u!114 &3901344021438856059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +92,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4395624360970510435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 800531135cc248d478b7993e393f9d58, type: 3}
+  m_Script: {fileID: 11500000, guid: 53da5701f617faf4ea784bb03d481645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: -1301608022168202455, guid: 3a844880a10c81c4aafe1b83788b043c, type: 3}
+  sprite: {fileID: 0}
   isBreakable: 0
   isConsumable: 0
   light: 0
   discover: 0
+  player: {fileID: 0}

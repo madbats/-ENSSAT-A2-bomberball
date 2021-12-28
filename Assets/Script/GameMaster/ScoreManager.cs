@@ -22,9 +22,10 @@ public class ScoreManager : MonoBehaviour
         scoreDisplay.text = "Score : " + scoreNiveau;
     }
 
-    void Win()
+    public void Win()
     {
-        scorePartie += scoreNiveau;
+        scorePartie += scoreNiveau; 
+        GameObject.Find("ScoreTotal").GetComponent<Text>().text = "Score Total: " + scorePartie;
         Reset();
     }
 
