@@ -9,26 +9,28 @@ public class LifeManager : MonoBehaviour
     public Text vieDisplay;
     public int vieNiveau;
     public bool hasGodMode;
-    public Entree entree;
     public GameObject player;
+    public GameObject gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
-        vieNiveau = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        vieDisplay.text = "Vie : " + vieNiveau;
+        if (vieNiveau > 0)
+        {
+            vieDisplay.text = "Vie : " + vieNiveau;
+        }
     }
 
-    void Death()
+    public void Death()
     {
         if (!hasGodMode) {
             vieNiveau--;
-            Reset();
+            Respawn();
             if (vieNiveau < 1)
             {
                 GameOver();
@@ -36,12 +38,25 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    void Reset()
+    void Respawn()
     {
-        player.transform.position = entree.transform.position;
+        player.transform.position = GameObject.Find("Map").GetComponent<Map>().positionEntree;
     }
 
     void GameOver()
     {
+        vieDisplay.text = "Game Over";
+        Destroy(GameObject.Find("Map"));
+        Destroy(player);
+        GameObject gameOverObject = Instantiate(gameOver, gameObject.transform.position, Quaternion.identity);
+        gameOverObject.transform.SetParent(transform.parent, false);
+        gameOverObject.name = "GameOver";
+        GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(GameObject.Find("GameMaster").GetComponent<GameMaster>().NewGame);
+    }
+
+    public void Reset()
+    {
+        vieNiveau= 2;
+        Respawn();
     }
 }

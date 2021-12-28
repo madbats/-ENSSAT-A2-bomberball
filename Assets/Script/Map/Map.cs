@@ -6,7 +6,7 @@ public class Map : MonoBehaviour {
     public int[,] symboleMap = new int[13, 11]; // liste stylis�s des objets de la carte
     public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.
     //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte.
-    public Ennemis[,] mapEnnemisList  = {
+    public GameObject[,] mapEnnemisList  = {
             { null, null, null, null, null, null, null, null, null, null, null, null, null },
             { null,null,null,null,null,null,null,null,null,null,null,null,null },
             { null,null,null,null,null,null,null,null,null,null,null,null,null },
@@ -34,6 +34,7 @@ public class Map : MonoBehaviour {
     public GameObject mur_incassable;
     public GameObject entree;
     public GameObject sortie;
+    public Vector3 positionEntree;
 
     private int[,] testMap = { 
             { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 },
@@ -51,14 +52,19 @@ public class Map : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start()    
-    { 
+    {
+        Build();
+    }
+
+    public void Build()
+    {
         GameObject newObject;
         GameObject qqc;
         for (int i = 0; i < 11; i++)
         {
-            for(int j = 0; j < 13; j++)
+            for (int j = 0; j < 13; j++)
             {
-                switch (testMap[10-i, j])
+                switch (testMap[10 - i, j])
                 {
                     case 0:
                         newObject = sol;
@@ -103,12 +109,12 @@ public class Map : MonoBehaviour {
                         newObject = mur_cassable;
                         break;
                 }
-                qqc = Instantiate(newObject, new Vector3(j,i), Quaternion.identity);
+                qqc = Instantiate(newObject, new Vector3(j, i), Quaternion.identity);
                 qqc.transform.SetParent(transform, false);
                 mapItemsList[j, i] = qqc.GetComponent<MapItem>();
-                if(newObject == entree)
+                if (newObject == entree)
                 {
-                    GameObject.Find("GameMaster").GetComponent<LifeManager>().entree = qqc.GetComponent<Entree>();
+                    positionEntree = qqc.transform.position;
                 }
             }
         }

@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour
         Reset();
     }
 
-    void Reset()
+    public void Reset()
     {
         scoreNiveau=0;
     }

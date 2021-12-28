@@ -6,6 +6,7 @@ public class MurCassable : Mur
 {
     public GameObject sol;
     public int scoreValue;
+
     // Start is called before the first frame update
     void Start()
     {

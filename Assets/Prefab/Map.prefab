@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1608115356005918567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608115356005918565}
+  - component: {fileID: 1608115356005918564}
+  m_Layer: 0
+  m_Name: Map
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608115356005918565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608115356005918567}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1608115356005918564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608115356005918567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddd2b0bab3902347ae8e900c3d91e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 0
+  difficulty: 0
+  number: 0
+  sol: {fileID: 4722635489715105607, guid: aa116e37f0d62b64c8928b9d1a994932, type: 3}
+  objet_puissance: {fileID: 8263432844061339890, guid: 975fb7a0a3efb0843aa7269fc2e978a7, type: 3}
+  objet_deplacement: {fileID: 4841760238337076921, guid: e8a3eedec644b5c44832d4590e979706, type: 3}
+  objet_poussee: {fileID: 1483657301462562571, guid: b5d8b81293851ad40b4be1cb4a9b1a9a, type: 3}
+  objet_godmode: {fileID: 1591775013636994503, guid: feac78b9501920749991007b6307e238, type: 3}
+  mur_cassable: {fileID: 2620401047350098703, guid: 920059d582de385418b52357b15044ed, type: 3}
+  mur_cassable_puissance: {fileID: 9064074733265440850, guid: 1c91e80251d689a468bbaa6fef705d7c, type: 3}
+  mur_cassable_deplacement: {fileID: 5328795026228377393, guid: 28f64cc7e1462d94ea6bdb08882fb239, type: 3}
+  mur_cassable_poussee: {fileID: 4374330285122508061, guid: f682d32fc78470b4d8949259e729092d, type: 3}
+  mur_cassable_godmode: {fileID: 904300683402167149, guid: 14ad326ae113d87428317b58c49ed71a, type: 3}
+  mur_incassable: {fileID: 2347238353782217731, guid: bb36095a93aa93f4e9d14f4eec8bc4e6, type: 3}
+  entree: {fileID: 7218087315521409848, guid: 3eaf705999bf73741acfc2a2331477f5, type: 3}
+  sortie: {fileID: 4395624360970510435, guid: 2331ca4ff93089544af82587513adc10, type: 3}
+  positionEntree: {x: 0, y: 0, z: 0}

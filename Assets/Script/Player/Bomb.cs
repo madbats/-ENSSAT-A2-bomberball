@@ -43,13 +43,18 @@ public class Bomb : MonoBehaviour
     void Explosion() {
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         Transform player = GameObject.Find("Player").GetComponent<Transform>();
-        Ennemis[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
+        GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
 
         /**
          * Parcourt de chaque direction (nord,sud,est,ouest) et destruction des objects/ennemis
          */
         bool blocked;
+        bool killPlayer = false;
 
+        if (player.position.x == x && player.position.y == y)
+        {
+            killPlayer = true;
+        }
         // nord
         blocked = false;
         for (int i= y+1; i <= y + puissance && i < 13 && !blocked; i++)
@@ -64,13 +69,16 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
                 }
-                if(mapEnnemisList[x, i] != null)
+                if (mapEnnemisList[x, i] != null)
                 {
-                    mapEnnemisList[x, i].Kill();
+                    if (mapEnnemisList[x, i].GetComponent<Ennemis>())
+                    {
+                        mapEnnemisList[x, i].GetComponent<Ennemis>().Kill();
+                    }
                 }
                 if(player.position.x == x && player.position.y == i)
                 {
-                    Destroy(player.gameObject);
+                    killPlayer = true;
                 }
             }
         }
@@ -90,11 +98,14 @@ public class Bomb : MonoBehaviour
                 }
                 if (mapEnnemisList[x, i] != null)
                 {
-                    mapEnnemisList[x, i].Kill();
+                    if (mapEnnemisList[x, i].GetComponent<Ennemis>())
+                    {
+                        mapEnnemisList[x, i].GetComponent<Ennemis>().Kill();
+                    }
                 }
                 if (player.position.x == x && player.position.y == i)
                 {
-                    Destroy(player.gameObject);
+                    killPlayer = true;
                 }
             }
         }
@@ -114,11 +125,14 @@ public class Bomb : MonoBehaviour
                 }
                 if (mapEnnemisList[i, y] != null)
                 {
-                    mapEnnemisList[i, y].Kill();
+                    if (mapEnnemisList[i, y].GetComponent<Ennemis>())
+                    {
+                        mapEnnemisList[i, y].GetComponent<Ennemis>().Kill();
+                    }
                 }
                 if (player.position.x == i && player.position.y == y)
                 {
-                    Destroy(player.gameObject);
+                    killPlayer = true;
                 }
             }
         }
@@ -138,16 +152,24 @@ public class Bomb : MonoBehaviour
                 }
                 if (mapEnnemisList[i, y] != null)
                 {
-                    mapEnnemisList[i, y].Kill();
+                    if (mapEnnemisList[i, y].GetComponent<Ennemis>())
+                    {
+                        mapEnnemisList[i, y].GetComponent<Ennemis>().Kill();
+                    }
                 }
                 if (player.position.x == i && player.position.y == y)
                 {
-                    Destroy(player.gameObject);
+                    killPlayer = true;
                 }
             }
         }
+
         GameObject.Find("Player").GetComponent<PlayerMovement>().BombSet=false;
         
         Destroy(this.gameObject);
+        if (killPlayer)
+        {
+            GameObject.Find("GameMaster").GetComponent<LifeManager>().Death();
+        }
     }
 }
