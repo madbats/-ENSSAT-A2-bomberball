@@ -102,6 +102,7 @@ MonoBehaviour:
   light: 0
   discover: 0
   sol: {fileID: 8263432844061339890, guid: 975fb7a0a3efb0843aa7269fc2e978a7, type: 3}
+  scoreValue: 1
 --- !u!114 &2805064641329143090
 MonoBehaviour:
   m_ObjectHideFlags: 0
