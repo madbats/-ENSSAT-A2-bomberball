@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //Attributs
-    public float movingSpeed;
-    public float smoothTime;
     public bool BombSet=false;
-
-    public Rigidbody2D rb;
-    private Vector3 velocity = Vector3.zero;
 
     public Bomb bomb;
 
@@ -21,26 +15,27 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* float horizontalMovement = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
-        float verticalMovement = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
-        MovePlayer(horizontalMovement, verticalMovement); */
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         int x = (int)this.transform.position.x;
         int y = (int)this.transform.position.y;
         if (Input.GetKeyDown(KeyCode.UpArrow) && mapItemsList[x,y+1] is Sol) {
+            Debug.Log("deplacement joueur haut");
         	MovePlayer(x,y+1);
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && mapItemsList[x,y-1] is Sol) {
-        	MovePlayer(x,y-1);
+            Debug.Log("deplacement joueur bas");
+            MovePlayer(x,y-1);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && mapItemsList[x-1,y] is Sol) {
-        	MovePlayer(x-1,y);
+            Debug.Log("deplacement joueur gauche");
+            MovePlayer(x-1,y);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && mapItemsList[x+1,y] is Sol) {
-        	MovePlayer(x+1,y);
+            Debug.Log("deplacement joueur droit");
+            MovePlayer(x+1,y);
         }
 
         if (Input.GetKeyDown(KeyCode.B) && !BombSet)
@@ -53,8 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer(float _horizontalMovement, float _verticalMovement)
     {
-        /*Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);*/
         transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
+        Debug.Log("position actuel :" + _horizontalMovement + ", " + _verticalMovement);
     }
 }
