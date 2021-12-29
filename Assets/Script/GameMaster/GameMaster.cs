@@ -13,6 +13,16 @@ public class GameMaster : MonoBehaviour
     GameObject mapObject;
     public int maxLives;
 
+    public float vitesseTime=0;
+    public float puissanceTime = 0;
+    public float pousseeTime = 0;
+    public float godModeTime = 0;
+
+    public Text vitesseText;
+    public Text puissanceText;
+    public Text pousseeText;
+    public Text godModeText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,5 +63,14 @@ public class GameMaster : MonoBehaviour
         gameOverObject.transform.SetParent(transform.parent, false);
         gameOverObject.name = "GameMenu";
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(NewGame);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        vitesseText.text = "" + vitesseTime;
+        puissanceText.text = "" + puissanceTime;
+        pousseeText.text = "" + pousseeTime;
+        godModeText.text = "" + godModeTime;
     }
 }

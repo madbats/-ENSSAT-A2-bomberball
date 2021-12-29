@@ -8,24 +8,18 @@ public abstract class Bonus : Sol
     public int power;
     public GameObject sol;
     protected float startTime;
+    public int scoreValue;
 
     public bool consumed = false;
     public Sprite onceConsumed;
     public bool end = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.isConsumable = true;
-        //GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
-    }
-
-    public void OnDestroy()
-    {
-    }
-
     public abstract bool OnConsumption(); //Gestion de la consommation de l'item
     public abstract bool CheckEnd();
     public abstract void Destruction();
     
+    public float RemainningTime()
+    {
+        return startTime + duration - Time.time;
+    }
 }

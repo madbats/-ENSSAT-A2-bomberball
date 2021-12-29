@@ -18,8 +18,9 @@ public class BonusPoussee : Bonus
             Debug.Log("Début Bonus Poussee");
 
             //Effet du bonus 
-            GameObject.Find("Player").GetComponent<PlayerMovement>().poussee = true;
+            GameObject.Find("Player").GetComponent<PlayerBonus>().poussee = true;
 
+            GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
 
             return true;
         }
@@ -35,7 +36,7 @@ public class BonusPoussee : Bonus
             power -= 1;
 
             //fin de l'effet bonus
-            GameObject.Find("Player").GetComponent<PlayerMovement>().poussee = false;
+            GameObject.Find("Player").GetComponent<PlayerBonus>().poussee = false;
             
             
             end = true;

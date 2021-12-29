@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : Ennemis
+public class Bomb : MonoBehaviour
 {
 	public float timeLeft;
     public int x;

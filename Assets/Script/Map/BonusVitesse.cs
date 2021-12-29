@@ -18,6 +18,8 @@ public class BonusVitesse : Bonus
             startTime = Time.time;
             Debug.Log("Début Bonus Vitesse");
             GameObject.Find("Player").GetComponent<PlayerMovement>().movingSpeed /= 1.5f;
+
+            GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
             return true;
         }
         return false;

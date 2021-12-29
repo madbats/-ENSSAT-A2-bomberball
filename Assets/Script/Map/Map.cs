@@ -5,19 +5,8 @@ using UnityEngine;
 public class Map : MonoBehaviour { 
     public int[,] symboleMap = new int[13, 11]; // liste stylis�s des objets de la carte
     public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.
-    //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte.
-    public GameObject[,] mapEnnemisList  = {
-            { null, null, null, null, null, null, null, null, null, null, null, null, null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null, null, null, null, null, null, null, null, null, null, null, null, null }};
+    
+    public GameObject[,] mapEnnemisList  = new GameObject[13, 11];//liste de tous les ennemis (au sens large) de la carte.
     public int seed; //seed de la g�n�ration
     public int difficulty; //difficult� du niveau
     public int number; //Niveau de la campagne
@@ -49,9 +38,7 @@ public class Map : MonoBehaviour {
             {20,12,0,0,0,12,0,0,0,0,0,14,20 },
             { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 }
     };
-
-    //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte. 
-    public Ennemis[,] mapEnnemisList = {
+    private GameObject[,] testMapEnnemis = {
             { null, null, null, null, null, null, null, null, null, null, null, null, null },
             { null,null,null,null,null,null,null,null,null,null,null,null,null },
             { null,null,null,null,null,null,null,null,null,null,null,null,null },
@@ -130,6 +117,7 @@ public class Map : MonoBehaviour {
                 {
                     positionEntree = qqc.transform.position;
                 }
+                mapEnnemisList[j, i] = testMapEnnemis[10 - i, j];
             }
         }
     }

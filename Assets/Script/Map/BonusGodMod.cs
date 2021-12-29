@@ -17,7 +17,8 @@ public class BonusGodMod : Bonus
 
             startTime = Time.time;
             Debug.Log("Début Bonus God Mod");
-            //GameObject.Find("GameMaster").GetComponent<LifeManager>().hasGodMode = true;
+            GameObject.Find("GameMaster").GetComponent<LifeManager>().hasGodMode = true;
+            GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
             return true;
         }
         return false;
@@ -30,7 +31,7 @@ public class BonusGodMod : Bonus
         {
             Debug.Log("Fin Bonus God Mod");
             power -= 1;
-            //GameObject.Find("GameMaster").GetComponent<LifeManager>().hasGodMode = false;
+            GameObject.Find("GameMaster").GetComponent<LifeManager>().hasGodMode = false;
             end = true;
             return true;
         }

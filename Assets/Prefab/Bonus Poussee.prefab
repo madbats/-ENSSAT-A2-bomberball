@@ -103,6 +103,7 @@ MonoBehaviour:
   duration: 5
   power: 1
   sol: {fileID: 4722635489715105607, guid: aa116e37f0d62b64c8928b9d1a994932, type: 3}
+  scoreValue: 7
   consumed: 0
-  onceConsumed: {fileID: -3087832342392415706, guid: 3a844880a10c81c4aafe1b83788b043c, type: 3}
+  onceConsumed: {fileID: 4538445167262558003, guid: 84dbdca329c69044a866bc8acb0faebb, type: 3}
   end: 0

@@ -4,43 +4,31 @@ using UnityEngine;
 
 public class PlayerBonus : MonoBehaviour
 {
-    //Attributs
-    /*public float movingSpeed;
-    public float smoothTime;
-    public bool BombSet = false;
-
-    public Rigidbody2D rb;
-    private Vector3 velocity = Vector3.zero;
-
-    public Bomb bomb;*/
-
     public int puissance;
-    public int poussee;
-    public Bonus[] bonusList;
-    public int nbBonus;
+    public bool poussee;
+    Bonus[] bonusList;
+    int nbBonus;
+
+    public float vitesseTime = 0;
+    public float puissanceTime = 0;
+    public float pousseeTime = 0;
+    public float godModeTime = 0;
 
     void Start()
     {
         bonusList = new Bonus[30];
-        Debug.Log(bonusList.Length);
         nbBonus = 0;
-        puissance = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /* float horizontalMovement = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
-        float verticalMovement = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
-        MovePlayer(horizontalMovement, verticalMovement); */
+        GameMaster gm = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
 
         int x = (int)this.transform.position.x;
         int y = (int)this.transform.position.y;
         
-
-        /*Appel des fonctions pour les bonus*/
-
         if (mapItemsList[x, y] is Bonus)
         {
             if (((Bonus)mapItemsList[x, y]).OnConsumption())
@@ -50,8 +38,11 @@ public class PlayerBonus : MonoBehaviour
             }
             
         }
-
-        foreach(Bonus bonus in bonusList)
+        vitesseTime = 0;
+        puissanceTime = 0;
+        pousseeTime = 0;
+        godModeTime = 0;
+        foreach (Bonus bonus in bonusList)
         {
             
             if(bonus != null)
@@ -61,10 +52,33 @@ public class PlayerBonus : MonoBehaviour
                     bonus.Destruction();
 
                 }
+                else
+                {
+                    if(bonus is BonusVitesse)
+                    {
+                        vitesseTime =Mathf.Max(vitesseTime, bonus.RemainningTime());
+                    }
+                    if (bonus is BonusPuissance)
+                    {
+                        puissanceTime = Mathf.Max(puissanceTime, bonus.RemainningTime());
+                    }
+                    if (bonus is BonusPoussee)
+                    {
+                        pousseeTime =Mathf.Max(pousseeTime, bonus.RemainningTime());
+                    }
+                    if (bonus is BonusGodMod)
+                    {
+                        godModeTime =Mathf.Max(godModeTime, bonus.RemainningTime());
+                    }
+                }
             }
         }
 
-
+        gm.vitesseTime = vitesseTime;
+        gm.puissanceTime = puissanceTime;
+        gm.pousseeTime = pousseeTime;
+        gm.godModeTime = godModeTime;
+        
     }
 
 }

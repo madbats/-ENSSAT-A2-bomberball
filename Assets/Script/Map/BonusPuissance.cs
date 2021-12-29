@@ -21,6 +21,7 @@ public class BonusPuissance : Bonus
             GameObject.Find("Player").GetComponent<PlayerBonus>().puissance+=1;
 
 
+            GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
             return true;
         }
         return false;
