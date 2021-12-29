@@ -24,8 +24,8 @@ public class Bomb : Ennemis
     void Update()
     {
         timeLeft -= Time.deltaTime;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = FirstStage;
 
-        
 
         switch (timeLeft) {
         	case float i when i > 5 && i <= timeLeft*0.75:
@@ -75,12 +75,5 @@ public class Bomb : Ennemis
         Debug.Log("destroy Me");
         Destroy(this.gameObject);
     }
-
-    public void MoveBomb(float _horizontalMovement, float _verticalMovement)
-    {
-        /*Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);*/
-        transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
-        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)_horizontalMovement, (int)_verticalMovement] = this;
-    }
+    
 }

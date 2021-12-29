@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        if ((Input.GetKey(KeyCode.UpArrow) || firstUp) && mapItemsList[x,y+1] is Sol) { //Maintien de la touche
+        if ((Input.GetKey(KeyCode.UpArrow) || firstUp) && mapItemsList[x,y+1] is Sol && !(mapEnnemisList[x, y+1] is Bomb)) { //Maintien de la touche
             
             holdTime = (float)Time.time - (float)startTime;
             if ( movingSpeed <= holdTime || firstUp)//On augmente si le temps de maintien est supérieur à la vitesse (=temps entre 2 déplacements)
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if ((Input.GetKey(KeyCode.DownArrow) || firstDown) && mapItemsList[x, y - 1] is Sol)
+        if ((Input.GetKey(KeyCode.DownArrow) || firstDown) && mapItemsList[x, y - 1] is Sol && !(mapEnnemisList[x, y - 1] is Bomb))
         {
 
             holdTime = (float)Time.time - (float)startTime;
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if ((Input.GetKey(KeyCode.LeftArrow) || firstLeft) && mapItemsList[x-1,y] is Sol)
+        if ((Input.GetKey(KeyCode.LeftArrow) || firstLeft) && mapItemsList[x-1,y] is Sol && !(mapEnnemisList[x - 1, y] is Bomb))
         {
 
             holdTime = (float)Time.time - (float)startTime;
@@ -126,8 +126,8 @@ public class PlayerMovement : MonoBehaviour
                 firstRight = true;
             }
         }
-
-        if ((Input.GetKey(KeyCode.RightArrow) || firstRight) && mapItemsList[x + 1, y] is Sol)
+        Debug.Log(mapItemsList.Length);
+        if ((Input.GetKey(KeyCode.RightArrow) || firstRight) && mapItemsList[x + 1, y] is Sol && !(mapEnnemisList[x + 1, y] is Bomb))
         {
 
             holdTime = (float)Time.time - (float)startTime;
@@ -150,52 +150,60 @@ public class PlayerMovement : MonoBehaviour
             GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y] = newBomb;
             Debug.Log(GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y]);
         }
-        /*
+        
         if (poussee)
         {
 
-            if ((Input.GetKey(KeyCode.RightArrow)) && mapEnnemisList[x + 1, y] is Bomb) //Bombe sur le chemin
+            if ((Input.GetKeyDown(KeyCode.RightArrow)) && mapEnnemisList[x + 1, y] is Bomb) //Bombe sur le chemin
             {
                 Debug.Log("bombe dessus");
                 Debug.Log(mapItemsList[x + 2, y] is Sol);
                 if(mapItemsList[x + 2, y] is Sol) //Sol derrière la bombe
                 {
                     Debug.Log("bombe bougée");
-                    GameObject.Find("Bomb(Clone)").GetComponent<Bomb>().MoveBomb(x + 1, y);
+                    GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 1, y] = null;
+                    MoveBomb(x + 2, y);
+                    GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 2, y] = new Bomb();
                 }
             }
 
-            if ((Input.GetKey(KeyCode.LeftArrow)) && mapEnnemisList[x - 1, y] is Bomb) //Bombe sur le chemin
+            if ((Input.GetKeyDown(KeyCode.LeftArrow)) && mapEnnemisList[x - 1, y] is Bomb) //Bombe sur le chemin
             {
                 Debug.Log("bombe dessus");
                 if (mapItemsList[x - 2, y] is Sol) //Sol derrière la bombe
                 {
                     Debug.Log("bombe bougée");
-                    GameObject.Find("Bomb(Clone)").GetComponent<Bomb>().MoveBomb(x - 1, y);
+                    GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y] = null;
+                    MoveBomb(x - 2, y);
+                    GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 2, y] = new Bomb();
                 }
             }
 
-            if ((Input.GetKey(KeyCode.UpArrow)) && mapEnnemisList[x, y+1] is Bomb) //Bombe sur le chemin
+            if ((Input.GetKeyDown(KeyCode.UpArrow)) && mapEnnemisList[x, y+1] is Bomb) //Bombe sur le chemin
             {
                 Debug.Log("bombe dessus");
                 if (mapItemsList[x, y+2] is Sol) //Sol derrière la bombe
                 {
                     Debug.Log("bombe bougée");
-                    GameObject.Find("Bomb(Clone)").GetComponent<Bomb>().MoveBomb(x, y+1);
+                    GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1] = null;
+                    MoveBomb(x, y+2);
+                    GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 2] = new Bomb();
                 }
             }
 
-            if ((Input.GetKey(KeyCode.DownArrow)) && mapEnnemisList[x, y-1] is Bomb) //Bombe sur le chemin
+            if ((Input.GetKeyDown(KeyCode.DownArrow)) && mapEnnemisList[x, y-1] is Bomb) //Bombe sur le chemin
             {
                 Debug.Log("bombe dessus");
                 if (mapItemsList[x , y - 2] is Sol) //Sol derrière la bombe
                 {
                     Debug.Log("bombe bougée");
-                    GameObject.Find("Bomb(Clone)").GetComponent<Bomb>().MoveBomb(x, y-1);
+                    GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y-1] = null;
+                    MoveBomb(x, y-2);
+                    GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y-2] = new Bomb();
                 }
             }
         }
-        */
+        
 
     }
 
@@ -205,14 +213,11 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);*/
         transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
     }
-    /*
+    
     void MoveBomb(float _horizontalMovement, float _verticalMovement)
     {
-        Debug.Log("Coucou");
         Bomb newbomb = GameObject.Find("Bomb(Clone)").GetComponent<Bomb>();
-        newbomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
+        newbomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, -3);
 
-        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)_horizontalMovement, (int)_verticalMovement] = newbomb;
-
-    }*/
+    }
 }
