@@ -11,14 +11,14 @@ public class BonusPoussee : Bonus
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = onceConsumed;
             consumed = true;
-            duration = 5.0f;
+            duration = 30.0f;
             power += 1;
 
             startTime = Time.time;
             Debug.Log("Début Bonus Poussee");
 
             //Effet du bonus 
-            GameObject.Find("Player").GetComponent<PlayerMovement>().movingSpeed /= 1.5f;
+            GameObject.Find("Player").GetComponent<PlayerMovement>().poussee = true;
 
 
             return true;
@@ -35,7 +35,7 @@ public class BonusPoussee : Bonus
             power -= 1;
 
             //fin de l'effet bonus
-            GameObject.Find("Player").GetComponent<PlayerMovement>().movingSpeed *= 1.5f;
+            GameObject.Find("Player").GetComponent<PlayerMovement>().poussee = false;
             
             
             end = true;

@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float movingSpeed= 0.3f;
     public float smoothTime;
     public bool BombSet=false;
-   
+    public bool poussee=true;
+    public int puissance = 1;
 
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
         startTime = Time.time;
         holdTime = 0.0f;
         movingSpeed = 0.5f;
+        poussee = true;
+        puissance = 1;
     }
 
     // Update is called once per frame
@@ -33,8 +36,8 @@ public class PlayerMovement : MonoBehaviour
         float verticalMovement = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
         MovePlayer(horizontalMovement, verticalMovement); */
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
-        
-        
+        Ennemis[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
+
         bool firstUp = false;
         bool firstDown = false;
         bool firstLeft = false;
@@ -143,15 +146,52 @@ public class PlayerMovement : MonoBehaviour
             BombSet=true;
             Bomb newBomb = Instantiate(bomb, new Vector3(x, y, -10), Quaternion.identity);
             newBomb.transform.SetParent(this.transform.parent, false);
+
+            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y] = newBomb;
+            Debug.Log(GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y]);
         }
         /*
         if (poussee)
         {
-            if ((Input.GetKey(KeyCode.RightArrow)) && mapItemsList[x + 1, y] is Bomb) //Bombe sur le chemin
+
+            if ((Input.GetKey(KeyCode.RightArrow)) && mapEnnemisList[x + 1, y] is Bomb) //Bombe sur le chemin
             {
+                Debug.Log("bombe dessus");
+                Debug.Log(mapItemsList[x + 2, y] is Sol);
                 if(mapItemsList[x + 2, y] is Sol) //Sol derrière la bombe
                 {
-                    MoveBomb(x + 1, y);
+                    Debug.Log("bombe bougée");
+                    GameObject.Find("Bomb(Clone)").GetComponent<Bomb>().MoveBomb(x + 1, y);
+                }
+            }
+
+            if ((Input.GetKey(KeyCode.LeftArrow)) && mapEnnemisList[x - 1, y] is Bomb) //Bombe sur le chemin
+            {
+                Debug.Log("bombe dessus");
+                if (mapItemsList[x - 2, y] is Sol) //Sol derrière la bombe
+                {
+                    Debug.Log("bombe bougée");
+                    GameObject.Find("Bomb(Clone)").GetComponent<Bomb>().MoveBomb(x - 1, y);
+                }
+            }
+
+            if ((Input.GetKey(KeyCode.UpArrow)) && mapEnnemisList[x, y+1] is Bomb) //Bombe sur le chemin
+            {
+                Debug.Log("bombe dessus");
+                if (mapItemsList[x, y+2] is Sol) //Sol derrière la bombe
+                {
+                    Debug.Log("bombe bougée");
+                    GameObject.Find("Bomb(Clone)").GetComponent<Bomb>().MoveBomb(x, y+1);
+                }
+            }
+
+            if ((Input.GetKey(KeyCode.DownArrow)) && mapEnnemisList[x, y-1] is Bomb) //Bombe sur le chemin
+            {
+                Debug.Log("bombe dessus");
+                if (mapItemsList[x , y - 2] is Sol) //Sol derrière la bombe
+                {
+                    Debug.Log("bombe bougée");
+                    GameObject.Find("Bomb(Clone)").GetComponent<Bomb>().MoveBomb(x, y-1);
                 }
             }
         }
@@ -168,8 +208,11 @@ public class PlayerMovement : MonoBehaviour
     /*
     void MoveBomb(float _horizontalMovement, float _verticalMovement)
     {
+        Debug.Log("Coucou");
+        Bomb newbomb = GameObject.Find("Bomb(Clone)").GetComponent<Bomb>();
+        newbomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
 
-        Bomb bomb = GameObject.Find("Bomb").GetComponent<Bomb>();
-        bomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)_horizontalMovement, (int)_verticalMovement] = newbomb;
+
     }*/
 }

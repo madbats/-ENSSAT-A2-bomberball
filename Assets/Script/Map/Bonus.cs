@@ -17,6 +17,7 @@ public abstract class Bonus : Sol
     void Start()
     {
         this.isConsumable = true;
+        //GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
     }
 
     public void OnDestroy()

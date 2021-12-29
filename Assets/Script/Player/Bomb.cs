@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+public class Bomb : Ennemis
 {
 	public float timeLeft;
     public int x;
@@ -25,12 +25,14 @@ public class Bomb : MonoBehaviour
     {
         timeLeft -= Time.deltaTime;
 
+        
+
         switch (timeLeft) {
         	case float i when i > 5 && i <= timeLeft*0.75:
-        		gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
+        		this.gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
         		break;
         	case float i when i > 0 && i <= timeLeft*0.40:
-        		gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
+        		this.gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
         		break;
         	case float i when i <= 0:
                 Explosion();
@@ -46,6 +48,10 @@ public class Bomb : MonoBehaviour
             if(mapItemsList[x,y].isBreakable)
                 ((MurCassable)mapItemsList[x,y]).OnBreak();
         }*/
+        x = (int)transform.position.x;
+        y = (int)transform.position.y;
+
+        puissance = GameObject.Find("Player").GetComponent<PlayerBonus>().puissance;
         Debug.Log("Starting destroy");
         for (int i = x - puissance; i <= x+puissance && i<13; i++) {
             if (i >= 0 ) {
@@ -63,8 +69,18 @@ public class Bomb : MonoBehaviour
         }
         Debug.Log("End destroy");
         GameObject.Find("Player").GetComponent<PlayerMovement>().BombSet=false;
-        
+
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y] = null;
+
         Debug.Log("destroy Me");
         Destroy(this.gameObject);
+    }
+
+    public void MoveBomb(float _horizontalMovement, float _verticalMovement)
+    {
+        /*Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);*/
+        transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)_horizontalMovement, (int)_verticalMovement] = this;
     }
 }

@@ -34,6 +34,20 @@ public class Map : MonoBehaviour {
             { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 }
     };
 
+    //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte. 
+    public Ennemis[,] mapEnnemisList = {
+            { null, null, null, null, null, null, null, null, null, null, null, null, null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null, null, null, null, null, null, null, null, null, null, null, null, null }};
+
     // Start is called before the first frame update
     void Start()    
     {

@@ -24,7 +24,7 @@ public class PlayerBonus : MonoBehaviour
         bonusList = new Bonus[30];
         Debug.Log(bonusList.Length);
         nbBonus = 0;
-        Debug.Log(nbBonus);
+        puissance = 1;
     }
 
     // Update is called once per frame
