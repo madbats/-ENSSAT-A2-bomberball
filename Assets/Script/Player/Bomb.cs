@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+public class Bomb : Ennemis
 {
 	public float timeLeft;
     public int x;
@@ -24,13 +24,15 @@ public class Bomb : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
+        this.gameObject.GetComponent<SpriteRenderer>().sprite = FirstStage;
+
 
         switch (timeLeft) {
         	case float i when i > 5 && i <= timeLeft*0.75:
-        		gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
+        		this.gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
         		break;
         	case float i when i > 0 && i <= timeLeft*0.40:
-        		gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
+        		this.gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
         		break;
         	case float i when i <= 0:
                 Explosion();
@@ -44,7 +46,9 @@ public class Bomb : MonoBehaviour
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         Transform player = GameObject.Find("Player").GetComponent<Transform>();
         GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
-
+        x = (int)transform.position.x;
+        y = (int)transform.position.y;
+        puissance = GameObject.Find("Player").GetComponent<PlayerBonus>().puissance;
         /**
          * Parcourt de chaque direction (nord,sud,est,ouest) et destruction des objects/ennemis
          */
@@ -165,11 +169,14 @@ public class Bomb : MonoBehaviour
         }
 
         GameObject.Find("Player").GetComponent<PlayerMovement>().BombSet=false;
-        
+
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y] = null;
+
         Destroy(this.gameObject);
         if (killPlayer)
         {
             GameObject.Find("GameMaster").GetComponent<LifeManager>().Death();
         }
     }
+    
 }
