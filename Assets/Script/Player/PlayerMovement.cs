@@ -145,61 +145,67 @@ public class PlayerMovement : MonoBehaviour
             {
                 if ((Input.GetKeyDown(KeyCode.RightArrow)) && mapEnnemisList[x + 1, y].GetComponent<Bomb>()) //Bombe sur le chemin
                 {
-                    Debug.Log(mapItemsList[x + 2, y] is Sol);
                     if (mapItemsList[x + 2, y] is Sol) //Sol derri�re la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 2, y] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 1, y];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 1, y] = null;
                         MoveBomb(x + 2, y);
                     }
-
-                    if ((Input.GetKeyDown(KeyCode.LeftArrow)) && mapEnnemisList[x - 1, y].GetComponent<Bomb>()) //Bombe sur le chemin
+                }
+            }
+            if (mapEnnemisList[x - 1, y] != null)
+            {
+                if ((Input.GetKeyDown(KeyCode.LeftArrow)) && mapEnnemisList[x - 1, y].GetComponent<Bomb>()) //Bombe sur le chemin
+                {
+                    if (mapItemsList[x - 2, y] is Sol) //Sol derri�re la bombe
                     {
-                        Debug.Log("bombe dessus");
-                        if (mapItemsList[x - 2, y] is Sol) //Sol derri�re la bombe
-                        {
-                            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 2, y] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y];
-                            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y] = null;
-                            MoveBomb(x - 2, y);
-                        }
-                    }
-
-                    if ((Input.GetKeyDown(KeyCode.UpArrow)) && mapEnnemisList[x, y + 1].GetComponent<Bomb>()) //Bombe sur le chemin
-                    {
-                        if (mapItemsList[x, y + 2] is Sol) //Sol derri�re la bombe
-                        {
-                            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 2] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1];
-                            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1] = null;
-                            MoveBomb(x, y + 2);
-                        }
-                    }
-
-                    if ((Input.GetKeyDown(KeyCode.DownArrow)) && mapEnnemisList[x, y - 1].GetComponent<Bomb>()) //Bombe sur le chemin
-                    {
-                        if (mapItemsList[x, y - 2] is Sol) //Sol derri�re la bombe
-                        {
-                            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 2] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 1];
-                            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 1] = null;
-                            MoveBomb(x, y - 2);
-                        }
+                        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 2, y] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y];
+                        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y] = null;
+                        MoveBomb(x - 2, y);
                     }
                 }
             }
 
+            if (mapEnnemisList[x, y + 1] != null)
+            {
+                if ((Input.GetKeyDown(KeyCode.UpArrow)) && mapEnnemisList[x, y + 1].GetComponent<Bomb>()) //Bombe sur le chemin
+                {
+                    if (mapItemsList[x, y + 2] is Sol) //Sol derri�re la bombe
+                    {
+                        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 2] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1];
+                        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1] = null;
+                        MoveBomb(x, y + 2);
+                    }
+                }
+            }
+
+            if (mapEnnemisList[x, y - 1] != null)
+            {
+                if ((Input.GetKeyDown(KeyCode.DownArrow)) && mapEnnemisList[x, y - 1].GetComponent<Bomb>()) //Bombe sur le chemin
+                {
+                    if (mapItemsList[x, y - 2] is Sol) //Sol derri�re la bombe
+                    {
+                        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 2] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 1];
+                        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 1] = null;
+                        MoveBomb(x, y - 2);
+                    }
+                }
+            }
         }
 
-        void MovePlayer(float _horizontalMovement, float _verticalMovement)
-        {
-            /*Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
-            rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);*/
-            transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
-        }
+    }
 
-        void MoveBomb(float _horizontalMovement, float _verticalMovement)
-        {
-            Bomb newbomb = GameObject.Find("Bomb(Clone)").GetComponent<Bomb>();
-            newbomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, -3);
+    void MovePlayer(float _horizontalMovement, float _verticalMovement)
+    {
+        /*Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);*/
+        transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
+    }
 
-        }
+    void MoveBomb(float _horizontalMovement, float _verticalMovement)
+    {
+        Bomb newbomb = GameObject.Find("Bomb(Clone)").GetComponent<Bomb>();
+        newbomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, -3);
+
     }
 }
