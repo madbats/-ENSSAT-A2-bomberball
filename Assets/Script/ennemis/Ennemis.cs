@@ -6,6 +6,7 @@ using Pathfinding;
 public class Ennemis : MonoBehaviour
 {
     public int scoreValue;
+    public int speed = 3;
 
     public Transform[] waypoints;
     public Transform target;
@@ -15,16 +16,19 @@ public class Ennemis : MonoBehaviour
     public int currentWaypoint = 0;
     public bool reachedEndOfPath = false;
 
-    private Seeker seeker;
+    public Seeker seeker;
+    public Rigidbody2D rb;
 
-    public int vitesse;
 
     // Start is called before the first frame update
     void Start()
     {
-        seeker = GetComponent<Seeker>();
-        target = waypoints[0];
+        
+    }
 
+    public void InitPath()
+    {
+        target = waypoints[0];
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
 
@@ -37,7 +41,7 @@ public class Ennemis : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(path == null)
         {
@@ -53,6 +57,11 @@ public class Ennemis : MonoBehaviour
         {
             reachedEndOfPath = false;
         }
+
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        Vector2 force = direction * speed * Time.deltaTime;
+
+        rb.AddForce(force);
 
         float distance = Vector2.Distance(this.transform.position, path.vectorPath[currentWaypoint]);
 

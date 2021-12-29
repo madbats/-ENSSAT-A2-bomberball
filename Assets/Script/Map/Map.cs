@@ -34,6 +34,13 @@ public class Map : MonoBehaviour {
     public GameObject mur_incassable;
     public GameObject entree;
     public GameObject sortie;
+
+    public GameObject zombie;
+    public GameObject explorer;
+    public GameObject watchman;
+    public GameObject hunter;
+    public GameObject waypoint;
+
     public Vector3 positionEntree;
 
     private int[,] testMap = { 
@@ -118,5 +125,18 @@ public class Map : MonoBehaviour {
                 }
             }
         }
+
+        qqc = Instantiate(zombie, new Vector3(4, 5), Quaternion.identity);
+        qqc.transform.SetParent(transform, false);
+        mapEnnemisList[4, 5] = qqc;
+        qqc.GetComponent<Zombie>().waypoints = new Transform[2];
+
+        GameObject w = Instantiate(waypoint, new Vector3(1, 7, 0), Quaternion.identity);
+        qqc.GetComponent<Zombie>().waypoints[0] = w.transform;
+
+        w = Instantiate(waypoint, new Vector3(5, 4, 0), Quaternion.identity);
+        qqc.GetComponent<Zombie>().waypoints[1] = w.transform;
+
+        qqc.GetComponent<Zombie>().InitPath();
     }
 }

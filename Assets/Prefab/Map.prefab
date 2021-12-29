@@ -59,4 +59,9 @@ MonoBehaviour:
   mur_incassable: {fileID: 2347238353782217731, guid: bb36095a93aa93f4e9d14f4eec8bc4e6, type: 3}
   entree: {fileID: 7218087315521409848, guid: 3eaf705999bf73741acfc2a2331477f5, type: 3}
   sortie: {fileID: 4395624360970510435, guid: 2331ca4ff93089544af82587513adc10, type: 3}
+  zombie: {fileID: 1693772215945027921, guid: b0be495718b5bdf469ac3af2cbb1649e, type: 3}
+  explorer: {fileID: 53044816356743872, guid: e2d3ec23c39d9ef46bd837e11821561e, type: 3}
+  watchman: {fileID: 1032924123277843696, guid: 36def8b44d11f3b40be09bd7b43019e7, type: 3}
+  hunter: {fileID: 131549319331210780, guid: 2c27d6e023ba22648877f975bd3555fa, type: 3}
+  waypoint: {fileID: 692822465907941836, guid: 6b00e1a7abe77704b88b14705ddd26c6, type: 3}
   positionEntree: {x: 0, y: 0, z: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1693772215945027922}
   - component: {fileID: 6534761913457027998}
   - component: {fileID: -4406066343247808373}
+  - component: {fileID: -3706025520147360906}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -98,10 +99,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 0
+  speed: 100
   waypoints: []
   target: {fileID: 0}
   dest: 0
-  vitesse: 0
+  currentWaypoint: 0
+  reachedEndOfPath: 0
+  seeker: {fileID: 6534761913457027998}
+  rb: {fileID: -3706025520147360906}
 --- !u!114 &6534761913457027998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,3 +151,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &-3706025520147360906
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693772215945027921}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

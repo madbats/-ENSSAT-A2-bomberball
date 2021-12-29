@@ -96,6 +96,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 0
-  pointA: 0000000000000000
-  pointB: 0000000000000000
+  waypoints:
+  - {fileID: 692822465907941837, guid: 6b00e1a7abe77704b88b14705ddd26c6, type: 3}
+  - {fileID: 692822465907941837, guid: 6b00e1a7abe77704b88b14705ddd26c6, type: 3}
+  target: {fileID: 0}
+  dest: 0
+  currentWaypoint: 0
+  reachedEndOfPath: 0
+  seeker: {fileID: 0}
   vitesse: 0
