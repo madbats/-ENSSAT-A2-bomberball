@@ -28,6 +28,7 @@ public class GameMaster : MonoBehaviour
         playerObject.name = "Player";
         playerObject.transform.SetParent(transform.parent, false);
         mapObject.GetComponent<Map>().Build();
+        this.GetComponent<AstarPath>().Scan();
         this.gameObject.GetComponent<ScoreManager>().Reset();
         this.gameObject.GetComponent<LifeManager>().player = playerObject;
         this.gameObject.GetComponent<LifeManager>().Reset(maxLives);

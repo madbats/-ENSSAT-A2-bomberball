@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 1734893915106669726}
   - component: {fileID: 4070529699260373619}
   - component: {fileID: 6964314515884138537}
-  m_Layer: 0
+  - component: {fileID: -2809857956360163657}
+  - component: {fileID: 7152275175333037426}
+  m_Layer: 3
   m_Name: Mur Vitesse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,8 +101,6 @@ MonoBehaviour:
   sprite: {fileID: -3195963932987387645, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
   isBreakable: 1
   isConsumable: 0
-  light: 0
-  discover: 0
   sol: {fileID: 4841760238337076921, guid: e8a3eedec644b5c44832d4590e979706, type: 3}
   scoreValue: 1
 --- !u!114 &6964314515884138537
@@ -129,3 +129,40 @@ MonoBehaviour:
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
   m_InstanceId: -45258
+--- !u!50 &-2809857956360163657
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5328795026228377393}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &7152275175333037426
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5328795026228377393}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
