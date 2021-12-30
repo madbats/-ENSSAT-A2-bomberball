@@ -43,7 +43,9 @@ public class Ennemis : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(path == null)
+        GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
+
+        if (path == null)
         {
             return;
         }
@@ -63,9 +65,20 @@ public class Ennemis : MonoBehaviour
 
         rb.AddForce(force);
 
-        float distance = Vector2.Distance(this.transform.position, path.vectorPath[currentWaypoint]);
+        int x = (int)this.transform.position.x;
+        if (this.transform.position.x > x + .5f)
+        {
+            x++;
+        }
+        int y = (int)this.transform.position.y;
+        if(this.transform.position.y > y + .5f)
+        {
+            y++;
+        }
+        mapEnnemisList[x, y] = this.gameObject;
 
-        if(distance < 1f)
+        float distance = Vector2.Distance(this.transform.position, path.vectorPath[currentWaypoint]);
+        if (distance < 1f)
         {
             currentWaypoint++;
         }

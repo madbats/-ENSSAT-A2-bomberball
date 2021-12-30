@@ -7,17 +7,19 @@ public class Map : MonoBehaviour {
     public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.
     //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte.
     public GameObject[,] mapEnnemisList  = {
-            { null, null, null, null, null, null, null, null, null, null, null, null, null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null, null, null, null, null, null, null, null, null, null, null, null, null }};
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null }};
     public int seed; //seed de la g�n�ration
     public int difficulty; //difficult� du niveau
     public int number; //Niveau de la campagne
@@ -61,6 +63,36 @@ public class Map : MonoBehaviour {
     void Start()    
     {
         
+    }
+
+    private void Update()
+    {
+        int x;
+        int y;
+        for (int i = 0; i < 13; i++)
+        {
+            for (int j = 0; j < 11; j++)
+            {
+                if (mapEnnemisList[i, j] != null)
+                {
+                    x = (int)mapEnnemisList[i, j].transform.position.x;
+                    if (mapEnnemisList[i, j].transform.position.x > x + .5f)
+                    {
+                        x++;
+                    }
+                    y = (int)mapEnnemisList[i, j].transform.position.y;
+                    if (mapEnnemisList[i, j].transform.position.y > y + .5f)
+                    {
+                        y++;
+                    }
+                    //on vérifie que l'ennemis enregistré est toujours là
+                    if (x != i || y != j)
+                    { //il y est plus
+                        mapEnnemisList[i, j] = null;
+                    }
+                }
+            }
+        }
     }
 
     public void Build()
