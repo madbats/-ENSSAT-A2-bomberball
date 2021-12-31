@@ -83,7 +83,7 @@ public class Ennemis : MonoBehaviour
             currentWaypoint++;
         }
         
-        if(Vector3.Distance(transform.position, target.position) < 0.3f)
+        if(Vector2.Distance(transform.position, target.position) < 0.3f)
         {
             dest = (dest + 1) % waypoints.Length;
             target = waypoints[dest];

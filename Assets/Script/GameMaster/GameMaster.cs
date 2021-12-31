@@ -10,7 +10,7 @@ public class GameMaster : MonoBehaviour
     public GameObject gameOver;
     public GameObject gameWon;
     public bool endOfGame = false;
-    GameObject playerObject;
+    public GameObject playerObject;
     GameObject mapObject;
     public int maxLives;
 
