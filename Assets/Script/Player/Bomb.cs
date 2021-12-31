@@ -165,6 +165,7 @@ public class Bomb : MonoBehaviour
         }
 
         GameObject.Find("Player").GetComponent<PlayerMovement>().BombSet=false;
+        GameObject.Find("GameMaster").GetComponent<AstarPath>().Scan();
         
         Destroy(this.gameObject);
         if (killPlayer)
