@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 6403258053235098330}
   - component: {fileID: 3328071404686258658}
   - component: {fileID: 8690872555895261520}
-  m_Layer: 0
+  - component: {fileID: -8553697090561077592}
+  - component: {fileID: 8796260920705527368}
+  m_Layer: 3
   m_Name: mur incassable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,8 +101,6 @@ MonoBehaviour:
   sprite: {fileID: -6835305979706008734, guid: 3a844880a10c81c4aafe1b83788b043c, type: 3}
   isBreakable: 0
   isConsumable: 0
-  light: 0
-  discover: 0
 --- !u!114 &8690872555895261520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +127,40 @@ MonoBehaviour:
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
   m_InstanceId: -44860
+--- !u!50 &-8553697090561077592
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347238353782217731}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &8796260920705527368
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2347238353782217731}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

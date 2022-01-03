@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float smoothTime;
     public bool BombSet = false;
 
+    public Bomb bomb;
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
 
@@ -27,9 +28,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /* float horizontalMovement = Input.GetAxis("Horizontal") * movingSpeed * Time.deltaTime;
-        float verticalMovement = Input.GetAxis("Vertical") * movingSpeed * Time.deltaTime;
-        MovePlayer(horizontalMovement, verticalMovement); */
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
 
@@ -197,9 +195,8 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer(float _horizontalMovement, float _verticalMovement)
     {
-        /*Vector3 targetVelocity = new Vector2(_horizontalMovement, _verticalMovement);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, smoothTime);*/
         transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
+        Debug.Log("position actuel :" + _horizontalMovement + ", " + _verticalMovement);
     }
 
     void MoveBomb(float _horizontalMovement, float _verticalMovement)

@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 1196504367508357693}
   - component: {fileID: 6781777746331157557}
   - component: {fileID: 997603288806740619}
-  m_Layer: 0
+  - component: {fileID: 1346804650195355669}
+  - component: {fileID: 7632338710825897918}
+  m_Layer: 3
   m_Name: Mur Cassable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,8 +101,6 @@ MonoBehaviour:
   sprite: {fileID: 5015989154103142396, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
   isBreakable: 1
   isConsumable: 0
-  light: 0
-  discover: 0
   sol: {fileID: 4722635489715105607, guid: aa116e37f0d62b64c8928b9d1a994932, type: 3}
   scoreValue: 1
 --- !u!114 &997603288806740619
@@ -129,3 +129,40 @@ MonoBehaviour:
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
   m_InstanceId: -74818
+--- !u!50 &1346804650195355669
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2620401047350098703}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &7632338710825897918
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2620401047350098703}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

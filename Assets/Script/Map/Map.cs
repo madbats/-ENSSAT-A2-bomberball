@@ -5,8 +5,21 @@ using UnityEngine;
 public class Map : MonoBehaviour { 
     public int[,] symboleMap = new int[13, 11]; // liste stylis�s des objets de la carte
     public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.
-    
-    public GameObject[,] mapEnnemisList  = new GameObject[13, 11];//liste de tous les ennemis (au sens large) de la carte.
+    //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte.
+    public GameObject[,] mapEnnemisList  = {
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null }};
     public int seed; //seed de la g�n�ration
     public int difficulty; //difficult� du niveau
     public int number; //Niveau de la campagne
@@ -23,6 +36,13 @@ public class Map : MonoBehaviour {
     public GameObject mur_incassable;
     public GameObject entree;
     public GameObject sortie;
+
+    public GameObject zombie;
+    public GameObject explorer;
+    public GameObject watchman;
+    public GameObject hunter;
+    public GameObject waypoint;
+
     public Vector3 positionEntree;
 
     private int[,] testMap = { 
@@ -55,6 +75,36 @@ public class Map : MonoBehaviour {
     void Start()    
     {
         
+    }
+
+    private void Update()
+    {
+        int x;
+        int y;
+        for (int i = 0; i < 13; i++)
+        {
+            for (int j = 0; j < 11; j++)
+            {
+                if (mapEnnemisList[i, j] != null)
+                {
+                    x = (int)mapEnnemisList[i, j].transform.position.x;
+                    if (mapEnnemisList[i, j].transform.position.x > x + .5f)
+                    {
+                        x++;
+                    }
+                    y = (int)mapEnnemisList[i, j].transform.position.y;
+                    if (mapEnnemisList[i, j].transform.position.y > y + .5f)
+                    {
+                        y++;
+                    }
+                    //on vérifie que l'ennemis enregistré est toujours là
+                    if (x != i || y != j)
+                    { //il y est plus
+                        mapEnnemisList[i, j] = null;
+                    }
+                }
+            }
+        }
     }
 
     public void Build()
@@ -120,5 +170,18 @@ public class Map : MonoBehaviour {
                 mapEnnemisList[j, i] = testMapEnnemis[10 - i, j];
             }
         }
+
+        qqc = Instantiate(watchman, new Vector3(4, 5), Quaternion.identity);
+        qqc.transform.SetParent(transform, false);
+        mapEnnemisList[4, 5] = qqc;
+        qqc.GetComponent<Watchman>().waypoints = new Transform[2];
+
+        GameObject w = Instantiate(waypoint, new Vector3(1, 7, 0), Quaternion.identity);
+        qqc.GetComponent<Watchman>().waypoints[0] = w.transform;
+
+        w = Instantiate(waypoint, new Vector3(5, 4, 0), Quaternion.identity);
+        qqc.GetComponent<Watchman>().waypoints[1] = w.transform;
+
+        qqc.GetComponent<Watchman>().InitPath();
     }
 }

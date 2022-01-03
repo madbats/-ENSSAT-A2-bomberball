@@ -9,7 +9,8 @@ public class GameMaster : MonoBehaviour
     public GameObject player;
     public GameObject gameOver;
     public GameObject gameWon;
-    GameObject playerObject;
+    public bool endOfGame = false;
+    public GameObject playerObject;
     GameObject mapObject;
     public int maxLives;
 
@@ -31,6 +32,7 @@ public class GameMaster : MonoBehaviour
 
     public void NewGame()
     {
+        endOfGame = false;
         mapObject = Instantiate(map, gameObject.transform.position, Quaternion.identity);
         mapObject.name = "Map";
         mapObject.transform.SetParent(transform.parent, false);
@@ -38,6 +40,7 @@ public class GameMaster : MonoBehaviour
         playerObject.name = "Player";
         playerObject.transform.SetParent(transform.parent, false);
         mapObject.GetComponent<Map>().Build();
+        this.GetComponent<AstarPath>().Scan();
         this.gameObject.GetComponent<ScoreManager>().Reset();
         this.gameObject.GetComponent<LifeManager>().player = playerObject;
         this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
@@ -46,6 +49,7 @@ public class GameMaster : MonoBehaviour
 
     public void Win()
     {
+        endOfGame = true;
         Destroy(playerObject);
         Destroy(mapObject);
         GameObject gameWonObject = Instantiate(gameWon, gameObject.transform.position, Quaternion.identity);
@@ -57,6 +61,7 @@ public class GameMaster : MonoBehaviour
 
     public void GameOver()
     {
+        endOfGame = true;
         Destroy(playerObject);
         Destroy(mapObject);
         GameObject gameOverObject = Instantiate(gameOver, gameObject.transform.position, Quaternion.identity);
@@ -72,5 +77,18 @@ public class GameMaster : MonoBehaviour
         puissanceText.text = "" + puissanceTime;
         pousseeText.text = "" + pousseeTime;
         godModeText.text = "" + godModeTime;
+        if (!endOfGame)
+        {
+            for (int i = 0; i < 13; i++)
+            {
+                for (int j = 0; j < 11; j++)
+                {
+                    if (mapObject.GetComponent<Map>().mapEnnemisList[i, j] != null)
+                    {
+                        Debug.Log("ennemis sur case " + i + " , " + j);
+                    }
+                }
+            }
+        }
     }
 }
