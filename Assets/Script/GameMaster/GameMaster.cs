@@ -86,6 +86,10 @@ public class GameMaster : MonoBehaviour
                     if (mapObject.GetComponent<Map>().mapEnnemisList[i, j] != null)
                     {
                         //Debug.Log("ennemis sur case " + i + " , " + j);
+                        if (Vector2.Distance(playerObject.transform.position, mapObject.GetComponent<Map>().mapEnnemisList[i, j].transform.position) < 0.3f)
+                        {
+                            this.GetComponent<LifeManager>().Death();
+                        }
                     }
                 }
             }
