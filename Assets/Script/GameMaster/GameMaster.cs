@@ -85,7 +85,7 @@ public class GameMaster : MonoBehaviour
                 {
                     if (mapObject.GetComponent<Map>().mapEnnemisList[i, j] != null)
                     {
-                        Debug.Log("ennemis sur case " + i + " , " + j);
+                        //Debug.Log("ennemis sur case " + i + " , " + j);
                     }
                 }
             }

@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public float smoothTime;
     public bool BombSet = false;
 
-    public Bomb bomb;
     public Rigidbody2D rb;
     private Vector3 velocity = Vector3.zero;
 
