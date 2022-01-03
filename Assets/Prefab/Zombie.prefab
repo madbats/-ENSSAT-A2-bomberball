@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 0
-  speed: 100
+  speed: 80
   waypoints: []
   target: {fileID: 0}
   dest: 0
