@@ -89,6 +89,11 @@ public class Ennemis : MonoBehaviour
             dest = (dest + 1) % waypoints.Length;
             target = waypoints[dest];
         }
+
+        if(Vector2.Distance(GameObject.Find("Player").transform.position, this.transform.position) < .5f)
+        {
+            GameObject.Find("GameMaster").GetComponent<LifeManager>().Death();
+        }
     }
 
     public void Kill() { 

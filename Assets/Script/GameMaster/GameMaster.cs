@@ -77,7 +77,7 @@ public class GameMaster : MonoBehaviour
         puissanceText.text = "" + puissanceTime;
         pousseeText.text = "" + pousseeTime;
         godModeText.text = "" + godModeTime;
-        if (!endOfGame)
+        /*if (!endOfGame)
         {
             for (int i = 0; i < 13; i++)
             {
@@ -94,6 +94,6 @@ public class GameMaster : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 }
