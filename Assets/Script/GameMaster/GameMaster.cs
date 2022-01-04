@@ -52,6 +52,7 @@ public class GameMaster : MonoBehaviour
         endOfGame = true;
         Destroy(playerObject);
         Destroy(mapObject);
+        Destroy(GameObject.Find("Bomb(Clone)"));
         GameObject gameWonObject = Instantiate(gameWon, gameObject.transform.position, Quaternion.identity);
         gameWonObject.transform.SetParent(transform.parent, false);
         gameWonObject.name = "GameMenu";
@@ -64,6 +65,7 @@ public class GameMaster : MonoBehaviour
         endOfGame = true;
         Destroy(playerObject);
         Destroy(mapObject);
+        Destroy(GameObject.Find("Bomb(Clone)"));
         GameObject gameOverObject = Instantiate(gameOver, gameObject.transform.position, Quaternion.identity);
         gameOverObject.transform.SetParent(transform.parent, false);
         gameOverObject.name = "GameMenu";
