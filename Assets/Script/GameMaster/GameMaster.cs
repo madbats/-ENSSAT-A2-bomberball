@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
+    public int seed; 
+    public int number; 
+    public int difficulty;
+
     public GameObject map;
     public GameObject player;
     public GameObject gameOver;
@@ -32,6 +36,7 @@ public class GameMaster : MonoBehaviour
 
     public void NewGame()
     {
+        number++;
         endOfGame = false;
         mapObject = Instantiate(map, gameObject.transform.position, Quaternion.identity);
         mapObject.name = "Map";
@@ -39,7 +44,8 @@ public class GameMaster : MonoBehaviour
         playerObject = Instantiate(player, gameObject.transform.position, Quaternion.identity);
         playerObject.name = "Player";
         playerObject.transform.SetParent(transform.parent, false);
-        mapObject.GetComponent<Map>().Build();
+
+        mapObject.GetComponent<Map>().Build(this.GetComponent<MapGenerator>().FetchMap(seed, number));
         this.GetComponent<AstarPath>().Scan();
         this.gameObject.GetComponent<ScoreManager>().Reset();
         this.gameObject.GetComponent<LifeManager>().player = playerObject;
