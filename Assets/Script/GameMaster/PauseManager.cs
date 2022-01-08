@@ -9,7 +9,7 @@ public class PauseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pauseMenuUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -29,6 +29,8 @@ public class PauseManager : MonoBehaviour
     }
 
     //Méthodes
+
+    //Cette méthode gèle le jeu et affiche le menu pause quand on appuie sur la touche echap
     void Paused()
     {
         //Afficher le menu Pause
@@ -41,7 +43,8 @@ public class PauseManager : MonoBehaviour
         gameIsPaused = true;
     }
 
-    void Resume()
+    //Cette méthode permet de quitter le menu pause et de relancer le jeu. (bouton "resume" ou appui sur la touche echap)
+    public void Resume()
     {
         //Désactiver le menu Pause
         pauseMenuUI.SetActive(false);
@@ -51,6 +54,16 @@ public class PauseManager : MonoBehaviour
 
         //Changer le statut du jeu
         gameIsPaused = false;
+    }
+
+    //Cette méthode permet d'aller au menu principal quand on clique sur le bouton Exit du menu de pause
+    public void LoadMainMenu()
+    {
+        /*
+        //On reprend le jeu avant d'aller au menu principal 
+        Resume();
+         
+         */
     }
 }
 
