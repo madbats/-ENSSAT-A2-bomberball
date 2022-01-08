@@ -9,6 +9,16 @@ public class ScoreManager : MonoBehaviour
     public Text scoreDisplay;
     public int scoreNiveau;
     public int scorePartie = 0;
+    public static ScoreManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de ScoreManager dans la scène");
+            return;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

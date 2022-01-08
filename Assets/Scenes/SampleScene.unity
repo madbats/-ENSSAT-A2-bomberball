@@ -557,7 +557,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 577391993}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 986945140}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: LoadMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &577391993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -795,8 +807,9 @@ GameObject:
   - component: {fileID: 986945136}
   - component: {fileID: 986945135}
   - component: {fileID: 986945138}
-  - component: {fileID: 986945139}
   - component: {fileID: 986945140}
+  - component: {fileID: 986945141}
+  - component: {fileID: 986945139}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -944,6 +957,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1094994866}
+--- !u!114 &986945141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986945134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f28ac22979d922b4d9b568a63feec1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1089511309
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +981,7 @@ GameObject:
   - component: {fileID: 1089511312}
   - component: {fileID: 1089511311}
   m_Layer: 0
-  m_Name: ResumeButton
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1711,7 +1736,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1970093548}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 986945140}
+        m_TargetAssemblyTypeName: PauseManager, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1970093548
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -62,7 +62,7 @@ public class PauseManager : MonoBehaviour
         /*
         //On reprend le jeu avant d'aller au menu principal 
         Resume();
-         
+        DataManager.instance.Save();
          */
     }
 }
