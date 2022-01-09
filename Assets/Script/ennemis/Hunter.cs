@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hunter : Ennemis
+public class Hunter : Explorer
 {
     public GameObject waypoint;
     GameObject save;

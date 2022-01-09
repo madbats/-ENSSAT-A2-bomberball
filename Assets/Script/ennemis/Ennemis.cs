@@ -37,7 +37,7 @@ public class Ennemis : MonoBehaviour
     {
         if (seeker.IsDone())
         {
-             seeker.StartPath(this.transform.position, target.position, OnPathComplete);
+            seeker.StartPath(this.transform.position, target.position, OnPathComplete);
         }
     }
 
@@ -51,7 +51,7 @@ public class Ennemis : MonoBehaviour
             return;
         }
 
-        if(currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
             return;
@@ -72,7 +72,7 @@ public class Ennemis : MonoBehaviour
             x++;
         }
         int y = (int)this.transform.position.y;
-        if(this.transform.position.y > y + .5f)
+        if (this.transform.position.y > y + .5f)
         {
             y++;
         }
@@ -83,20 +83,21 @@ public class Ennemis : MonoBehaviour
         {
             currentWaypoint++;
         }
-        
-        if(Vector2.Distance(transform.position, target.position) < 0.3f)
+
+        if (Vector2.Distance(transform.position, target.position) < 0.3f)
         {
             dest = (dest + 1) % waypoints.Length;
             target = waypoints[dest];
         }
 
-        if(Vector2.Distance(GameObject.Find("Player").transform.position, this.transform.position) < .5f)
+        if (Vector2.Distance(GameObject.Find("Player").transform.position, this.transform.position) < .5f)
         {
             GameObject.Find("GameMaster").GetComponent<LifeManager>().Death();
         }
     }
 
-    public void Kill() { 
+    public void Kill()
+    {
         GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
         Destroy(gameObject);
     }

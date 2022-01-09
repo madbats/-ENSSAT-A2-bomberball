@@ -171,21 +171,21 @@ public class Map : MonoBehaviour {
             }
         }
 
-        qqc = Instantiate(zombie, new Vector3(4, 5), Quaternion.identity);
+        qqc = Instantiate(explorer,new Vector3(4, 5), Quaternion.identity);
         qqc.transform.SetParent(transform, false);
         mapEnnemisList[4, 5] = qqc;
-        qqc.GetComponent<Zombie>().waypoints = new Transform[2];
+        qqc.GetComponent<Explorer>().waypoints = new Transform[2];
 
         GameObject w = Instantiate(waypoint, new Vector3(1, 7, 0), Quaternion.identity);
-        qqc.GetComponent<Zombie>().waypoints[0] = w.transform;
+        qqc.GetComponent<Explorer>().waypoints[0] = w.transform;
 
         w = Instantiate(waypoint, new Vector3(5, 4, 0), Quaternion.identity);
-        qqc.GetComponent<Zombie>().waypoints[1] = w.transform;
+        qqc.GetComponent<Explorer>().waypoints[1] = w.transform;
 
-        qqc.GetComponent<Zombie>().InitPath();
+        qqc.GetComponent<Explorer>().InitPath();
 
 
-        qqc = Instantiate(watchman, new Vector3(9, 1), Quaternion.identity);
+        /*qqc = Instantiate(watchman, new Vector3(9, 1), Quaternion.identity);
         qqc.transform.SetParent(transform, false);
         mapEnnemisList[9, 1] = qqc;
         qqc.GetComponent<Watchman>().waypoints = new Transform[2];
@@ -196,6 +196,6 @@ public class Map : MonoBehaviour {
         w = Instantiate(waypoint, new Vector3(9, 1, 0), Quaternion.identity);
         qqc.GetComponent<Watchman>().waypoints[1] = w.transform;
 
-        qqc.GetComponent<Watchman>().InitPath();
+        qqc.GetComponent<Watchman>().InitPath();*/
     }
 }
