@@ -749,10 +749,16 @@ MonoBehaviour:
   octaves: 10
   persistance: 0.5
   lacunarity: 2
+  point: {fileID: 692822465907941836, guid: 6b00e1a7abe77704b88b14705ddd26c6, type: 3}
   max_vitesse: 0
   max_puissance: 0
   max_poussee: 0
   max_godMode: 0
+  zombie: {fileID: 0}
+  explorer: {fileID: 0}
+  watchman: {fileID: 0}
+  hunter: {fileID: 0}
+  waypoint: {fileID: 0}
 --- !u!81 &1235427595
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1241,7 +1247,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
+  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
