@@ -59,6 +59,12 @@ public class Bomb : MonoBehaviour
         {
             killPlayer = true;
         }
+        if (mapEnnemisList[x, y] != null) 
+        {
+            if (mapEnnemisList[x, y].GetComponent<Ennemis>()) {
+                mapEnnemisList[x, y].GetComponent<Ennemis>().Kill();
+            }
+        }
         // nord
         blocked = false;
         for (int i= y+1; i <= y + puissance && i < 13 && !blocked; i++)
@@ -75,7 +81,9 @@ public class Bomb : MonoBehaviour
                 }
                 if (mapEnnemisList[x, i] != null)
                 {
-                    if (mapEnnemisList[x, i].GetComponent<Ennemis>())
+                    if (mapEnnemisList[x, i].GetComponent<Ennemis>()
+                        && (mapEnnemisList[x, i].GetComponent<Ennemis>().transform.position.y - this.y) < 1
+                        && (mapEnnemisList[x, i].GetComponent<Ennemis>().transform.position.y - this.y) > -1)
                     {
                         mapEnnemisList[x, i].GetComponent<Ennemis>().Kill();
                     }
@@ -102,7 +110,9 @@ public class Bomb : MonoBehaviour
                 }
                 if (mapEnnemisList[x, i] != null)
                 {
-                    if (mapEnnemisList[x, i].GetComponent<Ennemis>())
+                    if (mapEnnemisList[x, i].GetComponent<Ennemis>()
+                        && (mapEnnemisList[x, i].GetComponent<Ennemis>().transform.position.y - this.y) < 1
+                        && (mapEnnemisList[x, i].GetComponent<Ennemis>().transform.position.y - this.y) > -1)
                     {
                         mapEnnemisList[x, i].GetComponent<Ennemis>().Kill();
                     }
@@ -113,7 +123,7 @@ public class Bomb : MonoBehaviour
                 }
             }
         }
-        // east
+        // est
         blocked = false;
         for (int i = x + 1; i <= x + puissance && i < 13 && !blocked; i++)
         {
@@ -129,7 +139,9 @@ public class Bomb : MonoBehaviour
                 }
                 if (mapEnnemisList[i, y] != null)
                 {
-                    if (mapEnnemisList[i, y].GetComponent<Ennemis>())
+                    if (mapEnnemisList[i, y].GetComponent<Ennemis>()
+                        && (mapEnnemisList[i, y].GetComponent<Ennemis>().transform.position.x - this.x) < 1
+                        && (mapEnnemisList[i, y].GetComponent<Ennemis>().transform.position.x - this.x) > -1)
                     {
                         mapEnnemisList[i, y].GetComponent<Ennemis>().Kill();
                     }
@@ -156,7 +168,9 @@ public class Bomb : MonoBehaviour
                 }
                 if (mapEnnemisList[i, y] != null)
                 {
-                    if (mapEnnemisList[i, y].GetComponent<Ennemis>())
+                    if (mapEnnemisList[i, y].GetComponent<Ennemis>()
+                        && (mapEnnemisList[i, y].GetComponent<Ennemis>().transform.position.x - this.x) < 1
+                        && (mapEnnemisList[i, y].GetComponent<Ennemis>().transform.position.x - this.x) > -1)
                     {
                         mapEnnemisList[i, y].GetComponent<Ennemis>().Kill();
                     }
