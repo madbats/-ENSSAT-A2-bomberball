@@ -4,25 +4,22 @@ using UnityEngine;
 
 public abstract class Bonus : Sol
 {
-    public int duration;
+    public float duration;
     public int power;
     public GameObject sol;
+    protected float startTime;
+    public int scoreValue;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.isConsumable = true;
-    }
+    public bool consumed = false;
+    public Sprite onceConsumed;
+    public bool end = false;
 
-    public void OnDestroy()
+    public abstract bool OnConsumption(); //Gestion de la consommation de l'item
+    public abstract bool CheckEnd();
+    public abstract void Destruction();
+    
+    public float RemainningTime()
     {
-    }
-
-    public void OnConsumption() //Gestion de la consommation de l'item
-    {
-        GameObject qqc;
-        qqc = Instantiate(sol, gameObject.transform.position, Quaternion.identity);
-        qqc.transform.SetParent(transform.parent, false);
-        qqc.transform.parent.GetComponent<Map>().mapItemsList[(int)transform.position.x, (int)transform.position.y] = qqc.GetComponent<MapItem>();
+        return startTime + duration - Time.time;
     }
 }

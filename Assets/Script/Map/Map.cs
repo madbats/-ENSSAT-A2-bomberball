@@ -58,6 +58,18 @@ public class Map : MonoBehaviour {
             {20,12,0,0,0,12,0,0,0,0,0,14,20 },
             { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 }
     };
+    private GameObject[,] testMapEnnemis = {
+            { null, null, null, null, null, null, null, null, null, null, null, null, null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null,null,null,null,null,null,null,null,null,null,null,null,null },
+            { null, null, null, null, null, null, null, null, null, null, null, null, null }};
 
     // Start is called before the first frame update
     void Start()    
@@ -155,18 +167,33 @@ public class Map : MonoBehaviour {
                 {
                     positionEntree = qqc.transform.position;
                 }
+                mapEnnemisList[j, i] = testMapEnnemis[10 - i, j];
             }
         }
 
-        qqc = Instantiate(watchman, new Vector3(4, 5), Quaternion.identity);
+        qqc = Instantiate(zombie, new Vector3(4, 5), Quaternion.identity);
         qqc.transform.SetParent(transform, false);
         mapEnnemisList[4, 5] = qqc;
-        qqc.GetComponent<Watchman>().waypoints = new Transform[2];
+        qqc.GetComponent<Zombie>().waypoints = new Transform[2];
 
         GameObject w = Instantiate(waypoint, new Vector3(1, 7, 0), Quaternion.identity);
-        qqc.GetComponent<Watchman>().waypoints[0] = w.transform;
+        qqc.GetComponent<Zombie>().waypoints[0] = w.transform;
 
         w = Instantiate(waypoint, new Vector3(5, 4, 0), Quaternion.identity);
+        qqc.GetComponent<Zombie>().waypoints[1] = w.transform;
+
+        qqc.GetComponent<Zombie>().InitPath();
+
+
+        qqc = Instantiate(watchman, new Vector3(9, 1), Quaternion.identity);
+        qqc.transform.SetParent(transform, false);
+        mapEnnemisList[9, 1] = qqc;
+        qqc.GetComponent<Watchman>().waypoints = new Transform[2];
+
+        w = Instantiate(waypoint, new Vector3(11, 5, 0), Quaternion.identity);
+        qqc.GetComponent<Watchman>().waypoints[0] = w.transform;
+
+        w = Instantiate(waypoint, new Vector3(9, 1, 0), Quaternion.identity);
         qqc.GetComponent<Watchman>().waypoints[1] = w.transform;
 
         qqc.GetComponent<Watchman>().InitPath();

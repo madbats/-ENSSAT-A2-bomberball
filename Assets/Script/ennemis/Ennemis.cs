@@ -5,6 +5,7 @@ using Pathfinding;
 
 public class Ennemis : MonoBehaviour
 {
+
     public int scoreValue;
     public int speed = 3;
 
@@ -23,7 +24,7 @@ public class Ennemis : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void InitPath()
@@ -87,6 +88,11 @@ public class Ennemis : MonoBehaviour
         {
             dest = (dest + 1) % waypoints.Length;
             target = waypoints[dest];
+        }
+
+        if(Vector2.Distance(GameObject.Find("Player").transform.position, this.transform.position) < .5f)
+        {
+            GameObject.Find("GameMaster").GetComponent<LifeManager>().Death();
         }
     }
 

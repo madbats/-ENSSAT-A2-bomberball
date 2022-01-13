@@ -11,6 +11,7 @@ public class Hunter : Ennemis
     // Start is called before the first frame update
     void Start()
     {
+        this.scoreValue = 15;
         save = Instantiate(waypoint, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
     }
 

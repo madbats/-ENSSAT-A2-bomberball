@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 0
-  speed: 100
+  speed: 80
   waypoints: []
   target: {fileID: 0}
   dest: 0
@@ -108,8 +108,6 @@ MonoBehaviour:
   seeker: {fileID: 4755609931122495093}
   rb: {fileID: 3644150755771024731}
   waypoint: {fileID: 692822465907941836, guid: 6b00e1a7abe77704b88b14705ddd26c6, type: 3}
-  save: {fileID: 0}
-  vision: 3
 --- !u!50 &3644150755771024731
 Rigidbody2D:
   serializedVersion: 4
