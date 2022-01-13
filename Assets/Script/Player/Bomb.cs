@@ -46,6 +46,21 @@ public class Bomb : MonoBehaviour
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         Transform player = GameObject.Find("Player").GetComponent<Transform>();
         GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
+        List<GameObject> ennemis = new List<GameObject>();
+        List<GameObject> ennemisKilled = new List<GameObject>();
+        for (int i = 0; i < 13; i++)
+        {
+            for (int j = 0; j < 11; j++)
+            {
+                if (mapEnnemisList[i, j] != null)
+                {
+                    if (mapEnnemisList[i, j].GetComponent<Ennemis>())
+                    {
+                        ennemis.Add(mapEnnemisList[i, j]);
+                    }
+                }
+            } 
+        }
         x = (int)transform.position.x;
         y = (int)transform.position.y;
         puissance = GameObject.Find("Player").GetComponent<PlayerBonus>().puissance;
@@ -59,11 +74,17 @@ public class Bomb : MonoBehaviour
         {
             killPlayer = true;
         }
-        if (mapEnnemisList[x, y] != null) 
+        foreach (GameObject ennemi in ennemis)
         {
-            if (mapEnnemisList[x, y].GetComponent<Ennemis>()) {
-                mapEnnemisList[x, y].GetComponent<Ennemis>().Kill();
+            if (Vector2.Distance(transform.position, ennemi.transform.position) < .6f)
+            {
+                ennemi.GetComponent<Ennemis>().Kill();
+                ennemisKilled.Add(ennemi);
             }
+        }
+        foreach (GameObject ennemi in ennemisKilled)
+        {
+            ennemis.Remove(ennemi);
         }
         // nord
         blocked = false;
@@ -79,16 +100,20 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
                 }
-                if (mapEnnemisList[x, i] != null)
+                foreach(GameObject ennemi in ennemis)
                 {
-                    if (mapEnnemisList[x, i].GetComponent<Ennemis>()
-                        && (mapEnnemisList[x, i].GetComponent<Ennemis>().transform.position.y - this.y) < 1
-                        && (mapEnnemisList[x, i].GetComponent<Ennemis>().transform.position.y - this.y) > -1)
+                    if(Vector2.Distance(new Vector2(x, i), ennemi.transform.position) < .6f)
                     {
-                        mapEnnemisList[x, i].GetComponent<Ennemis>().Kill();
+                        ennemi.GetComponent<Ennemis>().Kill();
+                        ennemisKilled.Add(ennemi);
                     }
                 }
-                if(player.position.x == x && player.position.y == i)
+                foreach(GameObject ennemi in ennemisKilled)
+                {
+                    ennemis.Remove(ennemi);
+                }
+                ennemisKilled.Clear();
+                if (player.position.x == x && player.position.y == i)
                 {
                     killPlayer = true;
                 }
@@ -108,15 +133,19 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
                 }
-                if (mapEnnemisList[x, i] != null)
+                foreach (GameObject ennemi in ennemis)
                 {
-                    if (mapEnnemisList[x, i].GetComponent<Ennemis>()
-                        && (mapEnnemisList[x, i].GetComponent<Ennemis>().transform.position.y - this.y) < 1
-                        && (mapEnnemisList[x, i].GetComponent<Ennemis>().transform.position.y - this.y) > -1)
+                    if (Vector2.Distance(new Vector2(x, i), ennemi.transform.position) < .6f)
                     {
-                        mapEnnemisList[x, i].GetComponent<Ennemis>().Kill();
+                        ennemi.GetComponent<Ennemis>().Kill();
+                        ennemisKilled.Add(ennemi);
                     }
                 }
+                foreach (GameObject ennemi in ennemisKilled)
+                {
+                    ennemis.Remove(ennemi);
+                }
+                ennemisKilled.Clear();
                 if (player.position.x == x && player.position.y == i)
                 {
                     killPlayer = true;
@@ -137,15 +166,19 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[i, y]).OnBreak();
                 }
-                if (mapEnnemisList[i, y] != null)
+                foreach (GameObject ennemi in ennemis)
                 {
-                    if (mapEnnemisList[i, y].GetComponent<Ennemis>()
-                        && (mapEnnemisList[i, y].GetComponent<Ennemis>().transform.position.x - this.x) < 1
-                        && (mapEnnemisList[i, y].GetComponent<Ennemis>().transform.position.x - this.x) > -1)
+                    if (Vector2.Distance(new Vector2(i, y), ennemi.transform.position)<.6f)
                     {
-                        mapEnnemisList[i, y].GetComponent<Ennemis>().Kill();
+                        ennemi.GetComponent<Ennemis>().Kill();
+                        ennemisKilled.Add(ennemi);
                     }
                 }
+                foreach (GameObject ennemi in ennemisKilled)
+                {
+                    ennemis.Remove(ennemi);
+                }
+                ennemisKilled.Clear();
                 if (player.position.x == i && player.position.y == y)
                 {
                     killPlayer = true;
@@ -166,15 +199,19 @@ public class Bomb : MonoBehaviour
                 {
                     ((MurCassable)mapItemsList[i, y]).OnBreak();
                 }
-                if (mapEnnemisList[i, y] != null)
+                foreach (GameObject ennemi in ennemis)
                 {
-                    if (mapEnnemisList[i, y].GetComponent<Ennemis>()
-                        && (mapEnnemisList[i, y].GetComponent<Ennemis>().transform.position.x - this.x) < 1
-                        && (mapEnnemisList[i, y].GetComponent<Ennemis>().transform.position.x - this.x) > -1)
+                    if (Vector2.Distance(new Vector2(i, y), ennemi.transform.position)<.6f)
                     {
-                        mapEnnemisList[i, y].GetComponent<Ennemis>().Kill();
+                        ennemi.GetComponent<Ennemis>().Kill();
+                        ennemisKilled.Add(ennemi);
                     }
                 }
+                foreach (GameObject ennemi in ennemisKilled)
+                {
+                    ennemis.Remove(ennemi);
+                }
+                ennemisKilled.Clear();
                 if (player.position.x == i && player.position.y == y)
                 {
                     killPlayer = true;
