@@ -29,9 +29,13 @@ public class DataManager : MonoBehaviour
         
     }
 
-    //Méthodes
 
-    public void Save()
+
+
+    /////////////////////////////////////////////    METHODES     /////////////////////////////////////////////////////////////////
+    
+    //Sauvegarde effectué lorsqu'on quitte une partie depuis le menu Pause
+    public void SaveOnExit()
     {
         /*
          //La clé correspond au nom associé à la valeur.
@@ -41,15 +45,23 @@ public class DataManager : MonoBehaviour
          */
         PlayerPrefs.SetInt("Vie",LifeManager.instance.vieNiveau);
         PlayerPrefs.SetInt("Score", ScoreManager.instance.scorePartie);
+        PlayerPrefs.SetInt("Seed", GameMaster.instance.GetComponent<Map>().seed);
+        PlayerPrefs.SetInt("CampaignLevel", GameMaster.instance.GetComponent<Map>().number);
+
 
     }
 
-    public void Load()
+    //Chargement effectué lorsqu'on décide de continuer une partie (dans le menu principal)
+    public void LoadOnContinue()
     {
         /*
          valeur = PlayerPrefs.GetInt(key, defaultValue); //defaultValue est une valeur par défaut si key ne correspond à aucune valeur.
          */
         LifeManager.instance.vieNiveau = PlayerPrefs.GetInt("Vie", 3);
         ScoreManager.instance.scorePartie = PlayerPrefs.GetInt("Score", 0);
+        GameMaster.instance.GetComponent<Map>().seed = PlayerPrefs.GetInt("Seed", 0);
+        GameMaster.instance.GetComponent<Map>().number = PlayerPrefs.GetInt("CampaignLevel", 0);
+
+
     }
 }

@@ -5,13 +5,19 @@ public class MainMenu : MonoBehaviour
 {
     public string s;
     public GameObject p;
-    public void NouvellePartie(){
+
+    public void NouvellePartie()
+    {
         SceneManager.LoadScene(s);
     }
-    public void Quitter(){
+
+    public void Quitter()
+    {
         Application.Quit();
     }
-    public void ParametreMenu(){
+
+    public void ParametreMenu()
+    {
         p.SetActive(true);
     }
 }

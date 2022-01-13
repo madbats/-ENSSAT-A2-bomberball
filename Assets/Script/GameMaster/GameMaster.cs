@@ -24,6 +24,17 @@ public class GameMaster : MonoBehaviour
     public Text pousseeText;
     public Text godModeText;
 
+    public static GameMaster instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de GameMaster dans la scène");
+            return;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -488,7 +488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28f8b0610dba50c448a7fee018a1e9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: 
+  s: SampleScene
+  p: {fileID: 0}
 --- !u!1 &1213753652
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,7 +573,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 938831634}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: NouvellePartie
         m_Mode: 1
@@ -1002,6 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   s: SampleScene
+  p: {fileID: 0}
 --- !u!114 &1869577230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1099,6 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   s: 
+  p: {fileID: 0}
 --- !u!114 &1869577235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1112,6 +1115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   s: 
+  p: {fileID: 0}
 --- !u!1 &1939333089
 GameObject:
   m_ObjectHideFlags: 0

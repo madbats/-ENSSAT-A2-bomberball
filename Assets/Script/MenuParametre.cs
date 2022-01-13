@@ -5,7 +5,9 @@ using UnityEngine;
 public class MenuParametre : MonoBehaviour
 {
     public GameObject p;
-    public void QuitterParametre(){
+
+    public void QuitterParametre()
+    {
         p.SetActive(false);
     }
 }
