@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
-	public float scale;
-	public int octaves;
-	public float persistance;
-	public float lacunarity;
 	private int seed;
 	private int number;
 
@@ -28,6 +24,7 @@ public class MapGenerator : MonoBehaviour
 	public GameObject watchman;
 	public GameObject hunter;
 	public GameObject waypoint;
+	Vector2 entree;
 
 	public int[,] FetchMap(int seed, int number)
 	{
@@ -39,11 +36,11 @@ public class MapGenerator : MonoBehaviour
 	private int[,] CreateMap()
 	{
 		random = new System.Random(seed * number);
-		difficulty = number / 3f;
-		max_vitesse = difficulty + 1;
-		max_puissance = difficulty;
-		max_poussee = difficulty-1;
-		max_godMode = difficulty-1;
+		difficulty = (number / 5f) +0.5f;
+		max_vitesse = Mathf.Max(0f, difficulty);
+		max_puissance = Mathf.Max(0f, difficulty-0.5f);
+		max_poussee = Mathf.Max(0f, difficulty -1f);
+		max_godMode = Mathf.Max(0f, difficulty -2f);
 		List<Vector2> bonusPossible = new List<Vector2>();
 		Vector2 offset = new Vector2(13 * number, 11 * difficulty);
 		//float[,] noiseMap = GenerateNoiseMap(13, 11, seed, scale, octaves, persistance, lacunarity, offset);
@@ -59,35 +56,15 @@ public class MapGenerator : MonoBehaviour
 				{
 					map[i, j] = 20;
 				}
-				else if (value < 0.5)
+				else if (value < 0.55)
 				{
 					// sol
 					map[i, j] = 0;
 					solPossible.Add(new Vector2(i, j));
 				}
-				else {
-					if (value < 0.6)
-					{   // puissance 11
-						bonusPossible.Add(new Vector2(i, j));
-					}
-					else if (value < 0.7 )
-					{   // vitesse 12
-						bonusPossible.Add(new Vector2(i, j));
-					}
-					else if (value < 0.8 )
-					{
-						// poussee 13
-						bonusPossible.Add(new Vector2(i, j));
-					}
-					else if (value < 0.9)
-					{   // godmode 14
-						bonusPossible.Add(new Vector2(i, j));
-					}
-					else
-					{
-						//mur cassable
-						map[i, j] = 10;
-					}
+				else 
+				{
+					bonusPossible.Add(new Vector2(i, j));
 				}
 			}
 		}
@@ -129,7 +106,7 @@ public class MapGenerator : MonoBehaviour
 
 		//Set l'entrée
 		index = random.Next(0, solPossible.Count);
-		Vector2 entree = solPossible[index];
+		entree = solPossible[index];
 		solPossible.RemoveAt(index);
 		map[(int)entree.x, (int)entree.y] = 21;
 
@@ -198,98 +175,137 @@ public class MapGenerator : MonoBehaviour
 		}
     }
 
-	public void PlaceEnnemie()
+	public GameObject[,] PlaceEnnemie()
 	{
-		int[,] mapEnnemisList = new int[13, 11];
-		float max_zombie = difficulty + 1;
-		float max_exploreur = difficulty;
-		float max_watchman = difficulty - 1;
-		float max_hunter = difficulty - 1;
+		GameObject[,] mapEnnemisList = {
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null},
+			{ null, null, null, null, null, null, null, null, null, null, null}}; 
+		float max_zombie = Mathf.Max(0f,difficulty);
+		float max_exploreur = Mathf.Max(0f, difficulty-0.5f);
+		float max_watchman = Mathf.Max(0f, difficulty - 1.5f);
+		float max_hunter = Mathf.Max(0f, difficulty - 2.5f);
 
 		int index ;
-		int ennemie;
+		//int ennemie;
 		GameObject qqc;
 		Vector2 a, b;
-		while((int)(max_zombie + max_exploreur + max_watchman + max_hunter) > 0 && Paths.Count>0)
+		Debug.Log("Creating Enemies "+((int)(max_zombie + max_exploreur + max_watchman + max_hunter) > 0) +"  "+ (Paths.Count > 0));
+		while ((int)(max_zombie + max_exploreur + max_watchman + max_hunter) > 0 && Paths.Count>0)
         {
 			index = random.Next(0, Paths.Count);
-			if (Paths[index].Count > 1) ;
-			ennemie = random.Next(0, (int)(max_zombie + max_exploreur + max_watchman + max_hunter));
-            if (max_zombie >= 1)
-            {
-				a = Paths[index][random.Next(0, Paths[index].Count)];
-				Paths[index].Remove(a);
-				b = Paths[index][random.Next(0, Paths[index].Count)];
-				Paths[index].Remove(b);
-
-				qqc = Instantiate(zombie,a, Quaternion.identity);
-				qqc.transform.SetParent(transform, false);
-				qqc.GetComponent<Zombie>().waypoints = new Transform[2];
-				GameObject w = Instantiate(waypoint, a, Quaternion.identity);
-				qqc.GetComponent<Zombie>().waypoints[0] = w.transform;
-				
-				w = Instantiate(waypoint, b, Quaternion.identity);
-				qqc.GetComponent<Zombie>().waypoints[1] = w.transform;
-				
-				qqc.GetComponent<Zombie>().InitPath();
-			}
-			else if (max_exploreur >= 1)
+			if (Paths[index].Count > 1)
 			{
-				a = Paths[index][random.Next(0, Paths[index].Count)];
-				Paths[index].Remove(a);
-				b = Paths[index][random.Next(0, Paths[index].Count)];
-				Paths[index].Remove(b);
+				a = Vector2.zero;
+				b = Vector2.zero;
+				// selectionne les waypoints des ennemies
+				do
+				{
+					a = Paths[index][random.Next(0, Paths[index].Count)];
+					Paths[index].Remove(a);
+				} while (Vector2.Distance(entree, a) < 2f && Paths[index].Count> 2);
 
-				qqc = Instantiate(explorer, a, Quaternion.identity);
-				qqc.transform.SetParent(transform, false);
-				qqc.GetComponent<Explorer>().waypoints = new Transform[2];
-				GameObject w = Instantiate(waypoint, a, Quaternion.identity);
-				qqc.GetComponent<Explorer>().waypoints[0] = w.transform;
+				if (a != Vector2.zero) {
+					do
+					{
+						b = Paths[index][random.Next(0, Paths[index].Count)];
+						Paths[index].Remove(b);
+					} while ((Vector2.Distance(entree, b) < 2f || Vector2.Distance(a, b)<3f) && Paths[index].Count > 1);
+				}
 
-				w = Instantiate(waypoint, b, Quaternion.identity);
-				qqc.GetComponent<Explorer>().waypoints[1] = w.transform;
+				if (b != Vector2.zero)
+				{
+					if (max_zombie >= 1)
+					{
+						Debug.Log("Creating Zombie");
 
-				qqc.GetComponent<Explorer>().InitPath();
-			}
-			else if(max_watchman >= 1)
-			{
-				a = Paths[index][random.Next(0, Paths[index].Count)];
-				Paths[index].Remove(a);
-				b = Paths[index][random.Next(0, Paths[index].Count)];
-				Paths[index].Remove(b);
+						qqc = Instantiate(zombie, a, Quaternion.identity);
+						mapEnnemisList[(int)a.x, (int)a.y] = qqc;
+						qqc.transform.SetParent(GameObject.Find("Map").transform, false);
+						qqc.GetComponent<Zombie>().waypoints = new Transform[2];
+						GameObject w = Instantiate(waypoint, a, Quaternion.identity);
+						qqc.GetComponent<Zombie>().waypoints[0] = w.transform;
+						w.transform.SetParent(GameObject.Find("Map").transform, false);
 
-				qqc = Instantiate(watchman, a, Quaternion.identity);
-				qqc.transform.SetParent(transform, false);
-				qqc.GetComponent<Watchman>().waypoints = new Transform[2];
-				GameObject w = Instantiate(waypoint, a, Quaternion.identity);
-				qqc.GetComponent<Watchman>().waypoints[0] = w.transform;
+						w = Instantiate(waypoint, b, Quaternion.identity);
+						qqc.GetComponent<Zombie>().waypoints[1] = w.transform;
+						w.transform.SetParent(GameObject.Find("Map").transform, false);
 
-				w = Instantiate(waypoint, b, Quaternion.identity);
-				qqc.GetComponent<Watchman>().waypoints[1] = w.transform;
+						qqc.GetComponent<Zombie>().InitPath();
+						max_zombie--;
+					}
+					else if (max_exploreur >= 1)
+					{
+						Debug.Log("Creating Explorer");
+						
+						qqc = Instantiate(explorer, a, Quaternion.identity);
+						mapEnnemisList[(int)a.x, (int)a.y] = qqc;
+						qqc.transform.SetParent(GameObject.Find("Map").transform, false);
+						qqc.GetComponent<Explorer>().waypoints = new Transform[2];
+						GameObject w = Instantiate(waypoint, a, Quaternion.identity);
+						qqc.GetComponent<Explorer>().waypoints[0] = w.transform;
+						w.transform.SetParent(GameObject.Find("Map").transform, false);
 
-				qqc.GetComponent<Watchman>().InitPath();
-			}
-			else if(max_hunter >= 1)
-			{
-				a = Paths[index][random.Next(0, Paths[index].Count)];
-				Paths[index].Remove(a);
-				b = Paths[index][random.Next(0, Paths[index].Count)];
-				Paths[index].Remove(b);
+						w = Instantiate(waypoint, b, Quaternion.identity);
+						qqc.GetComponent<Explorer>().waypoints[1] = w.transform;
+						w.transform.SetParent(GameObject.Find("Map").transform, false);
 
-				qqc = Instantiate(hunter, a, Quaternion.identity);
-				qqc.transform.SetParent(transform, false);
-				qqc.GetComponent<Hunter>().waypoints = new Transform[2];
-				GameObject w = Instantiate(waypoint, a, Quaternion.identity);
-				qqc.GetComponent<Hunter>().waypoints[0] = w.transform;
+						qqc.GetComponent<Explorer>().InitPath();
+						max_exploreur--;
+					}
+					else if (max_watchman >= 1)
+					{
+						Debug.Log("Creating Watchman");
+						
+						qqc = Instantiate(watchman, a, Quaternion.identity);
+						mapEnnemisList[(int)a.x, (int)a.y] = qqc;
+						qqc.transform.SetParent(GameObject.Find("Map").transform, false);
+						qqc.GetComponent<Watchman>().waypoints = new Transform[2];
+						GameObject w = Instantiate(waypoint, a, Quaternion.identity);
+						qqc.GetComponent<Watchman>().waypoints[0] = w.transform;
+						w.transform.SetParent(GameObject.Find("Map").transform, false);
 
-				w = Instantiate(waypoint, b, Quaternion.identity);
-				qqc.GetComponent<Hunter>().waypoints[1] = w.transform;
+						w = Instantiate(waypoint, b, Quaternion.identity);
+						qqc.GetComponent<Watchman>().waypoints[1] = w.transform;
+						w.transform.SetParent(GameObject.Find("Map").transform, false);
 
-				qqc.GetComponent<Hunter>().InitPath();
+						qqc.GetComponent<Watchman>().InitPath();
+						max_watchman--;
+					}
+					else if (max_hunter >= 1)
+					{
+						Debug.Log("Creating Hunter");
+						
+						qqc = Instantiate(hunter, a, Quaternion.identity);
+						mapEnnemisList[(int)a.x, (int)a.y] = qqc;
+						qqc.transform.SetParent(GameObject.Find("Map").transform, false);
+						qqc.GetComponent<Hunter>().waypoints = new Transform[2];
+						GameObject w = Instantiate(waypoint, a, Quaternion.identity);
+						w.transform.SetParent(GameObject.Find("Map").transform, false);
+						qqc.GetComponent<Hunter>().waypoints[0] = w.transform;
+
+						w = Instantiate(waypoint, b, Quaternion.identity);
+						qqc.GetComponent<Hunter>().waypoints[1] = w.transform;
+						w.transform.SetParent(GameObject.Find("Map").transform, false);
+
+						qqc.GetComponent<Hunter>().InitPath();
+						max_hunter--;
+					} 
+				}
 			}
 			Paths.Remove(Paths[index]);
 		}
-		
+		return mapEnnemisList;
 	}
 
 

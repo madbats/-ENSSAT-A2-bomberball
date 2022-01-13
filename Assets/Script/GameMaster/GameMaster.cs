@@ -45,7 +45,7 @@ public class GameMaster : MonoBehaviour
         playerObject.name = "Player";
         playerObject.transform.SetParent(transform.parent, false);
 
-        mapObject.GetComponent<Map>().Build(this.GetComponent<MapGenerator>().FetchMap(seed, number));
+        mapObject.GetComponent<Map>().Build(this.GetComponent<MapGenerator>().FetchMap(seed, number),this.GetComponent<MapGenerator>().PlaceEnnemie());
         this.GetComponent<AstarPath>().Scan();
         this.gameObject.GetComponent<ScoreManager>().Reset();
         this.gameObject.GetComponent<LifeManager>().player = playerObject;

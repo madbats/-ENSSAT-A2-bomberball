@@ -7,7 +7,7 @@ public class Ennemis : MonoBehaviour
 {
 
     public int scoreValue;
-    public int speed = 3;
+    public int speed = 1;
 
     public Transform[] waypoints;
     public Transform target;
@@ -67,11 +67,12 @@ public class Ennemis : MonoBehaviour
         rb.AddForce(force);
 
         int x = (int)this.transform.position.x;
+        int y = (int)this.transform.position.y;
+        mapEnnemisList[x, y] = null;
         if (this.transform.position.x > x + .5f)
         {
             x++;
         }
-        int y = (int)this.transform.position.y;
         if(this.transform.position.y > y + .5f)
         {
             y++;
@@ -98,6 +99,7 @@ public class Ennemis : MonoBehaviour
 
     public void Kill() { 
         GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)this.transform.position.x, (int)this.transform.position.y] = null;
         Destroy(gameObject);
     }
 
