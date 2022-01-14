@@ -4,38 +4,56 @@ using UnityEngine;
 
 public class Watchman : Ennemis
 {
-    public GameObject waypoint;
-    GameObject save;
+    //dernière position avant chase
+    Vector2 save;
     int vision = 3;
     bool chase = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.scoreValue = 10;
-        save = Instantiate(waypoint, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
-    }
 
-    // Update is called once per frame
-    void Update()
+    protected override void CheckTarget()
     {
-        GameObject gameMaster = GameObject.Find("GameMaster");
-        // comportement : poursuit le joueur si dans son champs de vision
-        if (!chase && Vector2.Distance(this.transform.position, gameMaster.GetComponent<GameMaster>().playerObject.transform.position) < vision)
+        if (!chase)
         {
-            save.transform.position = this.transform.position;
-            this.target = gameMaster.GetComponent<GameMaster>().playerObject.transform;
-            chase = true;
-        }
-
-        // comportement : abandon de poursuite
-        if (chase)
-        {
-            if (Vector2.Distance(this.transform.position, save.transform.position) > vision || Vector2.Distance(this.transform.position, this.target.transform.position) > vision)
+            Debug.Log("Not Chassing");
+            if (Vector2.Distance(this.transform.position, gameMaster.GetComponent<GameMaster>().playerObject.transform.position) < vision)
             {
-                this.target = save.transform;
-                chase = false;
+                Debug.Log("Starting Chase");
+                save = currentTarget;
+                this.currentTarget = gameMaster.GetComponent<GameMaster>().playerObject.transform.position; 
+                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+                chase = true;
+            }
+            else if (Vector2.Distance(transform.position, currentTarget) < 1f)
+            {
+                Debug.Log("On Target");
+                if (currentTarget == waypoint1)
+                {
+                    currentTarget = waypoint2;
+                }
+                else if (currentTarget == waypoint2)
+                {
+                    currentTarget = waypoint1;
+                }
             }
         }
+        else
+        {
+            // comportement : abandon de poursuite
+            Debug.Log("Chassing");
+            if (Vector2.Distance(transform.position, currentTarget) > vision)
+            {
+                Debug.Log("Lost Target");
+                currentTarget = save;
+                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+                chase = false;
+            }
+            else
+            {
+                Debug.Log("Continuing Chase");
+                this.currentTarget = gameMaster.GetComponent<GameMaster>().playerObject.transform.position;
+                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+            }
+        }
+        GetComponent<PathFinding>().SwitchTarget(currentTarget);
     }
 }

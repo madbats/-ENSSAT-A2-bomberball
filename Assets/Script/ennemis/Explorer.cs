@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Explorer : Ennemis
 {
-    // Start is called before the first frame update
-    void Start()
+    int vision = 3;
+    protected override void CheckTarget()
     {
-        this.scoreValue = 10;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Vector2.Distance(transform.position, currentTarget) < 1f)
+        {
+            GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+            currentTarget = GetComponent<PathFinding>().FindFurthestPoint(vision);
+        }
+        GetComponent<PathFinding>().SwitchTarget(currentTarget);
+        //GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
     }
 }

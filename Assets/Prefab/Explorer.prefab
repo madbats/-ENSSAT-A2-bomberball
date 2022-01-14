@@ -11,9 +11,7 @@ GameObject:
   - component: {fileID: 53044816356743885}
   - component: {fileID: 53044816356743874}
   - component: {fileID: 53044816356743875}
-  - component: {fileID: -8946730934514944231}
-  - component: {fileID: -698456863622322221}
-  - component: {fileID: -8725203635478088305}
+  - component: {fileID: 6129597065361262988}
   m_Layer: 0
   m_Name: Explorer
   m_TagString: Untagged
@@ -98,32 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f70a75cdaf2cf9241a70e3352802e8cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 0
-  speed: 100
-  waypoints: []
-  target: {fileID: 0}
-  dest: 0
-  currentWaypoint: 0
-  reachedEndOfPath: 0
-  seeker: {fileID: -698456863622322221}
-  rb: {fileID: -8725203635478088305}
---- !u!58 &-8946730934514944231
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53044816356743872}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &-698456863622322221
+  scoreValue: 20
+  speed: 1
+  life: 1
+  waypoint1: {x: 0, y: 0}
+  waypoint2: {x: 0, y: 0}
+  currentTarget: {x: 0, y: 0}
+--- !u!114 &6129597065361262988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,43 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 53044816356743872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Script: {fileID: 11500000, guid: e99670bb6ea06bc47a6a6053827510e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
---- !u!50 &-8725203635478088305
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53044816356743872}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  currentTarget: {x: 0, y: 0}
