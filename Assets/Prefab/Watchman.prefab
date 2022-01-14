@@ -98,10 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 20
   speed: 1
+  life: 1
   waypoint1: {x: 0, y: 0}
   waypoint2: {x: 0, y: 0}
   currentTarget: {x: 0, y: 0}
-  waypoint: {fileID: 692822465907941836, guid: 6b00e1a7abe77704b88b14705ddd26c6, type: 3}
 --- !u!114 &456765683710581094
 MonoBehaviour:
   m_ObjectHideFlags: 0

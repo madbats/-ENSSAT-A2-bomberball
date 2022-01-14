@@ -98,6 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 10
   speed: 0.6
+  life: 1
+  waypoint1: {x: 0, y: 0}
+  waypoint2: {x: 0, y: 0}
+  currentTarget: {x: 0, y: 0}
 --- !u!114 &7825381049986654059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99670bb6ea06bc47a6a6053827510e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoint1: {x: 0, y: 0}
-  waypoint2: {x: 0, y: 0}
   currentTarget: {x: 0, y: 0}

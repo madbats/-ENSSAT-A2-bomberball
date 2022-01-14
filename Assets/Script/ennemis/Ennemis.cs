@@ -8,20 +8,12 @@ public abstract class Ennemis : MonoBehaviour
     public List<Node> path;
     public int scoreValue;
     public float speed;
+    public int life;
     //waypoints
     public Vector2 waypoint1, waypoint2;
     public Vector2 currentTarget;
-    protected GameObject gameMaster;
-    //public Transform[] waypoints;
-    //public Transform target;
-    //public int dest = 0;
-    //
-    ////public Path path;
-    //public int currentWaypoint = 0;
-    //public bool reachedEndOfPath = false;
 
-    //public Seeker seeker;
-    //public Rigidbody2D rb;
+    protected GameObject gameMaster;
 
     protected float startTime;
 
@@ -53,8 +45,12 @@ public abstract class Ennemis : MonoBehaviour
 
     public void Kill()
     {
-        GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
-        Destroy(gameObject);
+        life--;
+        if (life == 0)
+        {
+            GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
+            Destroy(gameObject);
+        }
     }
 
     void Move()
