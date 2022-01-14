@@ -3,112 +3,66 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class Ennemis : MonoBehaviour
+public abstract class Ennemis : MonoBehaviour
 {
-
+    public List<Node> path;
     public int scoreValue;
-    public int speed = 1;
+    public float speed;
+    public int life;
+    //waypoints
+    public Vector2 waypoint1, waypoint2;
+    public Vector2 currentTarget;
 
-    public Transform[] waypoints;
-    public Transform target;
-    public int dest = 0;
+    protected GameObject gameMaster;
 
-    public Path path;
-    public int currentWaypoint = 0;
-    public bool reachedEndOfPath = false;
-
-    public Seeker seeker;
-    public Rigidbody2D rb;
+    protected float startTime;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        startTime = (float)Time.time;
+        //currentTarget = waypoint1;
+        gameMaster = GameObject.Find("GameMaster");
+        GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
     }
 
-    public void InitPath()
+    void Update()
     {
-        target = waypoints[0];
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        if (speed < (float)Time.time - (float)startTime)
+        {
+            startTime = Time.time;
+            //Debug.Log("SeekingPath");
+            CheckTarget();
+            Move();
+        }
+        if (Vector2.Distance(this.transform.position, gameMaster.GetComponent<GameMaster>().playerObject.transform.position) < 1f)
+        {
+            gameMaster.GetComponent<LifeManager>().Death();
+        }
     }
 
-    void UpdatePath()
+
+    public void Kill()
     {
-        if (seeker.IsDone())
+        life--;
+        if (life == 0)
         {
-             seeker.StartPath(this.transform.position, target.position, OnPathComplete);
+            GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
+            Destroy(gameObject);
         }
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Move()
     {
-        GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
-
-        if (path == null)
-        {
-            return;
-        }
-
-        if(currentWaypoint >= path.vectorPath.Count)
-        {
-            reachedEndOfPath = true;
-            return;
-        }
-        else
-        {
-            reachedEndOfPath = false;
-        }
-
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
-
-        rb.AddForce(force);
-
-        int x = (int)this.transform.position.x;
-        int y = (int)this.transform.position.y;
-        mapEnnemisList[x, y] = null;
-        if (this.transform.position.x > x + .5f)
-        {
-            x++;
-        }
-        if(this.transform.position.y > y + .5f)
-        {
-            y++;
-        }
-        mapEnnemisList[x, y] = this.gameObject;
-
-        float distance = Vector2.Distance(this.transform.position, path.vectorPath[currentWaypoint]);
-        if (distance < 1f)
-        {
-            currentWaypoint++;
-        }
-        
-        if(Vector2.Distance(transform.position, target.position) < 0.3f)
-        {
-            dest = (dest + 1) % waypoints.Length;
-            target = waypoints[dest];
-        }
-
-        if(Vector2.Distance(GameObject.Find("Player").transform.position, this.transform.position) < .5f)
-        {
-            GameObject.Find("GameMaster").GetComponent<LifeManager>().Death();
-        }
+        GetComponent<PathFinding>().SeekPath();
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)transform.position.x, (int)transform.position.y] = null;
+        transform.position = new Vector2(path[0].x, path[0].y);
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[path[0].x, path[0].y] = gameObject;
+        path.Remove(path[0]);
     }
 
-    public void Kill() { 
-        GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
-        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)this.transform.position.x, (int)this.transform.position.y] = null;
-        Destroy(gameObject);
-    }
+    abstract protected void CheckTarget();
 
-    void OnPathComplete(Path p)
-    {
-        if (!p.error)
-        {
-            path = p;
-            currentWaypoint = 0;
-        }
-    }
+    
 }
