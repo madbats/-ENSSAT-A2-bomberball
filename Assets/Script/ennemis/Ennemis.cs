@@ -30,7 +30,8 @@ public class Ennemis : MonoBehaviour
     void Start()
     {
         startTime = (float)Time.time;
-        currentTarget = waypoint1;
+        //currentTarget = waypoint1;
+        gameMaster = GameObject.Find("GameMaster");
     }
 
     public void Kill()

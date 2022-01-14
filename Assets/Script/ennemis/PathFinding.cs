@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PathFinding : MonoBehaviour
 {
-	private Node a,b;
-		
+	private Node a,b, furthest;
 	public Vector2 currentTarget;
 	//private int[,] map;
 	private Node[,] grid;
@@ -16,11 +15,64 @@ public class PathFinding : MonoBehaviour
 		FindPath(transform.position, currentTarget);
 	}
 
+	public Vector2 FindFurthestPoint()
+    {
+		Vector3 startPos = transform.position;
+		CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+		a = grid[(int)startPos.x, (int)startPos.y];
+		furthest = a;
+		Debug.Log("a : " + a.x + " - " + a.y + " => " + a.gCost);
+		List<Node> openSet = new List<Node>();
+		HashSet<Node> closedSet = new HashSet<Node>();
+		openSet.Add(a);
+		while (openSet.Count > 0)
+		{
+			Node node = openSet[0];
+			for (int i = 1; i < openSet.Count; i++)
+			{
+				if (openSet[i].fCost > node.fCost || openSet[i].fCost == node.fCost)
+				{
+					if (openSet[i].gCost > node.gCost)
+						node = openSet[i];
+				}
+			}
+
+			openSet.Remove(node);
+			closedSet.Add(node);
+
+			//Debug.Log("node : " + node.x + " - " + node.y + " => " + node.gCost);
+			foreach (Node neighbour in GetNeighbours(node))
+			{
+				//Debug.Log("neighbour : " + neighbour.x + " - " + neighbour.y + " => " + neighbour.gCost);
+				if (!neighbour.walkable || closedSet.Contains(neighbour))
+				{
+					continue;
+				}
+
+				int newCostToNeighbour = node.gCost + GetDistance(node, neighbour);
+				if (newCostToNeighbour > neighbour.gCost || !openSet.Contains(neighbour))
+				{
+					//Debug.Log("note updated");
+					neighbour.gCost = newCostToNeighbour;
+
+					if (!openSet.Contains(neighbour))
+						openSet.Add(neighbour);
+				}
+			}
+			if(node.gCost> furthest.gCost)
+            {
+				furthest = node;
+			}
+		}
+		Debug.Log("Furthest Point has gCost "+ furthest.x+" "+ furthest.y+ " => "+ furthest.gCost);
+		return new Vector2(furthest.x, furthest.y);
+	}
+
 	void FindPath(Vector3 startPos, Vector3 targetPos)
 	{
 		a = grid[(int)startPos.x, (int)startPos.y];
 		b = grid[(int)targetPos.x, (int)targetPos.y];
-		Debug.Log("a : " + a.x + " - " + a.y + " => " + a.gCost);
+		//Debug.Log("a : " + a.x + " - " + a.y + " => " + a.gCost);
 		List<Node> openSet = new List<Node>();
 		HashSet<Node> closedSet = new HashSet<Node>();
 		openSet.Add(a);
@@ -43,13 +95,12 @@ public class PathFinding : MonoBehaviour
 			if (node == b)
 			{
 				RetracePath(a, b);
-				
 				return;
 			}
-			Debug.Log("node : " + node.x + " - " + node.y + " => " + node.gCost);
+			//Debug.Log("node : " + node.x + " - " + node.y + " => " + node.gCost);
 			foreach (Node neighbour in GetNeighbours(node))
 			{
-				Debug.Log("neighbour : "+ neighbour.x+" - "+ neighbour.y+" => "+ neighbour.gCost);
+				//Debug.Log("neighbour : "+ neighbour.x+" - "+ neighbour.y+" => "+ neighbour.gCost);
 				if (!neighbour.walkable || closedSet.Contains(neighbour))
 				{
 					continue;
@@ -58,7 +109,7 @@ public class PathFinding : MonoBehaviour
 				int newCostToNeighbour = node.gCost + GetDistance(node, neighbour);
 				if (newCostToNeighbour < neighbour.gCost || !openSet.Contains(neighbour))
 				{
-					Debug.Log("note updated");
+					//Debug.Log("note updated");
 					neighbour.gCost = newCostToNeighbour;
 					neighbour.hCost = GetDistance(neighbour, b);
 					neighbour.parent = node;
@@ -112,7 +163,7 @@ public class PathFinding : MonoBehaviour
 		return neighbours;
 	}
 
-	void CreateGrid(MapItem[,] mapItemsList)
+	public void CreateGrid(MapItem[,] mapItemsList)
 	{
 		grid = new Node[13, 11];
 		for (int i = 0; i < 13; i++)

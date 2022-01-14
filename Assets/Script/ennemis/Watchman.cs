@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class Watchman : Ennemis
 {
-    public GameObject waypoint;
-
     //dernière position avant chase
     Vector2 save;
     int vision = 3;
     bool chase = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.scoreValue = 10; 
-        gameMaster = GameObject.Find("GameMaster");
-        //save = Instantiate(waypoint, new Vector3(this.transform.position.x, this.transform.position.y, 0), Quaternion.identity);
-    }
+    
 
     // Update is called once per frame
     void Update()
