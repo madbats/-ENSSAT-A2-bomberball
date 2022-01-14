@@ -29,9 +29,9 @@ public class Level : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject qqc;
+        /*GameObject qqc;
         qqc = Instantiate(grid, new Vector3(0, 0, 0), Quaternion.identity);
-        qqc.transform.SetParent(GameObject.Find("Fond").transform, false);
+        qqc.transform.SetParent(GameObject.Find("Fond").transform, false);*/
     }
 
     // Update is called once per frame

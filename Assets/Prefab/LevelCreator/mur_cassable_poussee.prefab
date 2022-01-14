@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &407571731304024314
+--- !u!1001 &5946962771160293578
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2409516930128056175, guid: 8c53b99dc9f7695408ac9e733fc11d96, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2164215384588027602, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
+      objectReference: {fileID: -3195963932987387645, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
     - target: {fileID: 5588661232309605894, guid: 8c53b99dc9f7695408ac9e733fc11d96, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -97,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8348806057773515160, guid: 8c53b99dc9f7695408ac9e733fc11d96, type: 3}
       propertyPath: m_Name
-      value: zombie
+      value: mur_cassable_poussee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c53b99dc9f7695408ac9e733fc11d96, type: 3}

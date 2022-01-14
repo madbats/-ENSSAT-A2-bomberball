@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Transform parentToReturnTo = null;
-    //public Transform playerArea;
+    public Transform trash;
     //public Transform operationBase;
 
 
@@ -60,23 +60,10 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         //Debug.Log("OnEndDrag");
 
+        
+        //GetComponent<CanvasGroup>().blocksRaycasts = true;
         this.transform.SetParent(parentToReturnTo);
-
-        /*if (parentToReturnTo == playerArea)
-        {
-            Debug.Log("Retour en main");
-            this.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
-            GetComponent<CanvasGroup>().blocksRaycasts = true;
-        }
-        else if (parentToReturnTo == operationBase)
-        {
-            Debug.Log("ajout en base d'op");
-        }
-        else
-        {*/
-            Debug.Log("ajout sur le champs de bataille");
-        //}
+        this.transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
         Destroy(placeholder);
-
     }
 }
