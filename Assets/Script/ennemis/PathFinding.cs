@@ -9,8 +9,7 @@ public class PathFinding : MonoBehaviour
 	public Vector2 currentTarget;
 	//private int[,] map;
 	private Node[,] grid;
-	System.Random random = new System.Random(100);
-
+	
 	public void SeekPath()
 	{
 		FindPath(transform.position, currentTarget);
@@ -71,7 +70,7 @@ public class PathFinding : MonoBehaviour
 				}
 			}
 		}
-		furthest = furthestGroup[random.Next(0, furthestGroup.Count)];
+		furthest = furthestGroup[GameObject.Find("GameMaster").GetComponent<MapGenerator>().random.Next(0, furthestGroup.Count)];
 		
 		//Debug.Log("Furthest Point has gCost "+ furthest.x+" "+ furthest.y+ " => "+ furthest.gCost);
 		return new Vector2(furthest.x, furthest.y);

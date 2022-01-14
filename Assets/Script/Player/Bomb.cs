@@ -220,7 +220,6 @@ public class Bomb : MonoBehaviour
         }
 
         GameObject.Find("Player").GetComponent<PlayerMovement>().BombSet=false;
-        GameObject.Find("GameMaster").GetComponent<AstarPath>().Scan();
         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y] = null;
 
         Destroy(this.gameObject);

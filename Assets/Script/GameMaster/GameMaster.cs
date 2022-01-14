@@ -34,9 +34,19 @@ public class GameMaster : MonoBehaviour
         NewGame();
     }
 
-    public void NewGame()
+    public void Next()
     {
         number++;
+        NewGame();
+    }
+
+    public void Again()
+    {
+        NewGame();
+    }
+
+    void NewGame()
+    {
         endOfGame = false;
         mapObject = Instantiate(map, gameObject.transform.position, Quaternion.identity);
         mapObject.name = "Map";
@@ -46,7 +56,7 @@ public class GameMaster : MonoBehaviour
         playerObject.transform.SetParent(transform.parent, false);
 
         mapObject.GetComponent<Map>().Build(this.GetComponent<MapGenerator>().FetchMap(seed, number),this.GetComponent<MapGenerator>().PlaceEnnemie());
-        this.GetComponent<AstarPath>().Scan();
+        //this.GetComponent<AstarPath>().Scan();
         this.gameObject.GetComponent<ScoreManager>().Reset();
         this.gameObject.GetComponent<LifeManager>().player = playerObject;
         this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
@@ -63,7 +73,7 @@ public class GameMaster : MonoBehaviour
         gameWonObject.transform.SetParent(transform.parent, false);
         gameWonObject.name = "GameMenu";
         this.gameObject.GetComponent<ScoreManager>().Win();
-        GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(NewGame);
+        GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Next);
     }
 
     public void GameOver()
@@ -75,7 +85,7 @@ public class GameMaster : MonoBehaviour
         GameObject gameOverObject = Instantiate(gameOver, gameObject.transform.position, Quaternion.identity);
         gameOverObject.transform.SetParent(transform.parent, false);
         gameOverObject.name = "GameMenu";
-        GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(NewGame);
+        GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Again);
     }
 
     // Update is called once per frame
