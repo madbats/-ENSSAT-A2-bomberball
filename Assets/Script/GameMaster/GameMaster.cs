@@ -95,23 +95,5 @@ public class GameMaster : MonoBehaviour
         puissanceText.text = "" + puissanceTime;
         pousseeText.text = "" + pousseeTime;
         godModeText.text = "" + godModeTime;
-        /*if (!endOfGame)
-        {
-            for (int i = 0; i < 13; i++)
-            {
-                for (int j = 0; j < 11; j++)
-                {
-                    if (mapObject.GetComponent<Map>().mapEnnemisList[i, j] != null && !(mapObject.GetComponent<Map>().mapEnnemisList[i, j].GetComponent<Bomb>()))
-                    {
-                        //Debug.Log("ennemis sur case " + i + " , " + j);
-                        if (Vector2.Distance(playerObject.transform.position, mapObject.GetComponent<Map>().mapEnnemisList[i, j].transform.position) < 0.3f)
-                        {
-                            this.GetComponent<LifeManager>().Death();
-                            this.GetComponent<ScoreManager>().scoreNiveau += 20;
-                        }
-                    }
-                }
-            }
-        }*/
     }
 }

@@ -56,10 +56,12 @@ public abstract class Ennemis : MonoBehaviour
     void Move()
     {
         GetComponent<PathFinding>().SeekPath();
-        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)transform.position.x, (int)transform.position.y] = null;
-        transform.position = new Vector2(path[0].x, path[0].y);
-        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[path[0].x, path[0].y] = gameObject;
-        path.Remove(path[0]);
+        if (path.Count>0) {
+            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)transform.position.x, (int)transform.position.y] = null;
+            transform.position = new Vector2(path[0].x, path[0].y);
+            GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[path[0].x, path[0].y] = gameObject;
+            path.Remove(path[0]); 
+        }
     }
 
     abstract protected void CheckTarget();

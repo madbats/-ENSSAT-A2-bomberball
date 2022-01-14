@@ -103,6 +103,8 @@ MonoBehaviour:
   isConsumable: 0
   sol: {fileID: 1591775013636994503, guid: feac78b9501920749991007b6307e238, type: 3}
   scoreValue: 2
+  duration: 10
+  puissance: 0
 --- !u!114 &4309835693569097045
 MonoBehaviour:
   m_ObjectHideFlags: 0

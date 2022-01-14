@@ -12,11 +12,11 @@ public class BonusVitesse : Bonus
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = onceConsumed;
             consumed = true;
-            duration = 5.0f;
+            //duration = 5.0f;
             power += 1;
 
             startTime = Time.time;
-            Debug.Log("Début Bonus Vitesse");
+            Debug.Log("Début Bonus Vitesse pour ");
             GameObject.Find("Player").GetComponent<PlayerMovement>().movingSpeed /= 1.5f;
 
             GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
