@@ -9,9 +9,10 @@ public class Explorer : Ennemis
     {
         if (Vector2.Distance(transform.position, currentTarget) < 1f)
         {
+            GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
             currentTarget = GetComponent<PathFinding>().FindFurthestPoint(vision);
         }
-        //currentTarget = GetComponent<PathFinding>().FindFurthestPoint(vision);
         GetComponent<PathFinding>().SwitchTarget(currentTarget);
+        //GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
     }
 }

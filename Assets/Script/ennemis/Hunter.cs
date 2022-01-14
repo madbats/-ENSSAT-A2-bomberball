@@ -9,6 +9,7 @@ public class Hunter : Ennemis
 
     protected override void CheckTarget()
     {
+        GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
         if (!chase)
         {
             // comportement : poursuit le joueur si dans son champs de vision
@@ -21,7 +22,7 @@ public class Hunter : Ennemis
                 chase = true;
             }
             else if (Vector2.Distance(transform.position, currentTarget) < 1f)
-            { 
+            {
                 currentTarget = GetComponent<PathFinding>().FindFurthestPoint(vision);
             }
         }

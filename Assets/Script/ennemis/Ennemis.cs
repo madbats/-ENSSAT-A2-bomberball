@@ -32,6 +32,7 @@ public abstract class Ennemis : MonoBehaviour
         startTime = (float)Time.time;
         //currentTarget = waypoint1;
         gameMaster = GameObject.Find("GameMaster");
+        GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
     }
 
     void Update()
@@ -59,10 +60,6 @@ public abstract class Ennemis : MonoBehaviour
     void Move()
     {
         GetComponent<PathFinding>().SeekPath();
-        /*foreach (Node n in path)
-        {
-            Debug.Log("" + path[0].x + " ; " + path[0].y);
-        }*/
         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)transform.position.x, (int)transform.position.y] = null;
         transform.position = new Vector2(path[0].x, path[0].y);
         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[path[0].x, path[0].y] = gameObject;

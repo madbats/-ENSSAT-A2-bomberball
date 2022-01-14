@@ -19,7 +19,8 @@ public class Watchman : Ennemis
             {
                 Debug.Log("Starting Chase");
                 save = currentTarget;
-                this.currentTarget = gameMaster.GetComponent<GameMaster>().playerObject.transform.position;
+                this.currentTarget = gameMaster.GetComponent<GameMaster>().playerObject.transform.position; 
+                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
                 chase = true;
             }
             else if (Vector2.Distance(transform.position, currentTarget) < 1f)
@@ -43,12 +44,14 @@ public class Watchman : Ennemis
             {
                 Debug.Log("Lost Target");
                 currentTarget = save;
+                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
                 chase = false;
             }
             else
             {
                 Debug.Log("Continuing Chase");
                 this.currentTarget = gameMaster.GetComponent<GameMaster>().playerObject.transform.position;
+                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
             }
         }
         GetComponent<PathFinding>().SwitchTarget(currentTarget);

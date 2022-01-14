@@ -9,39 +9,39 @@ public class PathFinding : MonoBehaviour
 	public Vector2 currentTarget;
 	//private int[,] map;
 	private Node[,] grid;
-	System.Random random = new System.Random(10);
+	System.Random random = new System.Random(100);
 
 	public void SeekPath()
 	{
-		CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
 		FindPath(transform.position, currentTarget);
 	}
 
 	public Vector2 FindFurthestPoint(int vision)
     {
 		Vector3 startPos = transform.position;
-		CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+		//CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
 		a = grid[(int)startPos.x, (int)startPos.y];
 		furthest = a;
 		furthestGroup = new List<Node>();
 		furthestGroup.Add(a);
-		Debug.Log("a : " + a.x + " - " + a.y + " => " + a.gCost);
+		//Debug.Log("a : " + a.x + " - " + a.y + " => " + a.gCost);
 		List<Node> openSet = new List<Node>();
 		HashSet<Node> closedSet = new HashSet<Node>();
 		openSet.Add(a);
 		while (openSet.Count > 0)
 		{
+			// node le plus loin
 			Node node = openSet[0];
 			for (int i = 1; i<openSet.Count; i++)
 			{
-				if (openSet[i].fCost > node.fCost || openSet[i].fCost == node.fCost)
-					if (openSet[i].gCost > node.gCost)
-						node = openSet[i];
+				if (openSet[i].gCost > node.gCost)
+					node = openSet[i];
 			}
 
 			openSet.Remove(node);
 			closedSet.Add(node);
 
+			// update distance des voisins
 			//Debug.Log("node : " + node.x + " - " + node.y + " => " + node.gCost);
 			foreach (Node neighbour in GetNeighbours(node))
 			{
@@ -51,15 +51,13 @@ public class PathFinding : MonoBehaviour
 					continue;
 				}
 
-				int newCostToNeighbour = node.gCost + GetDistance(node, neighbour);
-				if (newCostToNeighbour > neighbour.gCost || !openSet.Contains(neighbour))
-				{
-					//Debug.Log("note updated");
-					neighbour.gCost = newCostToNeighbour;
+				int newCostToNeighbour = node.gCost + 10;//GetDistance(node, neighbour);
+				//Debug.Log("note updated");
+				neighbour.gCost = newCostToNeighbour;
 
-					if (!openSet.Contains(neighbour))
-						openSet.Add(neighbour);
-				}
+				if (!openSet.Contains(neighbour))
+					openSet.Add(neighbour);
+				
 			}
 			if(node.gCost <= vision * 10) {
 				if (node.gCost > furthest.gCost)
@@ -72,10 +70,10 @@ public class PathFinding : MonoBehaviour
 					furthestGroup.Add(node);
 				}
 			}
-			
 		}
 		furthest = furthestGroup[random.Next(0, furthestGroup.Count)];
-		Debug.Log("Furthest Point has gCost "+ furthest.x+" "+ furthest.y+ " => "+ furthest.gCost);
+		
+		//Debug.Log("Furthest Point has gCost "+ furthest.x+" "+ furthest.y+ " => "+ furthest.gCost);
 		return new Vector2(furthest.x, furthest.y);
 	}
 
@@ -130,7 +128,7 @@ public class PathFinding : MonoBehaviour
 				}
 			}
 		}
-		Debug.Log("Path not found");
+		//Debug.Log("Path not found");
 	}
 
 	void RetracePath(Node a, Node endNode)
@@ -144,7 +142,7 @@ public class PathFinding : MonoBehaviour
 			currentNode = currentNode.parent;
 		}
 		path.Reverse();
-		Debug.Log("Path found");
+		//Debug.Log("Path found");
 		GetComponent<Ennemis>().path = path;
 	}
 
@@ -190,4 +188,5 @@ public class PathFinding : MonoBehaviour
     {
 		currentTarget = newTarget;
 	}
+
 }
