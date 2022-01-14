@@ -133,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             newBomb.transform.SetParent(this.transform.parent, false);
 
             GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y] = newBomb;
-            Debug.Log(GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y]);
+            
         }
 
         if (GameObject.Find("Player").GetComponent<PlayerBonus>().poussee)
@@ -195,7 +195,6 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayer(float _horizontalMovement, float _verticalMovement)
     {
         transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
-        Debug.Log("position actuel :" + _horizontalMovement + ", " + _verticalMovement);
     }
 
     void MoveBomb(float _horizontalMovement, float _verticalMovement)

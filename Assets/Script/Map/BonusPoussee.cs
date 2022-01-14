@@ -11,7 +11,7 @@ public class BonusPoussee : Bonus
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = onceConsumed;
             consumed = true;
-            duration = 30.0f;
+            //duration = 30.0f;
             power += 1;
 
             startTime = Time.time;

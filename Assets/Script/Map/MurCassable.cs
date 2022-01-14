@@ -6,6 +6,8 @@ public class MurCassable : Mur
 {
     public GameObject sol;
     public int scoreValue;
+    public double duration;
+    public int puissance;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,15 @@ public class MurCassable : Mur
         qqc.transform.SetParent(transform.parent,false);
         qqc.transform.parent.GetComponent<Map>().mapItemsList[(int)transform.position.x, (int)transform.position.y] = qqc.GetComponent<MapItem>();
         GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau+= scoreValue;
+        if (qqc.GetComponent<Bonus>())
+        {
+            qqc.GetComponent<Bonus>().duration = (float)duration;
+
+            if (qqc.GetComponent<BonusPuissance>())
+            {
+                qqc.GetComponent<BonusPuissance>().puissance = puissance;
+            }
+        }
         Destroy(this.gameObject);
     }
 }

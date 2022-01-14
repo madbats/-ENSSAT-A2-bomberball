@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BonusPuissance : Bonus
 {
+    public int puissance;
+
     override
     public bool OnConsumption() //Gestion de la consommation de l'item
     {
@@ -11,14 +13,14 @@ public class BonusPuissance : Bonus
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = onceConsumed;
             consumed = true;
-            duration = 30.0f;
+            //duration = 30.0f;
             power += 1;
 
             startTime = Time.time;
             Debug.Log("Début Bonus Puissance");
 
             //Effet du bonus 
-            GameObject.Find("Player").GetComponent<PlayerBonus>().puissance+=1;
+            GameObject.Find("Player").GetComponent<PlayerBonus>().puissance+= puissance;
 
 
             GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
@@ -36,7 +38,7 @@ public class BonusPuissance : Bonus
             power -= 1;
 
             //fin de l'effet bonus
-            GameObject.Find("Player").GetComponent<PlayerBonus>().puissance -= 1;
+            GameObject.Find("Player").GetComponent<PlayerBonus>().puissance -= puissance;
 
 
             end = true;
