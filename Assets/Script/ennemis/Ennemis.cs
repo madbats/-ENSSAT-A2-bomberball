@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class Ennemis : MonoBehaviour
+public abstract class Ennemis : MonoBehaviour
 {
     public List<Node> path;
     public int scoreValue;
@@ -34,11 +34,42 @@ public class Ennemis : MonoBehaviour
         gameMaster = GameObject.Find("GameMaster");
     }
 
+    void Update()
+    {
+        if (speed < (float)Time.time - (float)startTime)
+        {
+            startTime = Time.time;
+            //Debug.Log("SeekingPath");
+            CheckTarget();
+            Move();
+        }
+        if (Vector2.Distance(this.transform.position, gameMaster.GetComponent<GameMaster>().playerObject.transform.position) < 1f)
+        {
+            gameMaster.GetComponent<LifeManager>().Death();
+        }
+    }
+
+
     public void Kill()
     {
         GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
         Destroy(gameObject);
     }
+
+    void Move()
+    {
+        GetComponent<PathFinding>().SeekPath();
+        /*foreach (Node n in path)
+        {
+            Debug.Log("" + path[0].x + " ; " + path[0].y);
+        }*/
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)transform.position.x, (int)transform.position.y] = null;
+        transform.position = new Vector2(path[0].x, path[0].y);
+        GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[path[0].x, path[0].y] = gameObject;
+        path.Remove(path[0]);
+    }
+
+    abstract protected void CheckTarget();
 
     
 }

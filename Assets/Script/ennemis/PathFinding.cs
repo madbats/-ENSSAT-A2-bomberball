@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PathFinding : MonoBehaviour
 {
-	private Node a,b, furthest;
+	private Node a, b, furthest;
+	List<Node> furthestGroup;
 	public Vector2 currentTarget;
 	//private int[,] map;
 	private Node[,] grid;
+	System.Random random = new System.Random(10);
 
 	public void SeekPath()
 	{
@@ -15,12 +17,14 @@ public class PathFinding : MonoBehaviour
 		FindPath(transform.position, currentTarget);
 	}
 
-	public Vector2 FindFurthestPoint()
+	public Vector2 FindFurthestPoint(int vision)
     {
 		Vector3 startPos = transform.position;
 		CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
 		a = grid[(int)startPos.x, (int)startPos.y];
 		furthest = a;
+		furthestGroup = new List<Node>();
+		furthestGroup.Add(a);
 		Debug.Log("a : " + a.x + " - " + a.y + " => " + a.gCost);
 		List<Node> openSet = new List<Node>();
 		HashSet<Node> closedSet = new HashSet<Node>();
@@ -28,13 +32,11 @@ public class PathFinding : MonoBehaviour
 		while (openSet.Count > 0)
 		{
 			Node node = openSet[0];
-			for (int i = 1; i < openSet.Count; i++)
+			for (int i = 1; i<openSet.Count; i++)
 			{
 				if (openSet[i].fCost > node.fCost || openSet[i].fCost == node.fCost)
-				{
 					if (openSet[i].gCost > node.gCost)
 						node = openSet[i];
-				}
 			}
 
 			openSet.Remove(node);
@@ -59,11 +61,20 @@ public class PathFinding : MonoBehaviour
 						openSet.Add(neighbour);
 				}
 			}
-			if(node.gCost> furthest.gCost)
-            {
-				furthest = node;
+			if(node.gCost <= vision * 10) {
+				if (node.gCost > furthest.gCost)
+				{
+					furthest = node;
+					furthestGroup.Clear();
+					furthestGroup.Add(node);
+				}
+				else if (node.gCost == furthest.gCost) {
+					furthestGroup.Add(node);
+				}
 			}
+			
 		}
+		furthest = furthestGroup[random.Next(0, furthestGroup.Count)];
 		Debug.Log("Furthest Point has gCost "+ furthest.x+" "+ furthest.y+ " => "+ furthest.gCost);
 		return new Vector2(furthest.x, furthest.y);
 	}
