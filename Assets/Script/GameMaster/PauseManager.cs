@@ -63,8 +63,7 @@ public class PauseManager : MonoBehaviour
     public void LoadMainMenu()
     {
         //On reprend le jeu avant d'aller au menu principal 
-        /*Resume();
-        DataManager.instance.SaveOnExit();*/
+        this.gameObject.GetComponent<DataManager>().Save();
 
         //On charge le menu principal
         SceneManager.LoadScene(s);

@@ -43,6 +43,18 @@ public class GameMaster : MonoBehaviour
 
     public void NewGame()
     {
+        //Récupération des données sauvegardées dans PlayerPrefs
+        int[] tab = new int[4];
+        tab = this.gameObject.GetComponent<DataManager>().Load();
+        int vie = tab[0];
+        if(vie<=0)
+        {
+            vie = maxLives;
+        }
+        int Score = tab[1];
+        int Seed = tab[2];
+        int CampaignLevel = tab[3];
+
         endOfGame = false;
         mapObject = Instantiate(map, gameObject.transform.position, Quaternion.identity);
         mapObject.name = "Map";
@@ -50,11 +62,24 @@ public class GameMaster : MonoBehaviour
         playerObject = Instantiate(player, gameObject.transform.position, Quaternion.identity);
         playerObject.name = "Player";
         playerObject.transform.SetParent(transform.parent, false);
+        
+        //Initialisation de la map
         mapObject.GetComponent<Map>().Build();
+        mapObject.GetComponent<Map>().seed = Seed;
+        mapObject.GetComponent<Map>().number = CampaignLevel;
+
         this.GetComponent<AstarPath>().Scan();
-        this.gameObject.GetComponent<ScoreManager>().Reset();
+
+        //Initialisation du score
+        this.gameObject.GetComponent<ScoreManager>().Reset();//Remise à 0 du score de la partie
+        this.gameObject.GetComponent<ScoreManager>().scorePartie = Score;//Chargement du score global enregistré
+
         this.gameObject.GetComponent<LifeManager>().player = playerObject;
-        this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
+
+        //this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
+        //ALTERNATIVE
+        this.gameObject.GetComponent<LifeManager>().Reset(vie);
+
         this.gameObject.GetComponent<PauseManager>().Resume();
         Destroy(GameObject.Find("GameMenu"));
         
@@ -70,6 +95,10 @@ public class GameMaster : MonoBehaviour
         gameWonObject.transform.SetParent(transform.parent, false);
         gameWonObject.name = "GameMenu";
         this.gameObject.GetComponent<ScoreManager>().Win();
+
+        //Sauvegarde des données de la partie (après l'appel à Win() pour prendre en compte le nouvel ajout au score)
+        this.gameObject.GetComponent<DataManager>().Save();
+
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(NewGame);
     }
 
