@@ -76,6 +76,57 @@ public class PathFinding : MonoBehaviour
 		return new Vector2(furthest.x, furthest.y);
 	}
 
+	public bool FindPlayer(int vision,Vector2 playerPosition)
+	{
+		Vector3 startPos = transform.position;
+		//CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+		a = grid[(int)startPos.x, (int)startPos.y];
+		
+		//Debug.Log("a : " + a.x + " - " + a.y + " => " + a.gCost);
+		List<Node> openSet = new List<Node>();
+		HashSet<Node> closedSet = new HashSet<Node>();
+		openSet.Add(a);
+		while (openSet.Count > 0)
+		{
+			// node le plus loin
+			Node node = openSet[0];
+			for (int i = 1; i < openSet.Count; i++)
+			{
+				if (openSet[i].gCost > node.gCost)
+					node = openSet[i];
+			}
+
+			openSet.Remove(node);
+			closedSet.Add(node);
+
+			// update distance des voisins
+			//Debug.Log("node : " + node.x + " - " + node.y + " => " + node.gCost);
+			foreach (Node neighbour in GetNeighbours(node))
+			{
+				//Debug.Log("neighbour : " + neighbour.x + " - " + neighbour.y + " => " + neighbour.gCost);
+				if (!neighbour.walkable || closedSet.Contains(neighbour))
+				{
+					continue;
+				}
+
+				int newCostToNeighbour = node.gCost + 10;//GetDistance(node, neighbour);
+														 //Debug.Log("note updated");
+				neighbour.gCost = newCostToNeighbour;
+
+				if (!openSet.Contains(neighbour))
+					openSet.Add(neighbour);
+
+			}
+			if (node.gCost <= vision * 10)
+			{
+				if(Vector2.Distance(playerPosition,new Vector2(node.x, node.y))<1f){
+					return true;
+                }
+			}
+		}
+		return false;
+	}
+
 	void FindPath(Vector3 startPos, Vector3 targetPos)
 	{
 		a = grid[(int)startPos.x, (int)startPos.y];
@@ -127,7 +178,7 @@ public class PathFinding : MonoBehaviour
 				}
 			}
 		}
-		//Debug.Log("Path not found");
+		Debug.Log("Path not found");
 	}
 
 	void RetracePath(Node a, Node endNode)

@@ -32,7 +32,7 @@ public class MapGenerator : MonoBehaviour
 	{
 		random = new System.Random(seed * number);
 		difficulty = number * 5;
-		difficulty += (number % 5 == 0) ? 40 : 10;
+		difficulty += (number % 5 == 0 && number!=1) ? 40 : 10;
 		difficulty = Mathf.Min(400, difficulty);
 		Debug.Log("Difficulty " + difficulty);
 		List<Vector2> sortiePossible = new List<Vector2>();

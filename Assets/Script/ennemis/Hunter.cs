@@ -14,7 +14,7 @@ public class Hunter : Ennemis
         {
             // comportement : poursuit le joueur si dans son champs de vision
             //Debug.Log("Not Chassing");
-            if (Vector2.Distance(this.transform.position, gameMaster.GetComponent<GameMaster>().playerObject.transform.position) < vision)
+            if (GetComponent<PathFinding>().FindPlayer(vision, gameMaster.GetComponent<GameMaster>().playerObject.transform.position))
             {
                 //Debug.Log("Starting Chase");
                 //save = currentTarget;
@@ -30,7 +30,7 @@ public class Hunter : Ennemis
         {
             // comportement : abandon de poursuite
             //Debug.Log("Chassing");
-            if (Vector2.Distance(transform.position, currentTarget) > vision)
+            if (GetComponent<PathFinding>().FindPlayer(vision, gameMaster.GetComponent<GameMaster>().playerObject.transform.position))
             {
                 //Debug.Log("Lost Target");
                 currentTarget = GetComponent<PathFinding>().FindFurthestPoint(vision);

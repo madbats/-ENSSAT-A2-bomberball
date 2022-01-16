@@ -15,7 +15,8 @@ public class Watchman : Ennemis
         if (!chase)
         {
             //Debug.Log("Not Chassing");
-            if (Vector2.Distance(this.transform.position, gameMaster.GetComponent<GameMaster>().playerObject.transform.position) < vision)
+            GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+            if (GetComponent<PathFinding>().FindPlayer(vision,gameMaster.GetComponent<GameMaster>().playerObject.transform.position))
             {
                 //Debug.Log("Starting Chase");
                 save = currentTarget;
@@ -40,7 +41,8 @@ public class Watchman : Ennemis
         {
             // comportement : abandon de poursuite
             //Debug.Log("Chassing");
-            if (Vector2.Distance(transform.position, currentTarget) > vision)
+            GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+            if (!GetComponent<PathFinding>().FindPlayer(vision, gameMaster.GetComponent<GameMaster>().playerObject.transform.position))
             {
                 //Debug.Log("Lost Target");
                 currentTarget = save;
