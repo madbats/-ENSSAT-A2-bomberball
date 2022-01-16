@@ -55,7 +55,9 @@ public class GameMaster : MonoBehaviour
         this.gameObject.GetComponent<ScoreManager>().Reset();
         this.gameObject.GetComponent<LifeManager>().player = playerObject;
         this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
+        this.gameObject.GetComponent<PauseManager>().Resume();
         Destroy(GameObject.Find("GameMenu"));
+        
     }
 
     public void Win()

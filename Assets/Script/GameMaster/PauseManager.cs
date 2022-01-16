@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class PauseManager : MonoBehaviour
 {
     //Variables
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
+    public string s;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +36,12 @@ public class PauseManager : MonoBehaviour
     //Cette méthode gèle le jeu et affiche le menu pause quand on appuie sur la touche echap
     void Paused()
     {
-        //Afficher le menu Pause
-        pauseMenuUI.SetActive(true);
-
         //Arrêter le temps du jeu
         Time.timeScale = 0;
 
+        //Afficher le menu Pause
+        pauseMenuUI.SetActive(true);
+           
         //Changer le statut du jeu
         gameIsPaused = true;
     }
@@ -49,21 +52,22 @@ public class PauseManager : MonoBehaviour
         //Désactiver le menu Pause
         pauseMenuUI.SetActive(false);
 
-        //Relancer le temps du jeu
-        Time.timeScale = 1;
-
         //Changer le statut du jeu
         gameIsPaused = false;
+
+        //Relancer le temps du jeu
+        Time.timeScale = 1;
     }
 
     //Cette méthode permet d'aller au menu principal quand on clique sur le bouton Exit du menu de pause
     public void LoadMainMenu()
     {
-        /*
         //On reprend le jeu avant d'aller au menu principal 
-        Resume();
-        DataManager.instance.Save();
-         */
+        /*Resume();
+        DataManager.instance.SaveOnExit();*/
+
+        //On charge le menu principal
+        SceneManager.LoadScene(s);
     }
 }
 
