@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
-public class Explorer : Ennemis
+public class Explorer : MonoBehaviour
 {
     int vision = 3;
     protected override void CheckTarget()
