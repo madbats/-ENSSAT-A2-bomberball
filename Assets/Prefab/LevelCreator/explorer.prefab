@@ -7,10 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 97449144263885454, guid: 48dc80560887d4944b8e3d43fa8094d7, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2654782598647941013, guid: 48dc80560887d4944b8e3d43fa8094d7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4124543861156519444, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
+      objectReference: {fileID: 4606380620469610249, guid: 84dbdca329c69044a866bc8acb0faebb, type: 3}
     - target: {fileID: 5199710967643086588, guid: 48dc80560887d4944b8e3d43fa8094d7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -95,6 +99,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5232344072331409689, guid: 48dc80560887d4944b8e3d43fa8094d7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4124543861156519444, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
     - target: {fileID: 8537442483727386978, guid: 48dc80560887d4944b8e3d43fa8094d7, type: 3}
       propertyPath: m_Name
       value: explorer
