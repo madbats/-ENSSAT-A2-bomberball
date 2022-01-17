@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public Transform placeholderParent = null;
     public Transform parentToReturnTo = null;
     public Transform trash;
     //public Transform operationBase;
@@ -27,6 +28,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         placeholder.transform.SetSiblingIndex(this.transform.GetSiblingIndex());
 
         parentToReturnTo = this.transform.parent;
+        placeholderParent = parentToReturnTo;
         this.transform.SetParent(this.transform.parent.parent);
 
         GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -34,15 +36,20 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
+        //Debug.Log("OnDrag");
 
         this.transform.position = eventData.position;
 
-        int newSiblingIndex = parentToReturnTo.childCount;
-
-        for (int i = 0; i < parentToReturnTo.childCount; i++)
+        if(placeholder.transform.parent != placeholderParent)
         {
-            if (this.transform.position.x < parentToReturnTo.GetChild(i).position.x)
+            placeholder.transform.SetParent(placeholderParent);
+        }
+
+        int newSiblingIndex = placeholderParent.childCount;
+
+        for (int i = 0; i < placeholderParent.childCount; i++)
+        {
+            if (this.transform.position.x < placeholderParent.GetChild(i).position.x)
             {
                 newSiblingIndex = i;
 
