@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class Zombie : Ennemis
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override  void CheckTarget()
     {
-        this.scoreValue = 5;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (Vector2.Distance(transform.position, currentTarget) < 1f)
+        {
+            if (currentTarget == waypoint1)
+            {
+                currentTarget = waypoint2;
+            }
+            else
+            {
+                currentTarget = waypoint1;
+            }
+        }
+        GetComponent<PathFinding>().SwitchTarget(currentTarget);
     }
 }

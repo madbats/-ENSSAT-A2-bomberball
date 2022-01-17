@@ -97,9 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab7f4e0e56fdaa4ca3261e6d8c92cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingSpeed: 0.25
+  smoothTime: 0
   BombSet: 0
-  poussee: 1
-  rb: {fileID: 2140758685885247376}
+  rb: {fileID: 0}
   bomb: {fileID: 3154362926530152246, guid: 1b6e1f9108b882c42a998e5f0b1dd2c9, type: 3}
 --- !u!114 &-3559960850090362561
 MonoBehaviour:
@@ -115,8 +116,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puissance: 1
   poussee: 0
-  bonusList: []
-  nbBonus: 0
+  vitesseTime: 0
+  puissanceTime: 0
+  pousseeTime: 0
+  godModeTime: 0
 --- !u!1 &2140758686067485222
 GameObject:
   m_ObjectHideFlags: 0

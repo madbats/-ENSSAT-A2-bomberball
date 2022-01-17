@@ -2,24 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Map : MonoBehaviour { 
+public class Map : MonoBehaviour {
+
     public int[,] symboleMap = new int[13, 11]; // liste stylis�s des objets de la carte
     public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.
     //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte.
-    public GameObject[,] mapEnnemisList  = {
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null }};
+    public GameObject[,] mapEnnemisList;
     public int seed; //seed de la g�n�ration
     public int difficulty; //difficult� du niveau
     public int number; //Niveau de la campagne
@@ -71,131 +59,106 @@ public class Map : MonoBehaviour {
             { null,null,null,null,null,null,null,null,null,null,null,null,null },
             { null, null, null, null, null, null, null, null, null, null, null, null, null }};
 
-    // Start is called before the first frame update
-    void Start()    
+    
+    public void Build(int[,] map,GameObject[,] ennemis)
     {
-        
-    }
-
-    private void Update()
-    {
-        int x;
-        int y;
+        GameObject newObject;
+        GameObject qqc;
+        int item;
         for (int i = 0; i < 13; i++)
         {
             for (int j = 0; j < 11; j++)
             {
-                if (mapEnnemisList[i, j] != null)
-                {
-                    x = (int)mapEnnemisList[i, j].transform.position.x;
-                    if (mapEnnemisList[i, j].transform.position.x > x + .5f)
-                    {
-                        x++;
-                    }
-                    y = (int)mapEnnemisList[i, j].transform.position.y;
-                    if (mapEnnemisList[i, j].transform.position.y > y + .5f)
-                    {
-                        y++;
-                    }
-                    //on vérifie que l'ennemis enregistré est toujours là
-                    if (x != i || y != j)
-                    { //il y est plus
-                        mapEnnemisList[i, j] = null;
-                    }
+                item = map[i, j];
+                if (item == 0) {
+                    newObject = sol;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
                 }
-            }
-        }
-    }
-
-    public void Build()
-    {
-        GameObject newObject;
-        GameObject qqc;
-        for (int i = 0; i < 11; i++)
-        {
-            for (int j = 0; j < 13; j++)
-            {
-                switch (testMap[10 - i, j])
-                {
-                    case 0:
-                        newObject = sol;
-                        break;
-                    case 1:
-                        newObject = objet_puissance;
-                        break;
-                    case 2:
-                        newObject = objet_deplacement;
-                        break;
-                    case 3:
-                        newObject = objet_poussee;
-                        break;
-                    case 4:
-                        newObject = objet_godmode;
-                        break;
-                    case 10:
-                        newObject = mur_cassable;
-                        break;
-                    case 11:
-                        newObject = mur_cassable_puissance;
-                        break;
-                    case 12:
-                        newObject = mur_cassable_deplacement;
-                        break;
-                    case 13:
-                        newObject = mur_cassable_poussee;
-                        break;
-                    case 14:
-                        newObject = mur_cassable_godmode;
-                        break;
-                    case 20:
-                        newObject = mur_incassable;
-                        break;
-                    case 21:
-                        newObject = entree;
-                        break;
-                    case 22:
-                        newObject = sortie;
-                        break;
-                    default:
-                        newObject = mur_cassable;
-                        break;
+                else if (item == 1) {
+                    newObject = objet_puissance;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
                 }
-                qqc = Instantiate(newObject, new Vector3(j, i), Quaternion.identity);
+                else if (item == 2)
+                {
+                    newObject = objet_deplacement;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                }
+                else if (item == 3)
+                {
+                    newObject = objet_poussee;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                }
+                else if (item == 4)
+                {
+                    newObject = objet_godmode;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                }
+                else if (item == 10)
+                {
+                    newObject = mur_cassable;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                }
+                else if (item == 11 || item == 111 || item == 112) {
+                    newObject = mur_cassable_puissance;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                    if(item == 111)
+                        qqc.GetComponent<MurCassable>().duration *= 1.5f;
+                    if(item == 112)
+                        qqc.GetComponent<MurPuissance>().puissance+= 1; 
+                }
+                else if (item == 12 || item == 121 || item == 122)
+                {
+                    newObject = mur_cassable_deplacement;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                    if (item == 121)
+                        qqc.GetComponent<MurCassable>().duration *= 2f;
+                    if (item == 122)
+                        qqc.GetComponent<MurCassable>().duration *= 3f;
+                } 
+                else if (item == 13 || item == 131 || item == 132) { 
+                    newObject = mur_cassable_poussee;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                    if (item == 131)
+                        qqc.GetComponent<MurCassable>().duration *= 1.5f;
+                    if (item == 132)
+                        qqc.GetComponent<MurCassable>().duration *= 2f;
+                } 
+                else if (item == 14 || item == 141 || item == 142) { 
+                    newObject = mur_cassable_godmode;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                    if (item == 141)
+                        qqc.GetComponent<MurCassable>().duration *= 2f;
+                    if (item == 142)
+                        qqc.GetComponent<MurCassable>().duration *= 3f;
+                } 
+                else if (item == 20) { 
+                    newObject = mur_incassable;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                } 
+                else if (item == 21) { 
+                    newObject = entree;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                } 
+                else if (item == 22) { 
+                    newObject = sortie;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                } 
+                else 
+                { 
+                    newObject = mur_cassable;
+                    qqc = Instantiate(newObject, new Vector3(i, j), Quaternion.identity);
+                } 
+                
                 qqc.transform.SetParent(transform, false);
-                mapItemsList[j, i] = qqc.GetComponent<MapItem>();
+                mapItemsList[i, j] = qqc.GetComponent<MapItem>();
                 if (newObject == entree)
                 {
                     positionEntree = qqc.transform.position;
                 }
-                mapEnnemisList[j, i] = testMapEnnemis[10 - i, j];
+                
             }
         }
-
-        qqc = Instantiate(explorer,new Vector3(4, 5), Quaternion.identity);
-        qqc.transform.SetParent(transform, false);
-        mapEnnemisList[4, 5] = qqc;
-        qqc.GetComponent<Explorer>().waypoints = new Transform[2];
-
-        GameObject w = Instantiate(waypoint, new Vector3(1, 7, 0), Quaternion.identity);
-        qqc.GetComponent<Explorer>().waypoints[0] = w.transform;
-
-        w = Instantiate(waypoint, new Vector3(5, 4, 0), Quaternion.identity);
-        qqc.GetComponent<Explorer>().waypoints[1] = w.transform;
-
-        qqc.GetComponent<Explorer>().InitPath();
-
-
-        /*qqc = Instantiate(watchman, new Vector3(9, 1), Quaternion.identity);
-        qqc.transform.SetParent(transform, false);
-        mapEnnemisList[9, 1] = qqc;
-        qqc.GetComponent<Watchman>().waypoints = new Transform[2];
-
-        w = Instantiate(waypoint, new Vector3(11, 5, 0), Quaternion.identity);
-        qqc.GetComponent<Watchman>().waypoints[0] = w.transform;
-
-        w = Instantiate(waypoint, new Vector3(9, 1, 0), Quaternion.identity);
-        qqc.GetComponent<Watchman>().waypoints[1] = w.transform;
-
-        qqc.GetComponent<Watchman>().InitPath();*/
+        mapEnnemisList = ennemis;
     }
+
 }

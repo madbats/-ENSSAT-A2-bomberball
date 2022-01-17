@@ -7,12 +7,11 @@ public class BonusGodMod : Bonus
     override
     public bool OnConsumption() //Gestion de la consommation de l'item
     {
-
         if (!consumed)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = onceConsumed;
             consumed = true;
-            duration = 5.0f;
+            // = 5.0f;
             power += 1;
 
             startTime = Time.time;

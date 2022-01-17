@@ -224,7 +224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -499.60004, y: -21.00003}
+  m_AnchoredPosition: {x: -459, y: -41}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &438942213
@@ -535,7 +535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -434, y: 126}
+  m_AnchoredPosition: {x: -393.39993, y: 106.00003}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &971834044
@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 986945136}
   - component: {fileID: 986945135}
   - component: {fileID: 986945138}
-  - component: {fileID: 986945139}
+  - component: {fileID: 986945140}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -659,6 +659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1336e15b14e995c448cf653b785a7dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seed: 55
+  number: 1
+  difficulty: 0
   map: {fileID: 1608115356005918567, guid: 4d60934064e52764985b8a922f08cd07, type: 3}
   player: {fileID: 2140758685885247378, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
   gameOver: {fileID: 3000635358093671747, guid: ec92a0b7a1732054499807fe1754db28, type: 3}
@@ -674,7 +677,7 @@ MonoBehaviour:
   puissanceText: {fileID: 2144022263}
   pousseeText: {fileID: 453053747}
   godModeText: {fileID: 1369278182}
---- !u!114 &986945139
+--- !u!114 &986945140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -683,52 +686,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 986945134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 655450afebbebee438cb910af247f359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
-  data:
-    dataString: UEsDBBQAAAgIAAAIIeyS1tlZfQIAADgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMFy4jAM/RXG54VJgEC6t91A6R7aMmV3esnFxArx4NgZ2ynQDv++spOQLHtCPElP0pOcL8KlqSCzSm80Z8+KAfk+Is4m30a98wnO9KDkjn9CF/POmS1cEPUxb9RyhXjo0owqwWqe/ZAH4YIDBGvJc6XLNTtAoow1COdUGECXVtZlS4S+RuSMP+MHl3JBa7p01idaD8HoimYG0oLuQxeT+XIWRVEbH02CcB5EYZsUTx4WUTxdrMfB0qfXMhO0rIC5WXqWaVcvjHyYxCnbCEeVKSG4aVsk9lJ5CRJamRoHxADGKY7s+womSwQK4IfCOuZh+mueG7CtIppeVlyjdg0v+akaQUtqjk1nH1TUrlLse2oon//zjkPvzrUqn7qqYeAq2IJnxzd6yaixA72H8KpvPPTynKg40r2A9wLki9poVUuGTqtrl1obmK76v7fBkgKyY483rd6BddXrfVvvZBbPw3gx8xtql+YGunohzong5d6LOm+AnVBefH8goHFNv7B7fz6m5UXUtfTHwG96GN5Z63jk2lh0tSNL1+te1dqFkrUX0I1W20RpCR5uJ6hAUmEvW6Sx99u88w3K3nkeqXtRbfHW1z2UuxQP9/FBcOfaqtNtc6ZQp2cwxWttBZfQN+0cL6hToqRsjm2oSZe2q3VOs0Haoebs3zsjEMcsi/ZzSiHM6Swes5wywBcKMAM6hYj4Q+QS56Ri2zTayoNbkz25xKPrPjSjjaaVP3ym6WnDP0s1kJzLXO0yDSBfG4Zb46CxCD5RtmYcBdqBtVz6fZOvlAiVHYGlN6LUT7o+W03TniUlFf9Q1iEpSfyXJSUOvh32VsMHh5Mr3pFdyfUvUEsDBBQAAAgIAAAIIeysMmASbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrRSqoVFSrJpkkliYqphWqKxhW5KWmJKqpG5QWqqcWqiUaqpUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIeyS1tlZfQIAADgFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIeysMmASbQAAAHgAAAAJACQAAAAAAAAAAAAAAMoCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAggMAAAAA
-    upgradeData: 
-    file_cachedStartup: {fileID: 0}
-    data_cachedStartup: 
-    cacheStartup: 0
-  showNavGraphs: 1
-  showUnwalkableNodes: 1
-  debugMode: 0
-  debugFloor: 0
-  debugRoof: 1
-  manualDebugFloorRoof: 0
-  showSearchTree: 0
-  unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
-  maxNearestNodeDistance: 100
-  scanOnStartup: 1
-  fullGetNearestSearch: 0
-  prioritizeGraphs: 0
-  prioritizeGraphsLimit: 1
-  colorSettings:
-    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
-    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
-    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
-    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
-    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
-    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
-    _AreaColors:
-    - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
-  heuristic: 2
-  heuristicScale: 1
-  threadCount: 1
-  maxFrameTime: 1
-  batchGraphUpdates: 0
-  graphUpdateBatchingInterval: 0.2
-  euclideanEmbedding:
-    mode: 0
-    seed: 0
-    pivotPointRoot: {fileID: 0}
-    spreadOutCount: 1
-  showGraphs: 1
+  zombie: {fileID: 1693772215945027921, guid: b0be495718b5bdf469ac3af2cbb1649e, type: 3}
+  explorer: {fileID: 53044816356743872, guid: e2d3ec23c39d9ef46bd837e11821561e, type: 3}
+  watchman: {fileID: 1032924123277843696, guid: 36def8b44d11f3b40be09bd7b43019e7, type: 3}
+  hunter: {fileID: 131549319331210780, guid: 2c27d6e023ba22648877f975bd3555fa, type: 3}
 --- !u!81 &1235427595
 AudioListener:
   m_ObjectHideFlags: 0
@@ -828,7 +792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -434.00003, y: 97.789955}
+  m_AnchoredPosition: {x: -393.39996, y: 77.78999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1287876368
@@ -1068,7 +1032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -499.60004, y: 69.99998}
+  m_AnchoredPosition: {x: -458.99997, y: 50.00001}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &1721262834
@@ -1144,7 +1108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -499.60004, y: 9.699966}
+  m_AnchoredPosition: {x: -458.99997, y: -10.299999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835691826
@@ -1217,7 +1181,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 00000000
@@ -1292,7 +1256,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -499.60004, y: 39.599976}
+  m_AnchoredPosition: {x: -458.99997, y: 19.60001}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2048924571
