@@ -12,6 +12,17 @@ public class LifeManager : MonoBehaviour
     public int vieNiveau;
     public bool hasGodMode;
     public GameObject player;
+    public static LifeManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de LifeManager dans la scène");
+            return;
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -53,7 +64,7 @@ public class LifeManager : MonoBehaviour
     /// <param name="lives"></param>
     public void Reset(int lives)
     {
-        vieNiveau= lives;
+        vieNiveau = lives;
         Respawn();
     }
 }

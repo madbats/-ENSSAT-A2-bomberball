@@ -5,10 +5,11 @@ using UnityEngine.Audio;
 using UnityEngine;
 public class MenuParametre : MonoBehaviour
 {
-    public GameObject p;
+    public GameObject main;
     Resolution[] res;
     public Dropdown resDropDown;
     public AudioMixer audMix;
+
     public void Start(){
         res = Screen.resolutions;
         resDropDown.ClearOptions();
@@ -34,7 +35,8 @@ public class MenuParametre : MonoBehaviour
     }
 
     public void QuitterParametre(){
-        p.SetActive(false);
+        gameObject.SetActive(false);
+        main.SetActive(true);
     }
 
     public void SetVolume(float v){

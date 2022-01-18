@@ -10,8 +10,13 @@ public class PlayerMovement : MonoBehaviour
     public bool BombSet = false;
 
     public GameObject bomb;
-    private float startTime = Time.time;
+    private float startTime;
     private float holdTime;
+
+    public void Start()
+    {
+        startTime = Time.time;
+    }
 
     /// <summary>
     /// Update is called once per frame.

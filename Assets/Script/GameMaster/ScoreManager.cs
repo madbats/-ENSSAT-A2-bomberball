@@ -11,6 +11,16 @@ public class ScoreManager : MonoBehaviour
     public Text scoreDisplay;
     public int scoreNiveau = 0;
     public int scorePartie = 0;
+    public static ScoreManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de ScoreManager dans la scène");
+            return;
+        }
+    }
 
     // Update is called once per frame
     void Update()

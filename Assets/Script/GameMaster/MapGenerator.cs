@@ -32,6 +32,7 @@ public class MapGenerator : MonoBehaviour
 	{
 		this.seed = seed;
 		this.number = number;
+		random = new System.Random(seed * number);
 		return CreateMap();
 	}
 
@@ -42,7 +43,6 @@ public class MapGenerator : MonoBehaviour
 	/// <returns>Matrice 13 11 de la nouvelle carte</returns>
 	private int[,] CreateMap()
 	{
-		random = new System.Random(seed * number);
 		difficulty = number * 5;
 		difficulty += (number % 5 == 0 && number!=1) ? 40 : 10;
 		difficulty = Mathf.Min(400, difficulty);

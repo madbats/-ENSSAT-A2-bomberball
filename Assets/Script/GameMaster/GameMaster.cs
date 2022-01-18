@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// GameMaster est le script de base pour l'entité GameMaster.
-/// Il gère la création des niveaux
+/// GameMaster est le script de base pour l'entitï¿½ GameMaster.
+/// Il gï¿½re la crï¿½ation des niveaux
 /// </summary>
 public class GameMaster : MonoBehaviour
 {
-    public int seed; 
+    public int seed;
     public int number;
 
     public GameObject map;
@@ -31,14 +31,26 @@ public class GameMaster : MonoBehaviour
     public Text pousseeText;
     public Text godModeText;
 
+    public static GameMaster instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de GameMaster dans la scï¿½ne");
+            return;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        Load();
         NewGame();
     }
 
     /// <summary>
-    /// Next génère le prochain niveau du jeu
+    /// Next gï¿½nï¿½re le prochain niveau du jeu
     /// </summary>
     public void Next()
     {
@@ -47,7 +59,7 @@ public class GameMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// Again est appelé pour regénérer le dernier niveau
+    /// Again est appelï¿½ pour regï¿½nï¿½rer le dernier niveau
     /// </summary>
     public void Again()
     {
@@ -55,7 +67,7 @@ public class GameMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// NewGame génère le niveau pour le numéro et seed
+    /// NewGame gï¿½nï¿½re le niveau pour le numï¿½ro et seed
     /// </summary>
     void NewGame()
     {
@@ -66,17 +78,24 @@ public class GameMaster : MonoBehaviour
         playerObject = Instantiate(player, gameObject.transform.position, Quaternion.identity);
         playerObject.name = "Player";
         playerObject.transform.SetParent(transform.parent, false);
-
+        this.
         mapObject.GetComponent<Map>().Build(this.GetComponent<MapGenerator>().FetchMap(seed, number),this.GetComponent<MapGenerator>().PlaceEnnemie());
         //this.GetComponent<AstarPath>().Scan();
         this.gameObject.GetComponent<ScoreManager>().Reset();
+        //this.gameObject.GetComponent<ScoreManager>().scorePartie = Score;//Chargement du score global enregistrï¿½
         this.gameObject.GetComponent<LifeManager>().player = playerObject;
+
+        //this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
+        //ALTERNATIVE
         this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
+
+        this.gameObject.GetComponent<PauseManager>().Resume();
         Destroy(GameObject.Find("GameMenu"));
+        
     }
 
     /// <summary>
-    /// Indique la fin du niveau car le joueur à gagné
+    /// Indique la fin du niveau car le joueur ï¿½ gagnï¿½
     /// </summary>
     public void Win()
     {
@@ -88,11 +107,15 @@ public class GameMaster : MonoBehaviour
         gameWonObject.transform.SetParent(transform.parent, false);
         gameWonObject.name = "GameMenu";
         this.gameObject.GetComponent<ScoreManager>().Win();
+
+        //Sauvegarde des donnï¿½es de la partie (aprï¿½s l'appel ï¿½ Win() pour prendre en compte le nouvel ajout au score)
+        this.gameObject.GetComponent<DataManager>().Save();
+
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Next);
     }
 
     /// <summary>
-    /// Indique la fin du niveau car le joueur à perdu
+    /// Indique la fin du niveau car le joueur ï¿½ perdu
     /// </summary>
     public void GameOver()
     {
@@ -116,5 +139,28 @@ public class GameMaster : MonoBehaviour
         puissanceText.text = "" + puissanceTime;
         pousseeText.text = "" + pousseeTime;
         godModeText.text = "" + godModeTime;
+    }
+
+    //Chargement effectuÃ© lorsqu'on dÃ©cide de continuer une partie (dans le menu principal)
+    public void Load()
+    {
+        //INITIALISATION
+        GetComponent<ScoreManager>().scorePartie = PlayerPrefs.GetInt("Score", 0);
+        seed = PlayerPrefs.GetInt("Seed", -1);
+        if(seed == -1)
+        {
+            seed = (int)Random.Range(-1000f, 1000f);
+        }
+        number = PlayerPrefs.GetInt("CampaignLevel", 1);
+    }
+
+    //Sauvegarde effectuÃ© lorsqu'on quitte une partie depuis le menu Pause
+    public void Save()
+    {
+        Debug.Log("Saving");
+        PlayerPrefs.SetInt("Score", GetComponent<ScoreManager>().scorePartie);
+        PlayerPrefs.SetInt("Seed", seed);
+        PlayerPrefs.SetInt("CampaignLevel", number);
+        PlayerPrefs.Save();
     }
 }
