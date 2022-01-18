@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class Explorer : MonoBehaviour
+public class Explorer : Ennemis
 {
     int vision = 3;
     protected override void CheckTarget()

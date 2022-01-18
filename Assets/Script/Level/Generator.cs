@@ -22,6 +22,7 @@ public class Generator : MonoBehaviour
             qqc = Instantiate(toGenerate, new Vector3(0, 0, 0), Quaternion.identity);
             qqc.transform.position = new Vector3(0, 0, 0);
             qqc.transform.SetParent(this.transform);
+            qqc.name = toGenerate.name;
             qqc.GetComponent<Draggable>().trash = trash;
             qqc.GetComponent<Draggable>().parentToReturnTo = GameObject.Find("Fond").transform;
         }

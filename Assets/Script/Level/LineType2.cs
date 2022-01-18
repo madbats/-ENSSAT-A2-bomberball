@@ -17,9 +17,12 @@ public class LineType2 : MonoBehaviour
             if(i%2 == 0)
             {
                 qqc = Instantiate(mur_incassable, new Vector3(0, 0, 0), Quaternion.identity);
-            } else
+                qqc.name = mur_incassable.name;
+            }
+            else
             {
                 qqc = Instantiate(sol, new Vector3(0, 0, 0), Quaternion.identity);
+                qqc.name = sol.name;
             }
             qqc.transform.position = new Vector3(0, 0, 0);
             qqc.transform.SetParent(this.transform);

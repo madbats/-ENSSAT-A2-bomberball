@@ -15,6 +15,7 @@ public class LineType3 : MonoBehaviour
         qqc = Instantiate(mur_incassable, new Vector3(0, 0, 0), Quaternion.identity);
         qqc.transform.position = new Vector3(0, 0, 0);
         qqc.transform.SetParent(this.transform);
+        qqc.name = mur_incassable.name;
         qqc.GetComponent<Draggable>().trash = trash;
         qqc.GetComponent<Draggable>().parentToReturnTo = GameObject.Find("Fond").transform;
         for (int i = 0; i < 11; i++)
@@ -22,12 +23,14 @@ public class LineType3 : MonoBehaviour
             qqc = Instantiate(sol, new Vector3(0, 0, 0), Quaternion.identity);
             qqc.transform.position = new Vector3(0, 0, 0);
             qqc.transform.SetParent(this.transform);
+            qqc.name = sol.name;
             qqc.GetComponent<Draggable>().trash = trash;
             qqc.GetComponent<Draggable>().parentToReturnTo = GameObject.Find("Fond").transform;
         }
         qqc = Instantiate(mur_incassable, new Vector3(0, 0, 0), Quaternion.identity);
         qqc.transform.position = new Vector3(0, 0, 0);
         qqc.transform.SetParent(this.transform);
+        qqc.name = mur_incassable.name;
         qqc.GetComponent<Draggable>().trash = trash;
         qqc.GetComponent<Draggable>().parentToReturnTo = GameObject.Find("Fond").transform;
     }
