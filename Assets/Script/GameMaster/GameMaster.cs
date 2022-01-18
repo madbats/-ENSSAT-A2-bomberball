@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// GameMaster est le script de base pour l'entité GameMaster.
+/// Il gère la création des niveaux
+/// </summary>
 public class GameMaster : MonoBehaviour
 {
     public int seed; 
-    public int number; 
-    public int difficulty;
+    public int number;
 
     public GameObject map;
     public GameObject player;
@@ -34,17 +37,26 @@ public class GameMaster : MonoBehaviour
         NewGame();
     }
 
+    /// <summary>
+    /// Next génère le prochain niveau du jeu
+    /// </summary>
     public void Next()
     {
         number++;
         NewGame();
     }
 
+    /// <summary>
+    /// Again est appelé pour regénérer le dernier niveau
+    /// </summary>
     public void Again()
     {
         NewGame();
     }
 
+    /// <summary>
+    /// NewGame génère le niveau pour le numéro et seed
+    /// </summary>
     void NewGame()
     {
         endOfGame = false;
@@ -63,6 +75,9 @@ public class GameMaster : MonoBehaviour
         Destroy(GameObject.Find("GameMenu"));
     }
 
+    /// <summary>
+    /// Indique la fin du niveau car le joueur à gagné
+    /// </summary>
     public void Win()
     {
         endOfGame = true;
@@ -76,6 +91,9 @@ public class GameMaster : MonoBehaviour
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Next);
     }
 
+    /// <summary>
+    /// Indique la fin du niveau car le joueur à perdu
+    /// </summary>
     public void GameOver()
     {
         endOfGame = true;
@@ -88,7 +106,10 @@ public class GameMaster : MonoBehaviour
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Again);
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame.
+    /// Modifie l'interface pour afficher le temps restant
+    /// </summary>
     void Update()
     {
         vitesseText.text = "" + vitesseTime;

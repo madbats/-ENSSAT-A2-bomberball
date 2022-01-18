@@ -6,25 +6,17 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Attributs
-    public float movingSpeed = 0.3f;
-    public float smoothTime;
+    public float movingSpeed;
     public bool BombSet = false;
 
-    public Rigidbody2D rb;
-    private Vector3 velocity = Vector3.zero;
-
     public GameObject bomb;
-    private float startTime;
+    private float startTime = Time.time;
     private float holdTime;
 
-    void Start()
-    {
-        startTime = Time.time;
-        holdTime = 0.0f;
-        movingSpeed = 0.5f;
-    }
-
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame.
+    /// Si le joueur n'à pas éffectué de mouvement depuis un temps déterminé par movingSpeed, alors déplace le joueur
+    /// </summary>
     void Update()
     {
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
@@ -126,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+        // Place la bombe
         if (Input.GetKeyDown(KeyCode.B) && !BombSet)
         {
             BombSet = true;
@@ -136,6 +129,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
+        // Déplace la bombe si le joueur en possède la capacité
         if (GameObject.Find("Player").GetComponent<PlayerBonus>().poussee)
         {
             if (mapEnnemisList[x + 1, y] != null)
@@ -192,11 +186,21 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Déplace le joueur à la position donnée
+    /// </summary>
+    /// <param name="_horizontalMovement">nouvelle valeur de x </param>
+    /// <param name="_verticalMovement">nouvelle valeur de y </param>
     void MovePlayer(float _horizontalMovement, float _verticalMovement)
     {
         transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
     }
 
+    /// <summary>
+    /// Déplace la bombe à la position donnée
+    /// </summary>
+    /// <param name="_horizontalMovement">nouvelle valeur de x </param>
+    /// <param name="_verticalMovement">nouvelle valeur de y </param>
     void MoveBomb(float _horizontalMovement, float _verticalMovement)
     {
         Bomb newbomb = GameObject.Find("Bomb(Clone)").GetComponent<Bomb>();

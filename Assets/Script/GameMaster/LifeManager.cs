@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Gère la vie du joueur, son affichage et sa mort
+/// </summary>
 public class LifeManager : MonoBehaviour
 {
     public Text vieDisplay;
     public int vieNiveau;
     public bool hasGodMode;
     public GameObject player;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -25,6 +22,10 @@ public class LifeManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Appelé pour signale la mort du joueur.
+    /// Affiche le game over si le joueur n'a plus de vie
+    /// </summary>
     public void Death()
     {
         if (!hasGodMode) {
@@ -38,12 +39,18 @@ public class LifeManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Remet la joueur à la position initiale
+    /// </summary>
     void Respawn()
     {
         player.transform.position = GameObject.Find("Map").GetComponent<Map>().positionEntree;
     }
 
-
+    /// <summary>
+    /// Met le nombre de vie à la valeur donnée et remet le joueur à la position initiale
+    /// </summary>
+    /// <param name="lives"></param>
     public void Reset(int lives)
     {
         vieNiveau= lives;

@@ -13,6 +13,7 @@ public class MapGenerator : MonoBehaviour
 	List<Vector2> solPossible = new List<Vector2>();
 	List<List<Vector2>> Paths;
 	private int[,] map = new int[13, 11];
+	public float frequenceDeMur;
 
 	public GameObject zombie;
 	public GameObject explorer;
@@ -21,6 +22,12 @@ public class MapGenerator : MonoBehaviour
 	Vector2 entree;
 	GameObject[,] mapEnnemisList;
 
+	/// <summary>
+	/// Créér une matice de symbole correcpondant au la carte de seed et number donnée
+	/// </summary>
+	/// <param name="seed">Seed de la nouvelle carte</param>
+	/// <param name="number">Numéro de niveau</param>
+	/// <returns>Matrice 13 11 de la nouvelle carte</returns>
 	public int[,] FetchMap(int seed, int number)
 	{
 		this.seed = seed;
@@ -28,6 +35,11 @@ public class MapGenerator : MonoBehaviour
 		return CreateMap();
 	}
 
+	/// <summary>
+	/// Créer la carte du jeu, place l'ensemple des murs, bonus, entrée et sortie de la carte.
+	/// Les chemins couloir de la carte sont égamelement détecté pour la génération des ennemis.
+	/// </summary>
+	/// <returns>Matrice 13 11 de la nouvelle carte</returns>
 	private int[,] CreateMap()
 	{
 		random = new System.Random(seed * number);
@@ -39,6 +51,7 @@ public class MapGenerator : MonoBehaviour
 		List <Vector2> bonusPossible = new List<Vector2>();
 		float value;
 		
+		// Génération du labyrinth 
 		for (int i = 0; i < 13; i++)
 		{
 			for (int j = 0; j < 11; j++)
@@ -49,7 +62,7 @@ public class MapGenerator : MonoBehaviour
 				{
 					map[i, j] = 20;
 				}
-				else if (value < 0.55)
+				else if (value < frequenceDeMur)
 				{
 					// sol
 					map[i, j] = 0;
@@ -66,26 +79,31 @@ public class MapGenerator : MonoBehaviour
 		// set bonus
 		int index;
 		Vector2 bonus;
+		// Achet des bonus à placer 
 		List<int> purchases = BuyBonus();
 		foreach (int bonusType in purchases)
-		{
+		{ // place chaque bonus acheter 
 			index = random.Next(0, bonusPossible.Count);
 			bonus = bonusPossible[index];
 			bonusPossible.RemoveAt(index);
 			map[(int)bonus.x, (int)bonus.y] = bonusType;			
 		}
+		// le reste des case deviennet des mur cassable
 		foreach(Vector2 mur in bonusPossible)
 		{	//mur cassable
 			map[(int)mur.x, (int)mur.y] = 10;
 		}
 
+		// calcule les couloirs dans lesquel les ennemies peuvent voyager
 		createPaths();
+
 		//Set l'entrée
 		index = random.Next(0, sortiePossible.Count);
 		entree = sortiePossible[index];
 		sortiePossible.RemoveAt(index);
 		map[(int)entree.x, (int)entree.y] = 21;
-		// set sortie
+
+		// set sortie à une distance de 7 minimum
 		index = random.Next(0, sortiePossible.Count);
 		Vector2 sortie = sortiePossible[index];
 		sortiePossible.RemoveAt(index);
@@ -138,19 +156,25 @@ public class MapGenerator : MonoBehaviour
 		return map;
 	}
 
-    void createPaths()
+	/// <summary>
+	/// Calcule les couloirs dans lesquel les ennemies peuvent voyager
+	/// </summary>
+	void createPaths()
     {
 		Paths = new List<List<Vector2>>();
-		int i = 0;
 		//Debug.Log("sols = "+solPossible.Count);
 		while (solPossible.Count>0)
-        {
+        {  // Tantqu'il reste des paths possible on créer un nouveau path
 			List<Vector2> path = new List<Vector2>();
-			addToPath(solPossible[i], path);
+			addToPath(solPossible[0], path);
 			Paths.Add(path);
 		}
     }
 
+	/// <summary>
+	/// Génère les ennemies dans la scènes
+	/// </summary>
+	/// <returns>Matrice des ennemie </returns>
 	public GameObject[,] PlaceEnnemie()
 	{
 		GameObject[,] testEnnemisList = {
@@ -169,16 +193,17 @@ public class MapGenerator : MonoBehaviour
 			{ null, null, null, null, null, null, null, null, null, null, null}};
 		mapEnnemisList = testEnnemisList;
 
+		// Achet des ennemis à placer 
 		List<int> purchases = BuyEnnemis();
 		int index,i ;
-		GameObject qqc;
 		Vector2 a, b;
-		int ennemi_type=0;
-		//Debug.Log("Creating Enemies "+max_zombie+" " + max_exploreur + " " + max_watchman + " " + max_hunter +"  "+ (Paths.Count > 0));
-		
+		int ennemi_type;
+
+		// Tant que l'on peut placer des ennemies
 		while (purchases.Count>0 && Paths.Count>0)
         {
 			i = 0;
+			// Détermine le point de départ d'un ennemies, par précausion celui-ci ne peut pas ce trouver à moin de 2 case de l'entree
 			index = random.Next(0, Paths.Count);
 			do
 			{
@@ -186,9 +211,10 @@ public class MapGenerator : MonoBehaviour
 				Paths[index].Remove(a);
 			} while (Vector2.Distance(entree, a) < 2f && Paths[index].Count > 0);
 		
-			//Debug.Log(Paths.Count);
 			if (Vector2.Distance(entree, a) >= 2f)
-			{
+			{ // Si on à bien trouvé une entrée valide
+
+				// Selection d'un ennemies 
 				do
 				{
 					ennemi_type = purchases[i];
@@ -197,11 +223,9 @@ public class MapGenerator : MonoBehaviour
 				//Debug.Log("Creating " + ennemi_type);
 				if (ennemi_type < 20 && Paths[index].Count == 0 && i == purchases.Count)
                 {
-					//Debug.Log("Callceling " + ennemi_type);
 				}
 				else if (ennemi_type < 20)
                 {
-					//Debug.Log("1-Creating passive" + Paths[index].Count);
 					if (Paths[index].Count == 0)
 					{
 						b = a;
@@ -255,6 +279,12 @@ public class MapGenerator : MonoBehaviour
 		return mapEnnemisList;
 	}
 
+	/// <summary>
+	/// Instancie un Zombie à la possition donnée qui se 
+	/// </summary>
+	/// <param name="startPosition">position initiale et premier waypoint</param>
+	/// <param name="endPosition">deusième waypoint</param>
+	/// <param name="type">variante de l'ennemie</param>
 	void CreateZombie(Vector2 startPosition, Vector2 endPosition, int type)
     {
 		GameObject qqc;
@@ -281,6 +311,12 @@ public class MapGenerator : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Instancie un Watchman à la possition donnée qui se 
+	/// </summary>
+	/// <param name="startPosition">position initiale et premier waypoint</param>
+	/// <param name="endPosition">deusième waypoint</param>
+	/// <param name="type">variante de l'ennemie</param>
 	void CreateWatchman(Vector2 startPosition, Vector2 endPosition, int type)
 	{
 		GameObject qqc;
@@ -307,6 +343,12 @@ public class MapGenerator : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Instancie un Explorer à la possition donnée qui se 
+	/// </summary>
+	/// <param name="startPosition">position initiale et premier waypoint</param>
+	/// <param name="endPosition">deusième waypoint</param>
+	/// <param name="type">variante de l'ennemie</param>
 	void CreateExplorer(Vector2 startPosition, int type)
 	{
 		GameObject qqc;
@@ -331,6 +373,12 @@ public class MapGenerator : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Instancie un Hunter à la possition donnée qui se 
+	/// </summary>
+	/// <param name="startPosition">position initiale et premier waypoint</param>
+	/// <param name="endPosition">deusième waypoint</param>
+	/// <param name="type">variante de l'ennemie</param>
 	void CreateHunter(Vector2 startPosition, int type)
 	{
 		GameObject qqc;
@@ -355,6 +403,11 @@ public class MapGenerator : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Ajoute le sol à la position donnée à la path si possible et ajoute également c'est voisin
+	/// </summary>
+	/// <param name="position">possition du sol à rajouter</param>
+	/// <param name="Path">la path à alimenter</param>
 	void addToPath(Vector2 position, List<Vector2> Path) 
 	{
         if (solPossible.Contains(position))
@@ -366,73 +419,38 @@ public class MapGenerator : MonoBehaviour
 			Vector2 pt;
 			if (map[x - 1, y] == 0)
 			{
-                try {
-					pt = new Vector2(x - 1, y);
-					addToPath(pt, Path);
-				}catch(IndexOutOfRangeException e){
-					Debug.LogWarning((x-1) + " -- " + y);
-                }
-				
+				pt = new Vector2(x - 1, y);
+				addToPath(pt, Path);
 			}
 			if (map[x + 1, y] == 0)
 			{
-				try
-				{
-					pt = new Vector2(x + 1, y);
-					addToPath(pt, Path);
-				}
-				catch (IndexOutOfRangeException e)
-				{
-					Debug.LogWarning((x + 1) + " -- " + y);
-				}
+				pt = new Vector2(x + 1, y);
+				addToPath(pt, Path);
 			}
 			if (map[x, y - 1] == 0)
 			{
-				try
-				{
-					pt = new Vector2(x , y-1);
-					addToPath(pt, Path);
-				}
-				catch (IndexOutOfRangeException e)
-				{
-					Debug.LogWarning(x + " -- " + (y-1));
-				}
+				pt = new Vector2(x , y-1);
+				addToPath(pt, Path);
 			}
 			if (map[x, y + 1] == 0)
 			{
-				try
-				{
-					pt = new Vector2(x, y+1);
-					addToPath(pt, Path);
-				}
-				catch (IndexOutOfRangeException e)
-				{
-					Debug.LogWarning(x + " -- " + (y+1));
-				}
+				pt = new Vector2(x, y+1);
+				addToPath(pt, Path);
 			}
 		}
 	}
 
-    private Vector2 getVector(int x, int y)
-    {
-		bool found=false;
-		int i;
-		for (i = 0; i < solPossible.Count && !found; i++)
-		{
-			found = (solPossible[i].x == x && solPossible[i].y == y);
-        }
-		if (found)
-			return solPossible[i - 1];
-		else
-			throw new IndexOutOfRangeException();
-    }
-
+	/// <summary>
+	/// Fournie une liste de Bonus à répartir sur la carte. La liste est formé en fonction de la difficulté
+	/// </summary>
+	/// <returns>liste de Bonus à répartir sur la carte</returns>
 	List<int> BuyBonus()
     {
 		List<ShopItem> shop = new List<ShopItem>();
 		List<int> purchase = new List<int>();
 		int difficultyPool = difficulty;
 		int choise;
+		int lastChoise=-1;
 		int bonus_restant = 5;
 		// bonus vitesse
 		shop.Add(new ShopItem(12, 7));
@@ -458,15 +476,19 @@ public class MapGenerator : MonoBehaviour
         {
 			choise = random.Next(0, shop.Count);
 			// purchase item is posible
-			if(shop[choise].cost< difficultyPool)
+			if(shop[choise].cost< difficultyPool && lastChoise!= choise)
             {
-				purchase.Add(shop[choise].itemID);
-				difficultyPool -= shop[choise].cost;
-				bonus_restant--;
-				// if the item just bought could not be bought again remove it from the shop
-				if (shop[choise].cost > difficultyPool)
+				if (lastChoise != choise || shop.Count < 2)
 				{
-					shop.Remove(shop[choise]);
+					lastChoise = choise;
+					purchase.Add(shop[choise].itemID);
+					difficultyPool -= shop[choise].cost;
+					bonus_restant--;
+					// if the item just bought could not be bought again remove it from the shop
+					if (shop[choise].cost > difficultyPool)
+					{
+						shop.Remove(shop[choise]);
+					}
 				}
 			}
 			else // else remove it from the shop
@@ -480,12 +502,17 @@ public class MapGenerator : MonoBehaviour
 		return purchase;
 	}
 
+	/// <summary>
+	/// Fournie une liste de Ennemis à répartir sur la carte. La liste est formé en fonction de la difficulté
+	/// </summary>
+	/// <returns>liste de Ennemis à répartir sur la carte</returns>
 	List<int> BuyEnnemis()
 	{
 		List<ShopItem> shop = new List<ShopItem>();
 		List<int> purchase = new List<int>();
 		int difficultyPool = difficulty;
 		int choise;
+		int lastChoise = -1;
 		int ennemis_restant = 4;
 		// bonus zombie
 		shop.Add(new ShopItem(0, 5));
@@ -517,13 +544,17 @@ public class MapGenerator : MonoBehaviour
 			// purchase item is posible
 			if (shop[choise].cost < difficultyPool)
 			{
-				purchase.Add(shop[choise].itemID);
-				difficultyPool -= shop[choise].cost;
-				ennemis_restant--;
-				// if the item just bought could not be bought again remove it from the shop
-				if (shop[choise].cost > difficultyPool)
+				if (lastChoise != choise || shop.Count < 2 )
 				{
-					shop.Remove(shop[choise]);
+					lastChoise = choise;
+					purchase.Add(shop[choise].itemID);
+					difficultyPool -= shop[choise].cost;
+					ennemis_restant--;
+					// if the item just bought could not be bought again remove it from the shop
+					if (shop[choise].cost > difficultyPool)
+					{
+						shop.Remove(shop[choise]);
+					}
 				}
 			}
 			else // else remove it from the shop
