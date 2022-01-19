@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Créer proceduralement le niveau 
+/// </summary>
 public class MapGenerator : MonoBehaviour
 {
 	private int seed;
@@ -44,7 +47,7 @@ public class MapGenerator : MonoBehaviour
 	private int[,] CreateMap()
 	{
 		difficulty = number * 5;
-		difficulty += (number % 5 == 0 && number!=1) ? 40 : 10;
+		difficulty += (number % 5 == 0 && number>2) ? 40 : 10;
 		difficulty = Mathf.Min(400, difficulty);
 		Debug.Log("Difficulty " + difficulty);
 		List<Vector2> sortiePossible = new List<Vector2>();
@@ -476,7 +479,7 @@ public class MapGenerator : MonoBehaviour
         {
 			choise = random.Next(0, shop.Count);
 			// purchase item is posible
-			if(shop[choise].cost< difficultyPool && lastChoise!= choise)
+			if(shop[choise].cost< difficultyPool && (lastChoise != -1 || shop[choise].cost > (difficultyPool * .3f) || shop.Count < 2))
             {
 				if (lastChoise != choise || shop.Count < 2)
 				{
@@ -515,7 +518,7 @@ public class MapGenerator : MonoBehaviour
 		int lastChoise = -1;
 		int ennemis_restant = 4;
 		// bonus zombie
-		shop.Add(new ShopItem(0, 5));
+		shop.Add(new ShopItem(0, 6));
 		shop.Add(new ShopItem(1, 15)); // vitesse 1.5
 		shop.Add(new ShopItem(2, 20)); // vie +1
 		shop.Add(new ShopItem(3, 40)); // vie +1 & vitesse 1.5
@@ -542,7 +545,7 @@ public class MapGenerator : MonoBehaviour
 		{
 			choise = random.Next(0, shop.Count);
 			// purchase item is posible
-			if (shop[choise].cost < difficultyPool)
+			if (shop[choise].cost < difficultyPool && (lastChoise != -1 || shop[choise].cost > (difficultyPool * .3f) || shop.Count<2))
 			{
 				if (lastChoise != choise || shop.Count < 2 )
 				{

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Mur cassable de la carte
+/// </summary>
 public class MurCassable : Mur
 {
     public GameObject sol;
@@ -19,6 +22,9 @@ public class MurCassable : Mur
     {
     }
     
+    /// <summary>
+    /// Déclanché par l'explosion. Détruit le mur et le remplace par un sol
+    /// </summary>
     public void OnBreak(){
         GameObject qqc;
 

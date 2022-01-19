@@ -6,6 +6,7 @@ public class Zombie : Ennemis
 {
     protected override  void CheckTarget()
     {
+        GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
         if (Vector2.Distance(transform.position, currentTarget) < 1f)
         {
             if (currentTarget == waypoint1)

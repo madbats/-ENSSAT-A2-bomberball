@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Controle le déplacement du joueur
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
     //Attributs

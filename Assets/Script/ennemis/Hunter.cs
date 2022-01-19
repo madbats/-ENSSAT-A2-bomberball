@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hunter : Explorer
+public class Hunter : Ennemis
 {
     int vision = 3;
     bool chase = false;

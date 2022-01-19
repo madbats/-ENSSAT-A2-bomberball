@@ -109,7 +109,6 @@ public class GameMaster : MonoBehaviour
         this.gameObject.GetComponent<ScoreManager>().Win();
 
         //Sauvegarde des donn�es de la partie (apr�s l'appel � Win() pour prendre en compte le nouvel ajout au score)
-        this.gameObject.GetComponent<DataManager>().Save();
 
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Next);
     }

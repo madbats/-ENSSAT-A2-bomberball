@@ -2,26 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Pathfinding A* 
+/// </summary>
 public class PathFinding : MonoBehaviour
 {
-	private Node a, b, furthest;
-	List<Node> furthestGroup;
+	private Node a, b;
+	//List<Node> furthestGroup;
 	public Vector2 currentTarget;
 	//private int[,] map;
 	private Node[,] grid;
 	
+	/// <summary>
+	/// Cherche le plus cours chemin entre la position actuelle et la cible
+	/// </summary>
 	public void SeekPath()
 	{
 		FindPath(transform.position, currentTarget);
 	}
 
+	/// <summary>
+	/// Détermine le point le plus loins, dans le champ de vision de l'ennemis
+	/// </summary>
+	/// <param name="vision">champ de vision de l'ennemis</param>
+	/// <returns>Le point le plus loin</returns>
 	public Vector2 FindFurthestPoint(int vision)
     {
 		Vector3 startPos = transform.position;
 		//CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
 		a = grid[(int)startPos.x, (int)startPos.y];
-		furthest = a;
-		furthestGroup = new List<Node>();
+		Node furthest = a;
+		List<Node> furthestGroup = new List<Node>();
 		furthestGroup.Add(a);
 		//Debug.Log("a : " + a.x + " - " + a.y + " => " + a.gCost);
 		List<Node> openSet = new List<Node>();
@@ -76,6 +87,12 @@ public class PathFinding : MonoBehaviour
 		return new Vector2(furthest.x, furthest.y);
 	}
 
+	/// <summary>
+	/// Détermine si l'ennemie peut voir le joueur de puis sa position
+	/// </summary>
+	/// <param name="vision">champ de vision de l'ennemis</param>
+	/// <param name="playerPosition">Position de l'ennemi</param>
+	/// <returns></returns>
 	public bool FindPlayer(int vision,Vector2 playerPosition)
 	{
 		Vector3 startPos = transform.position;
@@ -127,6 +144,11 @@ public class PathFinding : MonoBehaviour
 		return false;
 	}
 
+	/// <summary>
+	/// Trouve le plus cours chemin entre les 2 points
+	/// </summary>
+	/// <param name="startPos">Point de départ</param>
+	/// <param name="targetPos">Point cible</param>
 	void FindPath(Vector3 startPos, Vector3 targetPos)
 	{
 		a = grid[(int)startPos.x, (int)startPos.y];
@@ -181,6 +203,11 @@ public class PathFinding : MonoBehaviour
 		Debug.Log("Path not found");
 	}
 
+	/// <summary>
+	/// Trace le chemin entre les deux point et le place dans le path de l'ennemi
+	/// </summary>
+	/// <param name="a">Point de départ</param>
+	/// <param name="endNode">Point cible</param>
 	void RetracePath(Node a, Node endNode)
 	{
 		List<Node> path = new List<Node>();
@@ -196,6 +223,12 @@ public class PathFinding : MonoBehaviour
 		GetComponent<Ennemis>().path = path;
 	}
 
+	/// <summary>
+	/// Calcule la distance entre deux point
+	/// </summary>
+	/// <param name="nodeA">Point 1</param>
+	/// <param name="nodeB">Point 2</param>
+	/// <returns>Distance</returns>
 	int GetDistance(Node nodeA, Node nodeB)
 	{
 		int dstX = Mathf.Abs((int)nodeA.x - (int)nodeB.x);
@@ -204,6 +237,11 @@ public class PathFinding : MonoBehaviour
 		return 10 * dstX + 10 * dstY;
 	}
 
+	/// <summary>
+	/// Retourne les voisins (sans diagonale) du point donné
+	/// </summary>
+	/// <param name="node">Le point</param>
+	/// <returns>List des voisins</returns>
 	public List<Node> GetNeighbours(Node node)
 	{
 		List<Node> neighbours = new List<Node>();
@@ -222,6 +260,10 @@ public class PathFinding : MonoBehaviour
 		return neighbours;
 	}
 
+	/// <summary>
+	/// Convertie la Matrice d'objet de la map en matrice de point pour le pathfinding
+	/// </summary>
+	/// <param name="mapItemsList"></param>
 	public void CreateGrid(MapItem[,] mapItemsList)
 	{
 		grid = new Node[13, 11];
@@ -234,6 +276,10 @@ public class PathFinding : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Change la cible actuelle
+	/// </summary>
+	/// <param name="newTarget">Nouvelle cible</param>
 	public void SwitchTarget(Vector2 newTarget)
     {
 		currentTarget = newTarget;

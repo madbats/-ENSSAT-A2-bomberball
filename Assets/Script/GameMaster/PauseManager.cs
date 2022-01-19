@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+/// <summary>
+/// Gère le system de pause du jeu
+/// </summary>
 public class PauseManager : MonoBehaviour
 {
     //Variables
@@ -33,7 +35,9 @@ public class PauseManager : MonoBehaviour
 
     //Méthodes
 
-    //Cette méthode gèle le jeu et affiche le menu pause quand on appuie sur la touche echap
+    /// <summary>
+    /// Gèle le jeu et affiche le menu pause quand on appuie sur la touche echap
+    /// </summary>
     void Paused()
     {
         //Arrêter le temps du jeu
@@ -46,7 +50,9 @@ public class PauseManager : MonoBehaviour
         gameIsPaused = true;
     }
 
-    //Cette méthode permet de quitter le menu pause et de relancer le jeu. (bouton "resume" ou appui sur la touche echap)
+    /// <summary>
+    /// Permet de quitter le menu pause et de relancer le jeu. (bouton "resume" ou appui sur la touche echap)
+    /// </summary>
     public void Resume()
     {
         //Désactiver le menu Pause
@@ -59,7 +65,9 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    //Cette méthode permet d'aller au menu principal quand on clique sur le bouton Exit du menu de pause
+    /// <summary>
+    /// Permet d'aller au menu principal quand on clique sur le bouton Exit du menu de pause
+    /// </summary>
     public void LoadMainMenu()
     {
         //On reprend le jeu avant d'aller au menu principal 

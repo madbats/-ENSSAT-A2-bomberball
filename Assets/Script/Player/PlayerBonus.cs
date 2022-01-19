@@ -1,7 +1,11 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script de suivie des effets bonus du joueur
+/// </summary>
 public class PlayerBonus : MonoBehaviour
 {
     public int puissance;
