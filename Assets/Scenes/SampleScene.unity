@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 55
-  number: 1
+  number: 4
   difficulty: 0
   map: {fileID: 1608115356005918567, guid: 4d60934064e52764985b8a922f08cd07, type: 3}
   player: {fileID: 2140758685885247378, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}

@@ -3,15 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public string s;
+    public string s1;
+    public string s2;
     public GameObject p;
     public void NouvellePartie(){
-        SceneManager.LoadScene(s);
+        SceneManager.LoadScene(s1);
     }
     public void Quitter(){
         Application.Quit();
     }
     public void ParametreMenu(){
         p.SetActive(true);
+    }
+
+    public void Editeur(){
+        SceneManager.LoadScene(s2);
     }
 }
