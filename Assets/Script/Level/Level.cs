@@ -101,6 +101,7 @@ public class Level : MonoBehaviour
         }
         PlayerPrefs.SetString("map", map);
         PlayerPrefs.Save();
+        SceneManager.LoadScene("CreatedLevel");
     }
 
     public void OnCLickSave()
