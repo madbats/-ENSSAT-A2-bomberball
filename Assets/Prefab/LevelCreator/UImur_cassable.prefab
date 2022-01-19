@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4640133607901019966}
   - component: {fileID: 9192345051463606105}
   m_Layer: 5
-  m_Name: mur_cassable
+  m_Name: UImur_cassable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-    public GameObject map;
-
     public GameObject sol;
     public GameObject mur_cassable;
     public GameObject mur_cassable_puissance;
@@ -21,7 +20,8 @@ public class Level : MonoBehaviour
     public GameObject watchman;
     public GameObject hunter;
 
-    public GameObject mapObject;
+    public string map = "";
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -35,81 +35,140 @@ public class Level : MonoBehaviour
         
     }
 
-    public void OnCLick()
+    public void OnCLickPlay()
     {
         GameObject fond = GameObject.Find("Fond");
         GameObject line;
-
-        GameObject qqc;
-
-        mapObject = Instantiate(map, new Vector3(0, 0, 0), Quaternion.identity);
 
         for(int j = 0; j < 11; j++)
         {
             line = fond.transform.GetChild(j).gameObject;
             for(int i = 0; i < 13; i++)
             {
-                if(line.transform.GetChild(i).name == "entree")
+                if(line.transform.GetChild(i).name == "UIentree")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 21;
+                    map += 21;
                 }
-                else if (line.transform.GetChild(i).name == "mur_cassable")
+                else if (line.transform.GetChild(i).name == "UImur_cassable")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 10;
+                    map += 10;
                 }
-                else if (line.transform.GetChild(i).name == "mur_cassable_godMode")
+                else if (line.transform.GetChild(i).name == "UImur_cassable_godMode")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 14;
+                    map += 14;
                 }
-                else if (line.transform.GetChild(i).name == "mur_cassable_poussee")
+                else if (line.transform.GetChild(i).name == "UImur_cassable_poussee")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 13;
+                    map += 13;
                 }
-                else if (line.transform.GetChild(i).name == "mur_cassable_puissance")
+                else if (line.transform.GetChild(i).name == "UImur_cassable_puissance")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 11;
+                    map += 11;
                 }
-                else if (line.transform.GetChild(i).name == "mur_cassable_vitesse")
+                else if (line.transform.GetChild(i).name == "UImur_cassable_vitesse")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 12;
+                    map += 12;
                 }
-                else if (line.transform.GetChild(i).name == "mur_incassable")
+                else if (line.transform.GetChild(i).name == "UImur_incassable")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 20;
+                    map += 20;
                 }
-                else if (line.transform.GetChild(i).name == "sortie")
+                else if (line.transform.GetChild(i).name == "UIsortie")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 22;
+                    map += 22;
                 }
-                else if (line.transform.GetChild(i).name == "sol")
+                else if (line.transform.GetChild(i).name == "UIsol")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 0;
+                    map += "00";
                 }
-                else if (line.transform.GetChild(i).name == "zombie")
+                else if (line.transform.GetChild(i).name == "UIzombie")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 0;
-                    qqc = Instantiate(zombie, new Vector3(0, 0, 0), Quaternion.identity);
-                    mapObject.GetComponent<Map>().mapEnnemisList[i, j] = qqc;
+                    map += 30;
                 }
-                else if (line.transform.GetChild(i).name == "explorer")
+                else if (line.transform.GetChild(i).name == "UIexplorer")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 0;
-                    qqc = Instantiate(explorer, new Vector3(0, 0, 0), Quaternion.identity);
-                    mapObject.GetComponent<Map>().mapEnnemisList[i, j] = qqc;
+                    map += 31;
                 }
-                else if (line.transform.GetChild(i).name == "watchman")
+                else if (line.transform.GetChild(i).name == "UIwatchman")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 0;
-                    qqc = Instantiate(watchman, new Vector3(0, 0, 0), Quaternion.identity);
-                    mapObject.GetComponent<Map>().mapEnnemisList[i, j] = qqc;
+                    map += 32;
                 }
-                else if (line.transform.GetChild(i).name == "hunter")
+                else if (line.transform.GetChild(i).name == "UIhunter")
                 {
-                    mapObject.GetComponent<Map>().symboleMap[i, j] = 0;
-                    qqc = Instantiate(hunter, new Vector3(0, 0, 0), Quaternion.identity);
-                    mapObject.GetComponent<Map>().mapEnnemisList[i, j] = qqc;
+                    map += 33;
                 }
             }
         }
+        PlayerPrefs.SetString("map", map);
+        PlayerPrefs.Save();
+    }
+
+    public void OnCLickSave()
+    {
+        GameObject fond = GameObject.Find("Fond");
+        GameObject line;
+
+        for (int j = 0; j < 11; j++)
+        {
+            line = fond.transform.GetChild(j).gameObject;
+            for (int i = 0; i < 13; i++)
+            {
+                if (line.transform.GetChild(i).name == "UIentree")
+                {
+                    map += 21;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable")
+                {
+                    map += 10;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable_godMode")
+                {
+                    map += 14;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable_poussee")
+                {
+                    map += 13;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable_puissance")
+                {
+                    map += 11;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable_vitesse")
+                {
+                    map += 12;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_incassable")
+                {
+                    map += 20;
+                }
+                else if (line.transform.GetChild(i).name == "UIsortie")
+                {
+                    map += 22;
+                }
+                else if (line.transform.GetChild(i).name == "UIsol")
+                {
+                    map += "00";
+                }
+                else if (line.transform.GetChild(i).name == "UIzombie")
+                {
+                    map += 30;
+                }
+                else if (line.transform.GetChild(i).name == "UIexplorer")
+                {
+                    map += 31;
+                }
+                else if (line.transform.GetChild(i).name == "UIwatchman")
+                {
+                    map += 32;
+                }
+                else if (line.transform.GetChild(i).name == "UIhunter")
+                {
+                    map += 33;
+                }
+            }
+        }
+        PlayerPrefs.SetString("map", map);
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("MainMenu");
     }
 }
