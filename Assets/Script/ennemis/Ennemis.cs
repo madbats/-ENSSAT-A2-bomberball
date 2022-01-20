@@ -84,21 +84,22 @@ public abstract class Ennemis : MonoBehaviour
     {
         GetComponent<PathFinding>().SeekPath();
         if (path.Count>0) {
+            //Debug.Log(path[0].walkable + "  " + path[0].visable);
             GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)transform.position.x, (int)transform.position.y] = null;
-            transform.position = new Vector2(path[0].x, path[0].y);
             GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[path[0].x, path[0].y] = gameObject;
+            transform.position = new Vector2(path[0].x, path[0].y);
             path.Remove(path[0]);
         }
         else
         {
-            if (currentTarget == waypoint1)
+           /* if (currentTarget == waypoint1)
             {
                 currentTarget = waypoint2;
             }
             else
             {
                 currentTarget = waypoint1;
-            }
+            }*/
         }
     }
 

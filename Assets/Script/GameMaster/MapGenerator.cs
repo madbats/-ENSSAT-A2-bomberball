@@ -12,7 +12,7 @@ public class MapGenerator : MonoBehaviour
 	private int number;
 
 	public System.Random random;
-	int difficulty;
+	public int difficulty;
 	List<Vector2> solPossible = new List<Vector2>();
 	List<List<Vector2>> Paths;
 	private int[,] map = new int[13, 11];
@@ -24,6 +24,9 @@ public class MapGenerator : MonoBehaviour
 	public GameObject hunter;
 	Vector2 entree;
 	GameObject[,] mapEnnemisList;
+
+	int nombreDeSol;
+	List<int> solParPath;
 
 	/// <summary>
 	/// Créér une matice de symbole correcpondant au la carte de seed et number donnée
@@ -46,8 +49,8 @@ public class MapGenerator : MonoBehaviour
 	/// <returns>Matrice 13 11 de la nouvelle carte</returns>
 	private int[,] CreateMap()
 	{
-		difficulty = number * 5;
-		difficulty += (number % 5 == 0 && number>2) ? 40 : 10;
+		difficulty = number*3;
+		difficulty += (number % 5 == 0) ? 40 : (number >1) ? 10:0;
 		difficulty = Mathf.Min(400, difficulty);
 		Debug.Log("Difficulty " + difficulty);
 		List<Vector2> sortiePossible = new List<Vector2>();
@@ -91,35 +94,40 @@ public class MapGenerator : MonoBehaviour
 			bonusPossible.RemoveAt(index);
 			map[(int)bonus.x, (int)bonus.y] = bonusType;			
 		}
+		//Debug.Log("Bonus set ");
 		// le reste des case deviennet des mur cassable
-		foreach(Vector2 mur in bonusPossible)
+		foreach (Vector2 mur in bonusPossible)
 		{	//mur cassable
 			map[(int)mur.x, (int)mur.y] = 10;
 		}
 
+		//Debug.Log("Creation des paths ");
 		// calcule les couloirs dans lesquel les ennemies peuvent voyager
 		createPaths();
 
+		//Debug.Log("Paths crée ");
 		//Set l'entrée
 		index = random.Next(0, sortiePossible.Count);
 		entree = sortiePossible[index];
 		sortiePossible.RemoveAt(index);
 		map[(int)entree.x, (int)entree.y] = 21;
 
+		//Debug.Log("Entree set ");
 		// set sortie é une distance de 7 minimum
 		index = random.Next(0, sortiePossible.Count);
 		Vector2 sortie = sortiePossible[index];
 		sortiePossible.RemoveAt(index);
-		bool sortieFound = (Vector2.Distance(entree, sortie) > 7);
-		while (!sortieFound)
+		bool sortieFound = (Vector2.Distance(entree, sortie) > 5);
+		while (!sortieFound && sortiePossible.Count>0)
         {
 			index = random.Next(0, sortiePossible.Count);
 			sortie = sortiePossible[index];
 			sortiePossible.RemoveAt(index);
-			sortieFound = (Vector2.Distance(entree, sortie) > 7);
+			sortieFound = (Vector2.Distance(entree, sortie) > 5);
 		}
 		map[(int)sortie.x, (int)sortie.y] = 22;
 
+		//Debug.Log("Sortie set ");
 
 		// Assure que le joueur aura la place de ce déplacer en entourant la sortie de sol
 		if (map[(int)entree.x - 1, (int)entree.y] != 20)
@@ -155,6 +163,7 @@ public class MapGenerator : MonoBehaviour
 		{
 			map[(int)entree.x - 1, (int)entree.y + 1] = 0;
 		}
+		//Debug.Log("Cadre set ");
 
 		return map;
 	}
@@ -164,12 +173,16 @@ public class MapGenerator : MonoBehaviour
 	/// </summary>
 	void createPaths()
     {
+		nombreDeSol = 0;
+		solParPath = new List<int>();
 		Paths = new List<List<Vector2>>();
 		//Debug.Log("sols = "+solPossible.Count);
 		while (solPossible.Count>0)
         {  // Tantqu'il reste des paths possible on créer un nouveau path
 			List<Vector2> path = new List<Vector2>();
 			addToPath(solPossible[0], path);
+			nombreDeSol += path.Count;
+			solParPath.Add(path.Count);
 			Paths.Add(path);
 		}
     }
@@ -198,7 +211,7 @@ public class MapGenerator : MonoBehaviour
 
 		// Achet des ennemis é placer 
 		List<int> purchases = BuyEnnemis();
-		int index,i ;
+		int index=0,i,j,sommePasse;
 		Vector2 a, b;
 		int ennemi_type;
 
@@ -206,8 +219,19 @@ public class MapGenerator : MonoBehaviour
 		while (purchases.Count>0 && Paths.Count>0)
         {
 			i = 0;
+			j = 0;
+			sommePasse = 0;
 			// Détermine le point de départ d'un ennemies, par précausion celui-ci ne peut pas ce trouver é moin de 2 case de l'entree
-			index = random.Next(0, Paths.Count);
+			index = random.Next(0, nombreDeSol);
+			do
+			{
+				sommePasse += solParPath[j];
+				j++;
+			} while (index>sommePasse && j < solParPath.Count);
+			j--;
+			nombreDeSol -= solParPath[j];
+			solParPath.RemoveAt(j);
+			index = j;
 			do
 			{
 				a = Paths[index][random.Next(0, Paths[index].Count)];
@@ -518,28 +542,28 @@ public class MapGenerator : MonoBehaviour
 		int lastChoise = -1;
 		int ennemis_restant = 4;
 		// bonus zombie
-		shop.Add(new ShopItem(0, 6));
-		shop.Add(new ShopItem(1, 15)); // vitesse 1.5
-		shop.Add(new ShopItem(2, 20)); // vie +1
-		shop.Add(new ShopItem(3, 40)); // vie +1 & vitesse 1.5
+		shop.Add(new ShopItem(0, 10));
+		shop.Add(new ShopItem(1, 25)); // vitesse 1.5
+		shop.Add(new ShopItem(2, 40)); // vie +1
+		shop.Add(new ShopItem(3, 60)); // vie +1 & vitesse 1.5
 
 		// bonus watchman
 		shop.Add(new ShopItem(10, 20));
 		shop.Add(new ShopItem(11, 35)); // vitesse 1.5
-		shop.Add(new ShopItem(12, 40)); // vie +1
-		shop.Add(new ShopItem(13, 80)); // vie +1 & vitesse 1.5
-
+		shop.Add(new ShopItem(12, 50)); // vie +1
+		shop.Add(new ShopItem(13, 70)); // vie +1 & vitesse 1.5
+		
 		// bonus explorer
-		shop.Add(new ShopItem(20, 50));
-		shop.Add(new ShopItem(21, 75)); // vitesse 1.5
-		shop.Add(new ShopItem(22, 80)); // vie +1
-		shop.Add(new ShopItem(23, 160)); // vie +1 & vitesse 1.5
-
+		shop.Add(new ShopItem(20, 30));
+		shop.Add(new ShopItem(21, 55)); // vitesse 1.5
+		shop.Add(new ShopItem(22, 70)); // vie +1
+		shop.Add(new ShopItem(23, 90)); // vie +1 & vitesse 1.5
+		
 		// bonus hunter
-		shop.Add(new ShopItem(30, 100));
-		shop.Add(new ShopItem(31, 150)); // vitesse 1.5
-		shop.Add(new ShopItem(32, 175)); // vie +1
-		shop.Add(new ShopItem(33, 200)); // vie +1 & vitesse 1.5
+		shop.Add(new ShopItem(30, 60));
+		shop.Add(new ShopItem(31, 85)); // vitesse 1.5
+		shop.Add(new ShopItem(32, 100)); // vie +1
+		shop.Add(new ShopItem(33, 120)); // vie +1 & vitesse 1.5
 
 		while (difficultyPool > 0 && shop.Count > 0 && ennemis_restant > 0)
 		{

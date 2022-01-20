@@ -31,7 +31,7 @@ public class Hunter : Ennemis
                 this.currentTarget = gameMaster.GetComponent<GameMaster>().playerObject.transform.position;
                 chase = true;
             }
-            else if (Vector2.Distance(transform.position, currentTarget) < 1f)
+            else if (Vector2.Distance(transform.position, currentTarget) < .1f)
             {
                 currentTarget = GetComponent<PathFinding>().FindFurthestPoint(vision);
             }
