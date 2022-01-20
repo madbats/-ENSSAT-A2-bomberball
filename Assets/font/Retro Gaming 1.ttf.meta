@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 2a40c97148cec9144a6578ff8dace81e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Retro Gaming
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 574a605427532ae42ad3002189f6a0cb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

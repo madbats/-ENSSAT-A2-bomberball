@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BonusGodMod : Bonus
 {
+
+
     override
     public bool OnConsumption() //Gestion de la consommation de l'item
     {
