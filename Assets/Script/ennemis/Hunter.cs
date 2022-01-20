@@ -2,9 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Le Hunter est un type d'ennemi qui prend le chemin le plus long et poursuit le joueur quand il le voit
+/// </summary>
 public class Hunter : Ennemis
 {
+    /// <summary>
+    /// Distance maximum de vision pour détecter le chemin le plus long et le joueur
+    /// </summary>
     int vision = 3;
+
+    /// <summary>
+    /// Indique si le joueur est actuellement à la poursuite du joueur
+    /// </summary>
     bool chase = false;
 
     protected override void CheckTarget()

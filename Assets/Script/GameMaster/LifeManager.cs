@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Gère la vie du joueur, son affichage et sa mort
+/// GÃ¨re la vie du joueur, son affichage et sa mort
 /// </summary>
 public class LifeManager : MonoBehaviour
 {
     public Text vieDisplay;
     public int vieNiveau;
+
+    /// <summary>
+    /// Indique si le joueur Ã  un god mode active
+    /// </summary>
     public bool hasGodMode;
     public GameObject player;
     public static LifeManager instance;
@@ -18,7 +22,7 @@ public class LifeManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de LifeManager dans la scène");
+            Debug.LogWarning("Il y a plus d'une instance de LifeManager dans la scÃ©ne");
             return;
         }
     }
@@ -34,7 +38,7 @@ public class LifeManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Appelé pour signale la mort du joueur.
+    /// AppelÃ© pour signaler la mort du joueur.
     /// Affiche le game over si le joueur n'a plus de vie
     /// </summary>
     public void Death()
@@ -51,7 +55,7 @@ public class LifeManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Remet la joueur à la position initiale
+    /// Remet la joueur Ã  la position initiale
     /// </summary>
     void Respawn()
     {
@@ -59,7 +63,7 @@ public class LifeManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Met le nombre de vie à la valeur donnée et remet le joueur à la position initiale
+    /// Met le nombre de vie Ã© la valeur donnÃ©e et remet le joueur Ã© la position initiale
     /// </summary>
     /// <param name="lives"></param>
     public void Reset(int lives)

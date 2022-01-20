@@ -3,20 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Class gÈnÈrique des ennemis
+/// Class g√©n√©rique des ennemis
 /// </summary>
 public abstract class Ennemis : MonoBehaviour
 {
+    /// <summary>
+    /// Liste des points √† prendre pour atteindre la cible
+    /// </summary>
     public List<Node> path;
+
+    /// <summary>
+    /// Valeur en score de l'ennemi
+    /// </summary>
     public int scoreValue;
+    /// <summary>
+    /// vitesse de d√©placement de l'ennemi
+    /// </summary>
     public float speed;
+    /// <summary>
+    /// Nombre de mort que peut subir l'ennemi avant de mourir
+    /// </summary>
     public int life;
-    //waypoints
+    /// <summary>
+    /// Les points entres lesquel voyage l'ennemi
+    /// </summary>
     public Vector2 waypoint1, waypoint2;
+    /// <summary>
+    /// Cible actuelle de l'ennemi
+    /// </summary>
     public Vector2 currentTarget;
 
     protected GameObject gameMaster;
-
+    /// <summary>
+    /// Date du dernier d√©placement
+    /// </summary>
     protected float startTime;
 
 
@@ -45,7 +65,7 @@ public abstract class Ennemis : MonoBehaviour
     }
 
     /// <summary>
-    /// AppellÈ lors d'une explosion pour signaler que l'ennemie est touchÈ
+    /// Appell√© lors d'une explosion pour signaler que l'ennemie est touch√©
     /// </summary>
     public void Kill()
     {
@@ -58,7 +78,7 @@ public abstract class Ennemis : MonoBehaviour
     }
 
     /// <summary>
-    /// AppelÈ lors de chaque dÈplacement pour dÈplacer l'ennemies vers ca cible actuelle
+    /// Appel√© lors de chaque d√©placement pour d√©placer l'ennemies vers ca cible actuelle
     /// </summary>
     void Move()
     {
@@ -83,7 +103,7 @@ public abstract class Ennemis : MonoBehaviour
     }
 
     /// <summary>
-    /// AppelÈ lors de chaque dÈplacement pour dÈterminer la cible actuelle
+    /// Appel√© lors de chaque d√©placement pour d√©terminer la cible actuelle
     /// </summary>
     abstract protected void CheckTarget();
 

@@ -8,9 +8,11 @@ using UnityEngine;
 public class PathFinding : MonoBehaviour
 {
 	private Node a, b;
-	//List<Node> furthestGroup;
 	public Vector2 currentTarget;
-	//private int[,] map;
+
+	/// <summary>
+	/// Matrice des point de la map
+	/// </summary>
 	private Node[,] grid;
 	
 	/// <summary>

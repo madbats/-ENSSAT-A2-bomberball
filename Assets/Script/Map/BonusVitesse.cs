@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Bonus de vitesse concommÃ© par le joueur
+/// </summary>
 public class BonusVitesse : Bonus
 {
     override
@@ -16,7 +19,7 @@ public class BonusVitesse : Bonus
             power += 1;
 
             startTime = Time.time;
-            Debug.Log("Début Bonus Vitesse pour ");
+            Debug.Log("Dï¿½but Bonus Vitesse pour ");
             GameObject.Find("Player").GetComponent<PlayerMovement>().movingSpeed /= 1.5f;
 
             GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
@@ -28,7 +31,7 @@ public class BonusVitesse : Bonus
     override
     public bool CheckEnd()
     {
-        if (Time.time >= startTime + duration && !end) //Supprimer le bonus de la liste ou assez longue ? Problème avec le destroy ?
+        if (Time.time >= startTime + duration && !end) //Supprimer le bonus de la liste ou assez longue ? Problï¿½me avec le destroy ?
         {
             Debug.Log("Fin Bonus Vitesse");
             power -= 1;

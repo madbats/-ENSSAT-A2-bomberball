@@ -8,8 +8,19 @@ using UnityEngine;
 public class MurCassable : Mur
 {
     public GameObject sol;
+    
+    /// <summary>
+    /// Vqleur en score de lq destruction du mur
+    /// </summary>
     public int scoreValue;
+    
+    /// <summary>
+    /// Durée du bonus engendré par la destruction du mur
+    /// </summary>
     public double duration;
+    /// <summary>
+    /// Puissance du bonus engendré par la destruction du mur
+    /// </summary>
     public int puissance;
 
     // Start is called before the first frame update
@@ -23,7 +34,7 @@ public class MurCassable : Mur
     }
     
     /// <summary>
-    /// D�clanch� par l'explosion. D�truit le mur et le remplace par un sol
+    /// Déclanché par l'explosion. Détruit le mur et le remplace par un sol
     /// </summary>
     public void OnBreak(){
         GameObject qqc;

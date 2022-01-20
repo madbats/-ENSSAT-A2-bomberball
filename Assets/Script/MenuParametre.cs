@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using UnityEngine;
+
+/// <summary>
+/// Script du menu paramettre
+/// </summary>
 public class MenuParametre : MonoBehaviour
 {
     public GameObject main;

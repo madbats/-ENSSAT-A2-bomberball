@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Script du menu pricipale
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
     public string s;
@@ -11,11 +14,6 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         saves.SetActive(true);
-    }
-
-    public void NouvellePartie()
-    {
-        SceneManager.LoadScene(s);
     }
 
     public void Quitter()

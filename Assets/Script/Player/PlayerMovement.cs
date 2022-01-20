@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         int x = (int)this.transform.position.x;
         int y = (int)this.transform.position.y;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))//D�tection input bas
+        if (Input.GetKeyDown(KeyCode.UpArrow))//Détection input bas
         {
             if (movingSpeed <= (float)Time.time - (float)startTime)//Pour eviter le bourrage
             {
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetKey(KeyCode.UpArrow) || firstUp) && mapItemsList[x, y + 1] is Sol && !(mapEnnemisList[x, y + 1] !=null))
         { //Maintien de la touche
             holdTime = (float)Time.time - (float)startTime;
-            if (movingSpeed <= holdTime || firstUp)//On augmente si le temps de maintien est sup�rieur � la vitesse (=temps entre 2 d�placements)
+            if (movingSpeed <= holdTime || firstUp)//On augmente si le temps de maintien est supérieur é la vitesse (=temps entre 2 déplacements)
             {
                 MovePlayer(x, y + 1);
                 startTime = Time.time;
@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if ((Input.GetKeyDown(KeyCode.RightArrow)) && mapEnnemisList[x + 1, y].GetComponent<Bomb>()) //Bombe sur le chemin
                 {
-                    if (mapItemsList[x + 2, y] is Sol) //Sol derri�re la bombe
+                    if (mapItemsList[x + 2, y] is Sol) //Sol derriére la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 2, y] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 1, y];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 1, y] = null;
@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if ((Input.GetKeyDown(KeyCode.LeftArrow)) && mapEnnemisList[x - 1, y].GetComponent<Bomb>()) //Bombe sur le chemin
                 {
-                    if (mapItemsList[x - 2, y] is Sol) //Sol derri�re la bombe
+                    if (mapItemsList[x - 2, y] is Sol) //Sol derriére la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 2, y] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y] = null;
@@ -168,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if ((Input.GetKeyDown(KeyCode.UpArrow)) && mapEnnemisList[x, y + 1].GetComponent<Bomb>()) //Bombe sur le chemin
                 {
-                    if (mapItemsList[x, y + 2] is Sol) //Sol derri�re la bombe
+                    if (mapItemsList[x, y + 2] is Sol) //Sol derriére la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 2] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1] = null;
@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 if ((Input.GetKeyDown(KeyCode.DownArrow)) && mapEnnemisList[x, y - 1].GetComponent<Bomb>()) //Bombe sur le chemin
                 {
-                    if (mapItemsList[x, y - 2] is Sol) //Sol derri�re la bombe
+                    if (mapItemsList[x, y - 2] is Sol) //Sol derriére la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 2] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 1];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 1] = null;

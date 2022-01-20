@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Gère le system de pause du jeu
+/// GÃ©re le system de pause du jeu
 /// </summary>
 public class PauseManager : MonoBehaviour
 {
@@ -33,14 +33,14 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    //Méthodes
+    //MÃ©thodes
 
     /// <summary>
-    /// Gèle le jeu et affiche le menu pause quand on appuie sur la touche echap
+    /// GÃ©le le jeu et affiche le menu pause quand on appuie sur la touche echap
     /// </summary>
     void Paused()
     {
-        //Arrêter le temps du jeu
+        //ArrÃ©ter le temps du jeu
         Time.timeScale = 0;
 
         //Afficher le menu Pause
@@ -55,7 +55,7 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     public void Resume()
     {
-        //Désactiver le menu Pause
+        //DÃ©sactiver le menu Pause
         pauseMenuUI.SetActive(false);
 
         //Changer le statut du jeu

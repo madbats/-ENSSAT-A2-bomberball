@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// GameMaster est le script de base pour l'entit� GameMaster.
-/// Il g�re la cr�ation des niveaux
+/// GameMaster est le script de base pour l'entité GameMaster.
+/// Il gére la création des niveaux
 /// </summary>
 public class GameMaster : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class GameMaster : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de GameMaster dans la sc�ne");
+            Debug.LogWarning("Il y a plus d'une instance de GameMaster dans la scéne");
             return;
         }
     }
@@ -50,7 +50,7 @@ public class GameMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// Next g�n�re le prochain niveau du jeu
+    /// Next génére le prochain niveau du jeu
     /// </summary>
     public void Next()
     {
@@ -59,7 +59,7 @@ public class GameMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// Again est appel� pour reg�n�rer le dernier niveau
+    /// Again est appelé pour regénérer le dernier niveau
     /// </summary>
     public void Again()
     {
@@ -67,7 +67,7 @@ public class GameMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// NewGame g�n�re le niveau pour le num�ro et seed
+    /// NewGame génére le niveau pour le numéro et seed
     /// </summary>
     void NewGame()
     {
@@ -82,7 +82,7 @@ public class GameMaster : MonoBehaviour
         mapObject.GetComponent<Map>().Build(this.GetComponent<MapGenerator>().FetchMap(seed, number),this.GetComponent<MapGenerator>().PlaceEnnemie());
         //this.GetComponent<AstarPath>().Scan();
         this.gameObject.GetComponent<ScoreManager>().Reset();
-        //this.gameObject.GetComponent<ScoreManager>().scorePartie = Score;//Chargement du score global enregistr�
+        //this.gameObject.GetComponent<ScoreManager>().scorePartie = Score;//Chargement du score global enregistré
         this.gameObject.GetComponent<LifeManager>().player = playerObject;
 
         //this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
@@ -95,7 +95,7 @@ public class GameMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// Indique la fin du niveau car le joueur � gagn�
+    /// Indique la fin du niveau car le joueur é gagné
     /// </summary>
     public void Win()
     {
@@ -108,13 +108,13 @@ public class GameMaster : MonoBehaviour
         gameWonObject.name = "GameMenu";
         this.gameObject.GetComponent<ScoreManager>().Win();
 
-        //Sauvegarde des donn�es de la partie (apr�s l'appel � Win() pour prendre en compte le nouvel ajout au score)
+        //Sauvegarde des données de la partie (aprés l'appel é Win() pour prendre en compte le nouvel ajout au score)
 
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Next);
     }
 
     /// <summary>
-    /// Indique la fin du niveau car le joueur � perdu
+    /// Indique la fin du niveau car le joueur é perdu
     /// </summary>
     public void GameOver()
     {

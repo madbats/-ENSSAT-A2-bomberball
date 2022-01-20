@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Le Zombie est un type d'ennemi qui suit un chemin entre deux point
+/// </summary>
 public class Zombie : Ennemis
 {
     protected override  void CheckTarget()

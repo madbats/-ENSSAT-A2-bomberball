@@ -44,7 +44,7 @@ public class Bomb : MonoBehaviour
     }
 
     /// <summary>
-    /// Explosion de la bombe, l'ensemble des éléments sont détruit dans le rayon de la bombe
+    /// Explosion de la bombe, l'ensemble des Ã©lÃ©ments sont dÃ©truit dans le rayon de la bombe
     /// </summary>
     void Explosion() {
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;

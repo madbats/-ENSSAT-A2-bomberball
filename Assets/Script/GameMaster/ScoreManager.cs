@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Gère le score du joueur, son affichage et sa modification
+/// GÃ©re le score du joueur, son affichage et sa modification
 /// </summary>
 public class ScoreManager : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (instance != null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de ScoreManager dans la scène");
+            Debug.LogWarning("Il y a plus d'une instance de ScoreManager dans la scÃ©ne");
             return;
         }
     }
