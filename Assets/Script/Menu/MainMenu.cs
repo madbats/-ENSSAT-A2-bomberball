@@ -5,6 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public string s1;
     public string s2;
+    public string s3;
     public GameObject p;
     public void NouvellePartie(){
         SceneManager.LoadScene(s1);
@@ -18,5 +19,10 @@ public class MainMenu : MonoBehaviour
 
     public void Editeur(){
         SceneManager.LoadScene(s2);
+    }
+
+    public void CreatedLevel()
+    {
+        SceneManager.LoadScene(s3);
     }
 }
