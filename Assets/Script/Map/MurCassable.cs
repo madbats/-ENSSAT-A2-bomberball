@@ -2,11 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Mur cassable de la carte
+/// </summary>
 public class MurCassable : Mur
 {
     public GameObject sol;
+    
+    /// <summary>
+    /// Vqleur en score de lq destruction du mur
+    /// </summary>
     public int scoreValue;
+    
+    /// <summary>
+    /// Durée du bonus engendré par la destruction du mur
+    /// </summary>
     public double duration;
+    /// <summary>
+    /// Puissance du bonus engendré par la destruction du mur
+    /// </summary>
     public int puissance;
 
     // Start is called before the first frame update
@@ -19,6 +33,9 @@ public class MurCassable : Mur
     {
     }
     
+    /// <summary>
+    /// Déclanché par l'explosion. Détruit le mur et le remplace par un sol
+    /// </summary>
     public void OnBreak(){
         GameObject qqc;
 

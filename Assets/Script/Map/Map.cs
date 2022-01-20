@@ -2,15 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// L'objet de map 
+/// </summary>
 public class Map : MonoBehaviour {
 
-    public int[,] symboleMap = new int[13, 11]; // liste stylis�s des objets de la carte
-    public MapItem[,] mapItemsList = new MapItem[13,11]; //liste de tous les objets (au sens large) de la carte.
-    //public Ennemis[,] mapEnnemisList = new Ennemis[13, 11]; //liste de tous les ennemis (au sens large) de la carte.
+    /// <summary>
+    /// Matrice de la map
+    /// </summary>
+    public MapItem[,] mapItemsList = new MapItem[13, 11];
+
     public GameObject[,] mapEnnemisList;
-    public int seed; //seed de la g�n�ration
-    public int difficulty; //difficult� du niveau
-    public int number; //Niveau de la campagne
+    public Vector3 positionEntree;
+
     public GameObject sol;
     public GameObject objet_puissance;
     public GameObject objet_deplacement;
@@ -29,37 +33,12 @@ public class Map : MonoBehaviour {
     public GameObject explorer;
     public GameObject watchman;
     public GameObject hunter;
-    public GameObject waypoint;
 
-    public Vector3 positionEntree;
-
-    private int[,] testMap = { 
-            { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 },
-            {20,10,0,0,0,0,0,0,0,0,0,10,20 },
-            {20,10,20,14,20,0,20,0,20,22,20,0,20 },
-            {20,0,0,0,0,0,0,0,12,0,0,0,20 },
-            {20,0,20,0,20,0,20,0,20,0,20,0,20 },
-            {20,0,0,0,0,0,0,14,0,0,0,0,20 },
-            {20,0,20,11,20,0,20,0,20,0,20,0,20 },
-            {20,0,0,0,0,0,13,0,0,0,0,0,20 },
-            {20,21,20,0,20,0,20,0,20,0,20,0,20 },
-            {20,12,0,0,0,12,0,0,0,0,0,14,20 },
-            { 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20 }
-    };
-    private GameObject[,] testMapEnnemis = {
-            { null, null, null, null, null, null, null, null, null, null, null, null, null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null,null,null,null,null,null,null,null,null,null,null,null,null },
-            { null, null, null, null, null, null, null, null, null, null, null, null, null }};
-
-    
+    /// <summary>
+    /// Construit la map
+    /// </summary>
+    /// <param name="map">Matrice des objets de la map</param>
+    /// <param name="ennemis">Matrice des ennemis</param>
     public void Build(int[,] map,GameObject[,] ennemis)
     {
         GameObject newObject;

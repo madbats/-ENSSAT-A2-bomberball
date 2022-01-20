@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Script de control de la bombe
+/// </summary>
 public class Bomb : MonoBehaviour
 {
 	public float timeLeft;
@@ -17,22 +20,20 @@ public class Bomb : MonoBehaviour
     {
         x = (int) transform.position.x;
         y = (int) transform.position.y;
-     	this.gameObject.GetComponent<SpriteRenderer>().sprite= FirstStage;
     }
 
     // Update is called once per frame
     void Update()
     {
         timeLeft -= Time.deltaTime;
-        this.gameObject.GetComponent<SpriteRenderer>().sprite = FirstStage;
 
 
         switch (timeLeft) {
         	case float i when i > 5 && i <= timeLeft*0.75:
-        		this.gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
+        		//this.gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
         		break;
         	case float i when i > 0 && i <= timeLeft*0.40:
-        		this.gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
+        		//this.gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
         		break;
         	case float i when i <= 0:
                 Explosion();
@@ -42,6 +43,9 @@ public class Bomb : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Explosion de la bombe, l'ensemble des éléments sont détruit dans le rayon de la bombe
+    /// </summary>
     void Explosion() {
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         Transform player = GameObject.Find("Player").GetComponent<Transform>();
@@ -102,7 +106,7 @@ public class Bomb : MonoBehaviour
                 }
                 foreach(GameObject ennemi in ennemis)
                 {
-                    if(Vector2.Distance(new Vector2(x, i), ennemi.transform.position) < .6f)
+                    if(Vector2.Distance(new Vector2(x, i), ennemi.transform.position) < .7f)
                     {
                         ennemi.GetComponent<Ennemis>().Kill();
                         ennemisKilled.Add(ennemi);

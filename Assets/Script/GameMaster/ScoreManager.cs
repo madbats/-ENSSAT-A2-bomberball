@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Gére le score du joueur, son affichage et sa modification
+/// </summary>
 public class ScoreManager : MonoBehaviour
 {
     public Text scoreDisplay;
-    public int scoreNiveau;
+    public int scoreNiveau = 0;
     public int scorePartie = 0;
+    public static ScoreManager instance;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        scoreNiveau = 0;
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de ScoreManager dans la scéne");
+            return;
+        }
     }
 
     // Update is called once per frame
@@ -22,6 +28,9 @@ public class ScoreManager : MonoBehaviour
         scoreDisplay.text = "Score : " + scoreNiveau;
     }
 
+    /// <summary>
+    /// Lors d'une victoire du joueur, ajoute le score 
+    /// </summary>
     public void Win()
     {
         scorePartie += scoreNiveau; 
@@ -29,6 +38,9 @@ public class ScoreManager : MonoBehaviour
         Reset();
     }
 
+    /// <summary>
+    /// Remet le score du niveau a 0
+    /// </summary>
     public void Reset()
     {
         scoreNiveau=0;

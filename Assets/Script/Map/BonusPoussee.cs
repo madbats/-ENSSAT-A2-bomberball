@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Bonus Poussee present sur la map
+/// </summary>
 public class BonusPoussee : Bonus
 {
     override
@@ -15,7 +18,7 @@ public class BonusPoussee : Bonus
             power += 1;
 
             startTime = Time.time;
-            Debug.Log("Début Bonus Poussee");
+            Debug.Log("Dï¿½but Bonus Poussee");
 
             //Effet du bonus 
             GameObject.Find("Player").GetComponent<PlayerBonus>().poussee = true;
@@ -30,7 +33,7 @@ public class BonusPoussee : Bonus
     override
     public bool CheckEnd()
     {
-        if (Time.time >= startTime + duration && !end) //Supprimer le bonus de la liste ou assez longue ? Problème avec le destroy ?
+        if (Time.time >= startTime + duration && !end) //Supprimer le bonus de la liste ou assez longue ? Problï¿½me avec le destroy ?
         {
             Debug.Log("Fin Bonus Poussee");
             power -= 1;

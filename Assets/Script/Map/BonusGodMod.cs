@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Bonus GodMod present sur la map
+/// </summary>
 public class BonusGodMod : Bonus
 {
+
     override
-    public bool OnConsumption() //Gestion de la consommation de l'item
+    public bool OnConsumption() 
     {
         if (!consumed)
         {
@@ -26,7 +30,7 @@ public class BonusGodMod : Bonus
     override
     public bool CheckEnd()
     {
-        if (Time.time >= startTime + duration && !end) //Supprimer le bonus de la liste ou assez longue ? Problème avec le destroy ?
+        if (Time.time >= startTime + duration && !end) 
         {
             Debug.Log("Fin Bonus God Mod");
             power -= 1;

@@ -2,11 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Le Watchman est un type d'ennemi suit un chemin entre deux point et poursuit le joueur quand il le voit
+/// </summary>
 public class Watchman : Ennemis
 {
-    //derni�re position avant chase
+    /// <summary>
+    /// Dernier point ciblé avant le poursuite
+    /// </summary>
     Vector2 save;
+    /// <summary>
+    /// Distance maximum de vision pour détecter le chemin le plus long et le joueur
+    /// </summary>
     int vision = 3;
+    /// <summary>
+    /// Indique si le joueur est actuellement é la poursuite du joueur
+    /// </summary>
     bool chase = false;
 
 
@@ -15,7 +26,8 @@ public class Watchman : Ennemis
         if (!chase)
         {
             //Debug.Log("Not Chassing");
-            if (Vector2.Distance(this.transform.position, gameMaster.GetComponent<GameMaster>().playerObject.transform.position) < vision)
+            GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+            if (GetComponent<PathFinding>().FindPlayer(vision,gameMaster.GetComponent<GameMaster>().playerObject.transform.position))
             {
                 //Debug.Log("Starting Chase");
                 save = currentTarget;
@@ -40,7 +52,8 @@ public class Watchman : Ennemis
         {
             // comportement : abandon de poursuite
             //Debug.Log("Chassing");
-            if (Vector2.Distance(transform.position, currentTarget) > vision)
+            GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+            if (!GetComponent<PathFinding>().FindPlayer(vision, gameMaster.GetComponent<GameMaster>().playerObject.transform.position))
             {
                 //Debug.Log("Lost Target");
                 currentTarget = save;

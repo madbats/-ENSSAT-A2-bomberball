@@ -2,8 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Bonus Puissance present sur la map
+/// </summary>
 public class BonusPuissance : Bonus
 {
+    
+    /// <summary>
+    /// Agmentation de la puissance fournie par la bonus
+    /// </summary>
     public int puissance;
 
     override
@@ -17,7 +24,7 @@ public class BonusPuissance : Bonus
             power += 1;
 
             startTime = Time.time;
-            Debug.Log("Début Bonus Puissance");
+            Debug.Log("Dï¿½but Bonus Puissance");
 
             //Effet du bonus 
             GameObject.Find("Player").GetComponent<PlayerBonus>().puissance+= puissance;
@@ -32,7 +39,7 @@ public class BonusPuissance : Bonus
     override
     public bool CheckEnd()
     {
-        if (Time.time >= startTime + duration && !end) //Supprimer le bonus de la liste ou assez longue ? Problème avec le destroy ?
+        if (Time.time >= startTime + duration && !end) //Supprimer le bonus de la liste ou assez longue ? ProblÃ¨me avec le destroy ?
         {
             Debug.Log("Fin Bonus Puissance");
             power -= 1;
