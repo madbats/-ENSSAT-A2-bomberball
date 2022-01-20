@@ -250,9 +250,9 @@ GameObject:
   m_Component:
   - component: {fileID: 49381616}
   - component: {fileID: 49381615}
-  - component: {fileID: 49381614}
   - component: {fileID: 49381612}
   - component: {fileID: 49381617}
+  - component: {fileID: 49381613}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -276,7 +276,7 @@ MonoBehaviour:
   explorer: {fileID: 53044816356743872, guid: e2d3ec23c39d9ef46bd837e11821561e, type: 3}
   watchman: {fileID: 1032924123277843696, guid: 36def8b44d11f3b40be09bd7b43019e7, type: 3}
   hunter: {fileID: 131549319331210780, guid: 2c27d6e023ba22648877f975bd3555fa, type: 3}
---- !u!114 &49381614
+--- !u!114 &49381613
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -285,13 +285,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 49381611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c2b57381f86314f9987089605dd73f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cc42fd8a13cdb24a824d5cc4d544b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   vieDisplay: {fileID: 1053958190}
   vieNiveau: 2
   hasGodMode: 0
-  player: {fileID: 2140758685885247378, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
+  player: {fileID: 2717000335146501039, guid: 630f3f38a1c2be74081cc26981d9e136, type: 3}
 --- !u!114 &49381615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,11 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a279b4b3f89b3c7498e5f488f67e2ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 0
-  number: 0
-  difficulty: 0
   map: {fileID: 3501239360693542408, guid: e8d7e8c48eb686247a3213fadb8704dd, type: 3}
-  player: {fileID: 2140758685885247378, guid: 4e546f6ba9af71742afc9b403f535481, type: 3}
+  player: {fileID: 2717000335146501039, guid: 630f3f38a1c2be74081cc26981d9e136, type: 3}
   gameOver: {fileID: 3000635358093671747, guid: ec92a0b7a1732054499807fe1754db28, type: 3}
   gameWon: {fileID: 5974670449764326788, guid: bee37135dc92ca142a4851b134b3b068, type: 3}
   endOfGame: 0

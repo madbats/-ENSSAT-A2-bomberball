@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        if (GameObject.Find("Player").GetComponent<PlayerBonus>().poussee)
+        if (GameObject.Find("Player").GetComponent<PlayerBonusCreator>().poussee)
         {
             if (mapEnnemisList[x + 1, y] != null)
             {

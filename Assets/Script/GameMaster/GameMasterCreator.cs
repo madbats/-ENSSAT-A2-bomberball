@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameMasterCreator : GameMaster
+public class GameMasterCreator : MonoBehaviour
 {
-    /*public GameObject map;
+    public GameObject map;
     public GameObject player;
     public GameObject gameOver;
     public GameObject gameWon;
     public bool endOfGame = false;
-    public GameObject playerObject;*/
+    public GameObject playerObject;
     GameObject mapObject;
-    /*public int maxLives;
+    public int maxLives;
 
     public float vitesseTime = 0;
     public float puissanceTime = 0;
@@ -22,7 +22,7 @@ public class GameMasterCreator : GameMaster
     public Text vitesseText;
     public Text puissanceText;
     public Text pousseeText;
-    public Text godModeText;*/
+    public Text godModeText;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +30,10 @@ public class GameMasterCreator : GameMaster
         NewGame();
     }
 
-    /*public void Again()
+    public void Again()
     {
         NewGame();
-    }*/
+    }
 
     void NewGame()
     {
@@ -50,16 +50,16 @@ public class GameMasterCreator : GameMaster
         playerObject.transform.SetParent(transform.parent, false);
 
         this.gameObject.GetComponent<ScoreManager>().Reset();
-        this.gameObject.GetComponent<LifeManager>().player = playerObject;
-        this.gameObject.GetComponent<LifeManager>().Reset(maxLives);
+        this.gameObject.GetComponent<LifeManagerCreator>().player = playerObject;
+        this.gameObject.GetComponent<LifeManagerCreator>().Reset(maxLives);
         Destroy(GameObject.Find("GameMenu"));
     }
 
-    public new void Win()
+    public void Win()
     {
         endOfGame = true;
-        Destroy(playerObject);
         Destroy(mapObject);
+        Destroy(playerObject);
         Destroy(GameObject.Find("Bomb(Clone)"));
         GameObject gameWonObject = Instantiate(gameWon, gameObject.transform.position, Quaternion.identity);
         gameWonObject.transform.SetParent(transform.parent, false);
@@ -68,7 +68,7 @@ public class GameMasterCreator : GameMaster
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Again);
     }
 
-    /*public void GameOver()
+    public void GameOver()
     {
         endOfGame = true;
         Destroy(playerObject);
@@ -78,7 +78,7 @@ public class GameMasterCreator : GameMaster
         gameOverObject.transform.SetParent(transform.parent, false);
         gameOverObject.name = "GameMenu";
         GameObject.Find("Restart").GetComponent<Button>().onClick.AddListener(Again);
-    }*/
+    }
 
     // Update is called once per frame
     void Update()
