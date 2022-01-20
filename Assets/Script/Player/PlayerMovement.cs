@@ -13,9 +13,13 @@ public class PlayerMovement : MonoBehaviour
     private float startTime;
     private float holdTime;
 
+    public AudioSource son;
+    public float volume = 0.5f;
+
     public void Start()
     {
         startTime = Time.time;
+        son = this.gameObject.GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -51,11 +55,11 @@ public class PlayerMovement : MonoBehaviour
             holdTime = (float)Time.time - (float)startTime;
             if (movingSpeed <= holdTime || firstUp)//On augmente si le temps de maintien est sup�rieur � la vitesse (=temps entre 2 d�placements)
             {
+                son.Play();
                 MovePlayer(x, y + 1);
                 startTime = Time.time;
                 firstUp = false;
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -72,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
             holdTime = (float)Time.time - (float)startTime;
             if (movingSpeed <= holdTime || firstDown)
             {
+                son.Play();
                 MovePlayer(x, y - 1);
                 startTime = Time.time;
                 firstDown = false;
@@ -94,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             holdTime = (float)Time.time - (float)startTime;
             if (movingSpeed <= holdTime || firstLeft)
             {
+                son.Play();
                 MovePlayer(x - 1, y);
                 startTime = Time.time;
                 firstLeft = false;
@@ -116,6 +122,7 @@ public class PlayerMovement : MonoBehaviour
             holdTime = (float)Time.time - (float)startTime;
             if (movingSpeed <= holdTime || firstRight)
             {
+                son.Play();
                 MovePlayer(x + 1, y);
                 startTime = Time.time;
                 firstRight = false;

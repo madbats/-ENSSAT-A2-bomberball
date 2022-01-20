@@ -12,12 +12,23 @@ public class Bomb : MonoBehaviour
     public Sprite SecondStage;
     public Sprite ThirdStage;
 
+    /*public AudioSource explosion;
+    public float volume = 0.5f;*/
+
+    public AudioSource explosion;
+
+    public bool explosionlancee = false;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         x = (int) transform.position.x;
         y = (int) transform.position.y;
      	this.gameObject.GetComponent<SpriteRenderer>().sprite= FirstStage;
+        //explosion = this.gameObject.GetComponent<AudioSource>();
+        explosion = GameObject.Find("Explosion").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +38,24 @@ public class Bomb : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().sprite = FirstStage;
 
 
+        if (timeLeft > 0.5 && timeLeft < 1)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = SecondStage;
+        } else
+        if (timeLeft <= 0.5 && timeLeft > 0)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = ThirdStage;
+        } else
+        if (timeLeft <= 0)
+        {
+            if (!explosionlancee)
+            {
+                explosionlancee = true;
+                explosion.Play();
+                Explosion();
+            }
+        }
+        /*
         switch (timeLeft) {
         	case float i when i > 5 && i <= timeLeft*0.75:
         		this.gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
@@ -35,14 +64,16 @@ public class Bomb : MonoBehaviour
         		this.gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
         		break;
         	case float i when i <= 0:
-                Explosion();
+                
+                
         		break;
         	default:
         		break;
-        }
+        }*/
     }
 
     void Explosion() {
+
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         Transform player = GameObject.Find("Player").GetComponent<Transform>();
         GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
@@ -227,6 +258,7 @@ public class Bomb : MonoBehaviour
         {
             GameObject.Find("GameMaster").GetComponent<LifeManager>().Death();
         }
+        explosionlancee = false;
     }
     
 }
