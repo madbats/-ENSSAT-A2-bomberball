@@ -58,7 +58,7 @@ public class PathFinding : MonoBehaviour
 			foreach (Node neighbour in GetNeighbours(node))
 			{
 				//Debug.Log("neighbour : " + neighbour.x + " - " + neighbour.y + " => " + neighbour.gCost);
-				if (!neighbour.walkable || closedSet.Contains(neighbour))
+				if (!neighbour.visable || closedSet.Contains(neighbour))
 				{
 					continue;
 				}
@@ -123,7 +123,7 @@ public class PathFinding : MonoBehaviour
 			foreach (Node neighbour in GetNeighbours(node))
 			{
 				//Debug.Log("neighbour : " + neighbour.x + " - " + neighbour.y + " => " + neighbour.gCost);
-				if (!neighbour.walkable || closedSet.Contains(neighbour))
+				if (!neighbour.visable || closedSet.Contains(neighbour))
 				{
 					continue;
 				}
@@ -203,6 +203,7 @@ public class PathFinding : MonoBehaviour
 			}
 		}
 		Debug.Log("Path not found");
+		GetComponent<Ennemis>().path = new List<Node>();
 	}
 
 	/// <summary>

@@ -20,22 +20,21 @@ public class Watchman : Ennemis
     /// </summary>
     bool chase = false;
 
-
     protected override void CheckTarget()
     {
+        GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
         if (!chase)
         {
             //Debug.Log("Not Chassing");
-            GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
             if (GetComponent<PathFinding>().FindPlayer(vision,gameMaster.GetComponent<GameMaster>().playerObject.transform.position))
             {
-                //Debug.Log("Starting Chase");
+                Debug.Log("Starting Chase");
                 save = currentTarget;
                 this.currentTarget = gameMaster.GetComponent<GameMaster>().playerObject.transform.position; 
-                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+                //GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
                 chase = true;
             }
-            else if (Vector2.Distance(transform.position, currentTarget) < 1f)
+            else if (Vector2.Distance(transform.position, currentTarget) < .1f)
             {
                 //Debug.Log("On Target");
                 if (currentTarget == waypoint1)
@@ -51,20 +50,20 @@ public class Watchman : Ennemis
         else
         {
             // comportement : abandon de poursuite
-            //Debug.Log("Chassing");
-            GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+            Debug.Log("Chassing");
+            //GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
             if (!GetComponent<PathFinding>().FindPlayer(vision, gameMaster.GetComponent<GameMaster>().playerObject.transform.position))
             {
-                //Debug.Log("Lost Target");
+                Debug.Log("Lost Target");
                 currentTarget = save;
-                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+                //GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
                 chase = false;
             }
             else
             {
                 //Debug.Log("Continuing Chase");
                 this.currentTarget = gameMaster.GetComponent<GameMaster>().playerObject.transform.position;
-                GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+                //GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
             }
         }
         GetComponent<PathFinding>().SwitchTarget(currentTarget);

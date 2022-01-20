@@ -11,6 +11,10 @@ public class Node
 	/// Détermine si le point peut-être traversé
 	/// </summary>
 	public bool walkable;
+	/// <summary>
+	/// Détermine si le point peut-être traversé par la vue de l'ennemie
+	/// </summary>
+	public bool visable;
 
 	/// <summary>
 	/// Position sur la carte
@@ -36,13 +40,15 @@ public class Node
 	public Node(MapItem item)
 	{
 		walkable = (item is Sol);
+		visable = walkable;
 		GameObject bomb = GameObject.Find("Bomb(Clone)");
 		worldPosition = item.transform.position;
 		x = (int)item.transform.position.x;
 		y = (int)item.transform.position.y;
 		if (bomb != null)
 		{
-			walkable = walkable && (Vector2.Distance(item.transform.position, bomb.transform.position)>.1);
+			walkable = walkable && (Vector2.Distance(item.transform.position, bomb.transform.position)>.2);
+			///Debug.Log(x + "," + y + "  " + walkable +" "+visable);
 		}
 	}
 
