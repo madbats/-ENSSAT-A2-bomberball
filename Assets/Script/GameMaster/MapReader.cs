@@ -18,7 +18,7 @@ public class MapReader : MonoBehaviour
 	public GameObject watchman;
 	public GameObject hunter;
 	Vector2 entree;
-	GameObject[,] mapEnnemisList;
+	public GameObject[,] mapEnnemisList;
 
 	public int[,] FetchMap()
 	{
@@ -53,26 +53,10 @@ public class MapReader : MonoBehaviour
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				carac = createdMap[2 * (13 * i + j)] + createdMap[2 * (13 * i + j) + 1];
-				if (carac == 30)
+				carac = int.Parse("" + createdMap[2 * (13 * j + i)] + createdMap[2 * (13 * j + i) + 1]);
+				if (carac == 30 || carac == 31 || carac == 32 || carac == 33)
 				{
 					map[i, j] = 0;
-					CreateZombie(new Vector2(i, j), new Vector2());
-				}
-				else if(carac == 31)
-                {
-					map[i, j] = 0;
-					CreateExplorer(new Vector2(i, j));
-                }
-				else if(carac == 32)
-                {
-					map[i, j] = 0;
-					CreateWatchman(new Vector2(i, j), new Vector2());
-				}
-				else if(carac == 33)
-                {
-					map[i, j] = 0;
-					CreateHunter(new Vector2(i, j));
 				}
 				else
                 {
@@ -91,7 +75,7 @@ public class MapReader : MonoBehaviour
 		{
 			for (int j = 0; j < 11; j++)
 			{
-				carac = createdMap[2 * (13 * i + j)] + createdMap[2 * (13 * i + j) + 1];
+				carac = int.Parse("" + createdMap[2 * (13 * j + i)] + createdMap[2 * (13 * j + i) + 1]);
 				if (carac == 30)
 				{
 					index = random.Next(0, Paths.Count);
