@@ -12,6 +12,13 @@ public class Bomb : MonoBehaviour
     public Sprite SecondStage;
     public Sprite ThirdStage;
 
+
+    public GameObject ExplosionC;
+    public GameObject ExplosionH;
+    public GameObject ExplosionB;
+    public GameObject ExplosionG;
+    public GameObject ExplosionD;
+
     /*public AudioSource explosion;
     public float volume = 0.5f;*/
 
@@ -74,6 +81,10 @@ public class Bomb : MonoBehaviour
 
     void Explosion() {
 
+        //Explosion
+        GameObject newExplosionC = Instantiate(ExplosionC, new Vector3(x, y, -10), Quaternion.identity);
+        newExplosionC.transform.SetParent(this.transform.parent, false);
+
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         Transform player = GameObject.Find("Player").GetComponent<Transform>();
         GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
@@ -127,6 +138,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                GameObject newExplosionH = Instantiate(ExplosionH, new Vector3(x, i, -10), Quaternion.identity);
+                newExplosionH.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[x, i].isBreakable)
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
@@ -160,6 +173,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                GameObject newExplosionB = Instantiate(ExplosionB, new Vector3(x, i, -10), Quaternion.identity);
+                newExplosionB.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[x, i].isBreakable)
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
@@ -193,6 +208,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                GameObject newExplosionD = Instantiate(ExplosionD, new Vector3( i, y, -10), Quaternion.identity);
+                newExplosionD.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[i, y].isBreakable)
                 {
                     ((MurCassable)mapItemsList[i, y]).OnBreak();
@@ -226,6 +243,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                GameObject newExplosionG = Instantiate(ExplosionG, new Vector3(i, y, -10), Quaternion.identity);
+                newExplosionG.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[i, y].isBreakable)
                 {
                     ((MurCassable)mapItemsList[i, y]).OnBreak();

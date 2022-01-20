@@ -104,8 +104,12 @@ MonoBehaviour:
   FirstStage: {fileID: 6451881652635553917, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
   SecondStage: {fileID: -4818399482140843018, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
   ThirdStage: {fileID: 4993098874929714069, guid: 39c2bfffe11d73842a1eaf8b7a86fbe9, type: 3}
+  ExplosionC: {fileID: 3757708294439615191, guid: 458186b604500d5408312371263a4ba3, type: 3}
+  ExplosionH: {fileID: 845987286365486173, guid: a24abead35fbcd04e83ffca419f39f82, type: 3}
+  ExplosionB: {fileID: 9067514941304113706, guid: 3ba736aa3718a1e4db23821a66025720, type: 3}
+  ExplosionG: {fileID: 245815837818641951, guid: 5720ebd5f85b1294393c27ffc8c05d1b, type: 3}
+  ExplosionD: {fileID: 2302033021942283340, guid: 98d037cee6fd4744481b60d37fefe896, type: 3}
   explosion: {fileID: 0}
-  volume: 0.5
   explosionlancee: 0
 --- !u!95 &3119400000435379399
 Animator:
