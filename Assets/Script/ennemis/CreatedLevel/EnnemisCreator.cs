@@ -24,7 +24,7 @@ public abstract class EnnemisCreator : MonoBehaviour
         startTime = (float)Time.time;
         //currentTarget = waypoint1;
         gameMaster = GameObject.Find("GameMaster");
-        GetComponent<PathFinding>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
+        GetComponent<PathFindingCreator>().CreateGrid(GameObject.Find("Map").GetComponent<Map>().mapItemsList);
     }
 
     void Update()
@@ -55,7 +55,7 @@ public abstract class EnnemisCreator : MonoBehaviour
 
     void Move()
     {
-        GetComponent<PathFinding>().SeekPath();
+        GetComponent<PathFindingCreator>().SeekPath();
         if (path.Count > 0)
         {
             GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[(int)transform.position.x, (int)transform.position.y] = null;

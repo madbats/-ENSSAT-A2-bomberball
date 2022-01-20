@@ -53,7 +53,6 @@ public class MapReader : MonoBehaviour
 		int carac;
 
 		Vector2 b;
-		int index;
 
 		for (int i = 0; i < 13; i++)
 		{
@@ -83,7 +82,8 @@ public class MapReader : MonoBehaviour
 
 		createPaths();
 
-		index = 0;
+		int index = 0;
+		Debug.Log(Paths.Count);
 
 		for (int i = 0; i < 13; i++)
 		{
@@ -111,11 +111,13 @@ public class MapReader : MonoBehaviour
 					CreateZombie(new Vector2(i, j), b);
 					Paths.Remove(Paths[index]);
 					index++;
+					Debug.Log(index);
 				}
 				else if (carac == 31)
 				{
 					CreateExplorer(new Vector2(i, j));
 					index++;
+					Debug.Log(index);
 				}
 				else if (carac == 32)
 				{
@@ -138,11 +140,13 @@ public class MapReader : MonoBehaviour
 					CreateWatchman(new Vector2(i, j), b);
 					Paths.Remove(Paths[index]);
 					index++;
+					Debug.Log(index);
 				}
 				else if (carac == 33)
 				{
 					CreateHunter(new Vector2(i, j));
 					index++;
+					Debug.Log(index);
 				}
 			}
 		}
@@ -170,9 +174,9 @@ public class MapReader : MonoBehaviour
 		qqc = Instantiate(zombie, startPosition, Quaternion.identity);
 		mapEnnemisList[(int)startPosition.x, (int)startPosition.y] = qqc;
 		qqc.transform.SetParent(GameObject.Find("Map").transform, false);
-		qqc.GetComponent<Ennemis>().waypoint1 = startPosition;
-		qqc.GetComponent<Ennemis>().waypoint2 = endPosition;
-		qqc.GetComponent<Ennemis>().currentTarget = startPosition;
+		qqc.GetComponent<EnnemisCreator>().waypoint1 = startPosition;
+		qqc.GetComponent<EnnemisCreator>().waypoint2 = endPosition;
+		qqc.GetComponent<EnnemisCreator>().currentTarget = startPosition;
 	}
 
 	void CreateWatchman(Vector2 startPosition, Vector2 endPosition)
@@ -183,9 +187,9 @@ public class MapReader : MonoBehaviour
 		qqc = Instantiate(watchman, startPosition, Quaternion.identity);
 		mapEnnemisList[(int)startPosition.x, (int)startPosition.y] = qqc;
 		qqc.transform.SetParent(GameObject.Find("Map").transform, false);
-		qqc.GetComponent<Ennemis>().waypoint1 = startPosition;
-		qqc.GetComponent<Ennemis>().waypoint2 = endPosition;
-		qqc.GetComponent<Ennemis>().currentTarget = startPosition;
+		qqc.GetComponent<EnnemisCreator>().waypoint1 = startPosition;
+		qqc.GetComponent<EnnemisCreator>().waypoint2 = endPosition;
+		qqc.GetComponent<EnnemisCreator>().currentTarget = startPosition;
 	}
 
 	void CreateExplorer(Vector2 startPosition)
@@ -196,7 +200,7 @@ public class MapReader : MonoBehaviour
 		qqc = Instantiate(explorer, startPosition, Quaternion.identity);
 		mapEnnemisList[(int)startPosition.x, (int)startPosition.y] = qqc;
 		qqc.transform.SetParent(GameObject.Find("Map").transform, false);
-		qqc.GetComponent<Ennemis>().currentTarget = startPosition;
+		qqc.GetComponent<EnnemisCreator>().currentTarget = startPosition;
 	}
 
 	void CreateHunter(Vector2 startPosition)
@@ -207,7 +211,7 @@ public class MapReader : MonoBehaviour
 		qqc = Instantiate(hunter, startPosition, Quaternion.identity);
 		mapEnnemisList[(int)startPosition.x, (int)startPosition.y] = qqc;
 		qqc.transform.SetParent(GameObject.Find("Map").transform, false);
-		qqc.GetComponent<Ennemis>().currentTarget = startPosition;
+		qqc.GetComponent<EnnemisCreator>().currentTarget = startPosition;
 	}
 
 	void addToPath(Vector2 position, List<Vector2> Path)
