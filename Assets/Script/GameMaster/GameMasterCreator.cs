@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameMasterCreator : MonoBehaviour
 {
+    public int seed;
     public GameObject map;
     public GameObject player;
     public GameObject gameOver;
@@ -42,7 +43,7 @@ public class GameMasterCreator : MonoBehaviour
         mapObject.name = "Map";
         mapObject.transform.SetParent(transform.parent, false);
         
-        mapObject.GetComponent<MapCreator>().Build(this.GetComponent<MapReader>().FetchMap());
+        mapObject.GetComponent<MapCreator>().Build(this.GetComponent<MapReader>().FetchMap(seed));
         mapObject.GetComponent<MapCreator>().mapEnnemisList = this.GetComponent<MapReader>().mapEnnemisList;
         //this.GetComponent<AstarPath>().Scan();
         playerObject = Instantiate(player, mapObject.GetComponent<MapCreator>().positionEntree, Quaternion.identity);

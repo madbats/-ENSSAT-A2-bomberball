@@ -7,10 +7,13 @@ public class MapReader : MonoBehaviour
 {
 	private string createdMap;
 
+	private int seed;
+	private int number;
 	public System.Random random;
 	int difficulty;
 	List<Vector2> solPossible = new List<Vector2>();
 	List<List<Vector2>> Paths;
+	List<Vector2> ennemis = new List<Vector2>();
 	private int[,] map = new int[13, 11];
 
 	public GameObject zombie;
@@ -20,14 +23,17 @@ public class MapReader : MonoBehaviour
 	Vector2 entree;
 	public GameObject[,] mapEnnemisList;
 
-	public int[,] FetchMap()
+	public int[,] FetchMap(int seed)
 	{
+		this.seed = seed;
 		this.createdMap = PlayerPrefs.GetString("map");
 		return CreateMap();
 	}
 
 	private int[,] CreateMap()
 	{
+		random = new System.Random(seed);
+
 		GameObject[,] testEnnemisList = {
 			{ null, null, null, null, null, null, null, null, null, null, null},
 			{ null, null, null, null, null, null, null, null, null, null, null},
@@ -57,6 +63,8 @@ public class MapReader : MonoBehaviour
 				if (carac == 30 || carac == 31 || carac == 32 || carac == 33)
 				{
 					map[i, j] = 0;
+					solPossible.Add(new Vector2(i, j));
+					ennemis.Add(new Vector2(i, j));
 				}
 				else
                 {
@@ -65,11 +73,17 @@ public class MapReader : MonoBehaviour
                     {
 						entree = new Vector2(i, j);
                     }
+					else if(carac == 0)
+                    {
+						solPossible.Add(new Vector2(i, j));
+					}
                 }
 			}
 		}
 
 		createPaths();
+
+		index = 0;
 
 		for (int i = 0; i < 13; i++)
 		{
@@ -78,8 +92,6 @@ public class MapReader : MonoBehaviour
 				carac = int.Parse("" + createdMap[2 * (13 * j + i)] + createdMap[2 * (13 * j + i) + 1]);
 				if (carac == 30)
 				{
-					index = random.Next(0, Paths.Count);
-
 					if (Paths[index].Count == 0)
 					{
 						b = new Vector2(i, j);
@@ -98,15 +110,15 @@ public class MapReader : MonoBehaviour
 
 					CreateZombie(new Vector2(i, j), b);
 					Paths.Remove(Paths[index]);
+					index++;
 				}
 				else if (carac == 31)
 				{
 					CreateExplorer(new Vector2(i, j));
+					index++;
 				}
 				else if (carac == 32)
 				{
-					index = random.Next(0, Paths.Count);
-
 					if (Paths[index].Count == 0)
 					{
 						b = new Vector2(i, j);
@@ -125,10 +137,12 @@ public class MapReader : MonoBehaviour
 
 					CreateWatchman(new Vector2(i, j), b);
 					Paths.Remove(Paths[index]);
+					index++;
 				}
 				else if (carac == 33)
 				{
 					CreateHunter(new Vector2(i, j));
+					index++;
 				}
 			}
 		}
@@ -139,12 +153,11 @@ public class MapReader : MonoBehaviour
 	void createPaths()
 	{
 		Paths = new List<List<Vector2>>();
-		int i = 0;
 		//Debug.Log("sols = "+solPossible.Count);
-		while (solPossible.Count > 0)
+		for(int i = 0; i < ennemis.Count; i++)
 		{
 			List<Vector2> path = new List<Vector2>();
-			addToPath(solPossible[i], path);
+			addToPath(ennemis[i], path);
 			Paths.Add(path);
 		}
 	}

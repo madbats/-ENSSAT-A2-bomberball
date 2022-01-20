@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a279b4b3f89b3c7498e5f488f67e2ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seed: 55
   map: {fileID: 3501239360693542408, guid: e8d7e8c48eb686247a3213fadb8704dd, type: 3}
   player: {fileID: 2717000335146501039, guid: 630f3f38a1c2be74081cc26981d9e136, type: 3}
   gameOver: {fileID: 3000635358093671747, guid: ec92a0b7a1732054499807fe1754db28, type: 3}
