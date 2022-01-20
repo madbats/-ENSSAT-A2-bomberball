@@ -35,76 +35,7 @@ public class Level : MonoBehaviour
         
     }
 
-    public void OnCLickPlay()
-    {
-        GameObject fond = GameObject.Find("Fond");
-        GameObject line;
-
-        for(int j = 0; j < 11; j++)
-        {
-            line = fond.transform.GetChild(j).gameObject;
-            for(int i = 0; i < 13; i++)
-            {
-                if(line.transform.GetChild(i).name == "UIentree")
-                {
-                    map += 21;
-                }
-                else if (line.transform.GetChild(i).name == "UImur_cassable")
-                {
-                    map += 10;
-                }
-                else if (line.transform.GetChild(i).name == "UImur_cassable_godMode")
-                {
-                    map += 14;
-                }
-                else if (line.transform.GetChild(i).name == "UImur_cassable_poussee")
-                {
-                    map += 13;
-                }
-                else if (line.transform.GetChild(i).name == "UImur_cassable_puissance")
-                {
-                    map += 11;
-                }
-                else if (line.transform.GetChild(i).name == "UImur_cassable_vitesse")
-                {
-                    map += 12;
-                }
-                else if (line.transform.GetChild(i).name == "UImur_incassable")
-                {
-                    map += 20;
-                }
-                else if (line.transform.GetChild(i).name == "UIsortie")
-                {
-                    map += 22;
-                }
-                else if (line.transform.GetChild(i).name == "UIsol")
-                {
-                    map += "00";
-                }
-                else if (line.transform.GetChild(i).name == "UIzombie")
-                {
-                    map += 30;
-                }
-                else if (line.transform.GetChild(i).name == "UIexplorer")
-                {
-                    map += 31;
-                }
-                else if (line.transform.GetChild(i).name == "UIwatchman")
-                {
-                    map += 32;
-                }
-                else if (line.transform.GetChild(i).name == "UIhunter")
-                {
-                    map += 33;
-                }
-            }
-        }
-        PlayerPrefs.SetString("map", map);
-        PlayerPrefs.Save();
-        SceneManager.LoadScene("CreatedLevel");
-    }
-
-    public void OnCLickSave()
+    public void Lecture()
     {
         GameObject fond = GameObject.Find("Fond");
         GameObject line;
@@ -170,6 +101,17 @@ public class Level : MonoBehaviour
         }
         PlayerPrefs.SetString("map", map);
         PlayerPrefs.Save();
+    }
+
+    public void OnCLickPlay()
+    {
+        Lecture();
+        SceneManager.LoadScene("CreatedLevel");
+    }
+
+    public void OnCLickSave()
+    {
+        Lecture();
         SceneManager.LoadScene("MainMenu");
     }
 }
