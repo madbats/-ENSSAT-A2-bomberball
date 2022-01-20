@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementCreator : MonoBehaviour
 {
     //Attributs
     public float movingSpeed = 0.3f;
@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        if ((Input.GetKey(KeyCode.UpArrow) || firstUp) && mapItemsList[x, y + 1] is Sol && !(mapEnnemisList[x, y + 1] !=null))
+        if ((Input.GetKey(KeyCode.UpArrow) || firstUp) && mapItemsList[x, y + 1] is Sol && !(mapEnnemisList[x, y + 1] != null))
         { //Maintien de la touche
             holdTime = (float)Time.time - (float)startTime;
             if (movingSpeed <= holdTime || firstUp)//On augmente si le temps de maintien est sup�rieur � la vitesse (=temps entre 2 d�placements)
@@ -133,10 +133,10 @@ public class PlayerMovement : MonoBehaviour
             newBomb.transform.SetParent(this.transform.parent, false);
 
             GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y] = newBomb;
-            
+
         }
 
-        if (GameObject.Find("Player").GetComponent<PlayerBonus>().poussee)
+        if (GameObject.Find("Player").GetComponent<PlayerBonusCreator>().poussee)
         {
             if (mapEnnemisList[x + 1, y] != null)
             {
