@@ -70,10 +70,6 @@ public class PauseManager : MonoBehaviour
     /// </summary>
     public void LoadMainMenu()
     {
-        //On reprend le jeu avant d'aller au menu principal 
-        GetComponent<GameMaster>().Save();
-
-        //On charge le menu principal
         SceneManager.LoadScene(s);
     }
 }
