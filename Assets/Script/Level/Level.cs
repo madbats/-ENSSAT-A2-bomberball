@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
@@ -21,6 +22,13 @@ public class Level : MonoBehaviour
     public GameObject hunter;
 
     public string map = "";
+
+    public bool hasExit = false;
+    public bool hasEnter = false;
+    public bool validMap = true;
+
+    public Button playButton;
+    public Button saveButton;
  
 
     // Start is called before the first frame update
@@ -32,7 +40,50 @@ public class Level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject fond = GameObject.Find("Fond");
+        GameObject line;
+        hasEnter = false;
+        hasExit = false;
+        validMap = true;
+
+        for (int j = 0; j < 11; j++)
+        {
+            line = fond.transform.GetChild(j).gameObject;
+            if(line.transform.childCount != 13)
+            {
+                validMap = false;
+            }
+            else
+            {
+                for (int i = 0; i < 13; i++)
+                {
+                    if (line.transform.GetChild(i).gameObject.name == "UIentree")
+                    {
+                        hasEnter = true;
+                    }
+                    if (line.transform.GetChild(i).gameObject.name == "UIsortie")
+                    {
+                        hasExit = true;
+                    }
+                }
+            }
+        }
+
+        if(hasEnter && hasExit)
+        {
+            playButton.interactable = true;
+            //playButton.gameObject.GetComponent<MeshRenderer>().material.color = new Color(250, 250, 250, 250);
+            saveButton.interactable = true;
+            //saveButton.gameObject.GetComponent<MeshRenderer>().material.color = new Color(250, 250, 250, 250);
+        }
+
+        if(!hasEnter || !hasExit || !validMap)
+        {
+            playButton.interactable = false;
+            //playButton.gameObject.GetComponent<MeshRenderer>().material.color = new Color(250, 250, 250, 125);
+            saveButton.interactable = false;
+            //saveButton.gameObject.GetComponent<MeshRenderer>().material.color = new Color(250, 250, 250, 125);
+        }
     }
 
     public void Lecture()

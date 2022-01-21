@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LineType1 : MonoBehaviour
+public class LineType1 : Line
 {
     public GameObject mur_incassable;
 

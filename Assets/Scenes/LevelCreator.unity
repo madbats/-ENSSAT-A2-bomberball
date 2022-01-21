@@ -529,6 +529,8 @@ MonoBehaviour:
   watchman: {fileID: 1032924123277843696, guid: 36def8b44d11f3b40be09bd7b43019e7, type: 3}
   hunter: {fileID: 131549319331210780, guid: 2c27d6e023ba22648877f975bd3555fa, type: 3}
   map: 
+  playButton: {fileID: 568169012}
+  saveButton: {fileID: 47943053}
 --- !u!4 &76723904
 Transform:
   m_ObjectHideFlags: 0
