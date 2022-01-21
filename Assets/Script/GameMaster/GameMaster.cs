@@ -46,6 +46,7 @@ public class GameMaster : MonoBehaviour
     void Start()
     {
         Load();
+        Save();
         NewGame();
     }
 
@@ -55,6 +56,7 @@ public class GameMaster : MonoBehaviour
     public void Next()
     {
         number++;
+        Save();
         NewGame();
     }
 
@@ -146,8 +148,10 @@ public class GameMaster : MonoBehaviour
         //INITIALISATION
         GetComponent<ScoreManager>().scorePartie = PlayerPrefs.GetInt("Score", 0);
         seed = PlayerPrefs.GetInt("Seed", -1);
-        if(seed == -1)
+        Debug.Log("Loading....");
+        if (seed == -1)
         {
+            Debug.Log("No seed found");
             seed = (int)Random.Range(-1000f, 1000f);
         }
         number = PlayerPrefs.GetInt("CampaignLevel", 1);

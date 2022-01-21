@@ -89,13 +89,17 @@ public class MenuSaves : MonoBehaviour
 
     public void SaveGame()
     {
+        //PlayerPrefs.DeleteAll();
         gamePlayed = PlayerPrefs.GetInt("Game", -1);
         Debug.Log("Saving game " + gamePlayed);
         if (gamePlayed!=-1)
         {
+            Debug.Log("Score was " + PlayerPrefs.GetInt("Score", 0));
+            Debug.Log("Seed was " + PlayerPrefs.GetInt("Seed", -1));
+            Debug.Log("CampaignLevel was " + PlayerPrefs.GetInt("CampaignLevel", 1));
             PlayerPrefs.SetInt("Score"+ gamePlayed, PlayerPrefs.GetInt("Score", 0));
             PlayerPrefs.SetInt("Seed"+ gamePlayed, PlayerPrefs.GetInt("Seed", -1));
-            PlayerPrefs.SetInt("CampaignLevel"+ gamePlayed, PlayerPrefs.GetInt("CampaignLevel", -1));
+            PlayerPrefs.SetInt("CampaignLevel"+ gamePlayed, PlayerPrefs.GetInt("CampaignLevel", 1));
             PlayerPrefs.Save();
             gamePlayed = -1;
         }
