@@ -28,6 +28,7 @@ public class GameMasterCreator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<PauseManager>().Resume();
         NewGame();
     }
 
