@@ -136,7 +136,7 @@ public class PlayerMovementCreator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B) && !BombSet)
         {
             BombSet = true;
-            GameObject newBomb = Instantiate(bomb, new Vector3(x, y, -10), Quaternion.identity);
+            GameObject newBomb = Instantiate(bomb, new Vector3(x, y, 0), Quaternion.identity);
             newBomb.transform.SetParent(this.transform.parent, false);
 
             GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y] = newBomb;

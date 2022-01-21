@@ -88,7 +88,7 @@ public class BombCreator : MonoBehaviour
     {
 
         //Explosion
-        GameObject newExplosionC = Instantiate(ExplosionC, new Vector3(x, y, -10), Quaternion.identity);
+        GameObject newExplosionC = Instantiate(ExplosionC, new Vector3(x, y, -2), Quaternion.identity);
         newExplosionC.transform.SetParent(this.transform.parent, false);
 
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
@@ -144,7 +144,7 @@ public class BombCreator : MonoBehaviour
             }
             else
             {
-                GameObject newExplosionH = Instantiate(ExplosionH, new Vector3(x, i, -10), Quaternion.identity);
+                GameObject newExplosionH = Instantiate(ExplosionH, new Vector3(x, i, -2), Quaternion.identity);
                 newExplosionH.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[x, i].isBreakable)
                 {
@@ -179,7 +179,7 @@ public class BombCreator : MonoBehaviour
             }
             else
             {
-                GameObject newExplosionB = Instantiate(ExplosionB, new Vector3(x, i, -10), Quaternion.identity);
+                GameObject newExplosionB = Instantiate(ExplosionB, new Vector3(x, i, -2), Quaternion.identity);
                 newExplosionB.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[x, i].isBreakable)
                 {
@@ -214,7 +214,7 @@ public class BombCreator : MonoBehaviour
             }
             else
             {
-                GameObject newExplosionD = Instantiate(ExplosionD, new Vector3(i, y, -10), Quaternion.identity);
+                GameObject newExplosionD = Instantiate(ExplosionD, new Vector3(i, y, -2), Quaternion.identity);
                 newExplosionD.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[i, y].isBreakable)
                 {
@@ -249,7 +249,7 @@ public class BombCreator : MonoBehaviour
             }
             else
             {
-                GameObject newExplosionG = Instantiate(ExplosionG, new Vector3(i, y, -10), Quaternion.identity);
+                GameObject newExplosionG = Instantiate(ExplosionG, new Vector3(i, y, -2), Quaternion.identity);
                 newExplosionG.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[i, y].isBreakable)
                 {
