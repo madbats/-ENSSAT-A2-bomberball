@@ -105,7 +105,7 @@ public class BombCreator : MonoBehaviour
             {
                 if (mapEnnemisList[i, j] != null)
                 {
-                    if (mapEnnemisList[i, j].GetComponent<Ennemis>())
+                    if (mapEnnemisList[i, j].GetComponent<EnnemisCreator>())
                     {
                         ennemis.Add(mapEnnemisList[i, j]);
                     }
@@ -129,7 +129,7 @@ public class BombCreator : MonoBehaviour
         {
             if (Vector2.Distance(transform.position, ennemi.transform.position) < .6f)
             {
-                ennemi.GetComponent<Ennemis>().Kill();
+                ennemi.GetComponent<EnnemisCreator>().Kill();
                 ennemisKilled.Add(ennemi);
             }
         }
@@ -157,7 +157,7 @@ public class BombCreator : MonoBehaviour
                 {
                     if (Vector2.Distance(new Vector2(x, i), ennemi.transform.position) < .7f)
                     {
-                        ennemi.GetComponent<Ennemis>().Kill();
+                        ennemi.GetComponent<EnnemisCreator>().Kill();
                         ennemisKilled.Add(ennemi);
                     }
                 }
@@ -192,7 +192,7 @@ public class BombCreator : MonoBehaviour
                 {
                     if (Vector2.Distance(new Vector2(x, i), ennemi.transform.position) < .6f)
                     {
-                        ennemi.GetComponent<Ennemis>().Kill();
+                        ennemi.GetComponent<EnnemisCreator>().Kill();
                         ennemisKilled.Add(ennemi);
                     }
                 }
@@ -227,7 +227,7 @@ public class BombCreator : MonoBehaviour
                 {
                     if (Vector2.Distance(new Vector2(i, y), ennemi.transform.position) < .6f)
                     {
-                        ennemi.GetComponent<Ennemis>().Kill();
+                        ennemi.GetComponent<EnnemisCreator>().Kill();
                         ennemisKilled.Add(ennemi);
                     }
                 }
@@ -262,7 +262,7 @@ public class BombCreator : MonoBehaviour
                 {
                     if (Vector2.Distance(new Vector2(i, y), ennemi.transform.position) < .6f)
                     {
-                        ennemi.GetComponent<Ennemis>().Kill();
+                        ennemi.GetComponent<EnnemisCreator>().Kill();
                         ennemisKilled.Add(ennemi);
                     }
                 }
