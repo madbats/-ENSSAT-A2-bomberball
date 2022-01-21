@@ -48,7 +48,7 @@ public class MenuParametre : MonoBehaviour
     }
 
     public void SetVolume(float v){
-        Debug.Log("appel");
-        audMix.SetFloat("v", v);
+        //audMix.SetFloat("v", v);
+        audMix.SetFloat("v", Mathf.Log10(v) * 20);
     }
 }

@@ -42,6 +42,9 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        x = (int)transform.position.x;
+        y = (int)transform.position.y;
+
         timeLeft -= Time.deltaTime;
 
 

@@ -3,7 +3,18 @@ guid: 1336e15b14e995c448cf653b785a7dee
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - map: {instanceID: 0}
+  - player: {instanceID: 0}
+  - gameOver: {instanceID: 0}
+  - gameWon: {instanceID: 0}
+  - playerObject: {instanceID: 0}
+  - vitesseText: {instanceID: 0}
+  - puissanceText: {instanceID: 0}
+  - pousseeText: {instanceID: 0}
+  - godModeText: {instanceID: 0}
+  - son: {instanceID: 0}
+  - audioClip: {fileID: 8300000, guid: a6e8b0ffcdcde8846870020e9824a68e, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

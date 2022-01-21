@@ -18,15 +18,32 @@ public class PlayerBonus : MonoBehaviour
     public float pousseeTime = 0;
     public float godModeTime = 0;
 
+    public AudioSource audioSource;
+    public AudioClip[] audioClipArray;
+    public bool musiquebonus = false;
+    public bool musiquechange = false;
+    public int nummusique = 0;
+
+    public bool debutniv=true;
+
     void Start()
     {
         bonusList = new Bonus[30];
         nbBonus = 0;
+
+        audioSource = GameObject.Find("Musique").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (debutniv)
+        {
+            musiquechange = true;
+            audioSource.clip = audioClipArray[0];
+            nummusique = 0;
+            debutniv = false;
+        }
         GameMaster gm = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
 
@@ -46,11 +63,12 @@ public class PlayerBonus : MonoBehaviour
         puissanceTime = 0;
         pousseeTime = 0;
         godModeTime = 0;
+        musiquebonus = false;
         foreach (Bonus bonus in bonusList)
         {
-            
             if(bonus != null)
             {
+                musiquebonus = true;
                 if (bonus.CheckEnd())
                 {
                     bonus.Destruction();
@@ -58,24 +76,67 @@ public class PlayerBonus : MonoBehaviour
                 }
                 else
                 {
-                    if(bonus is BonusVitesse)
+                    musiquebonus = true;
+                    if (bonus is BonusVitesse)
                     {
                         vitesseTime =Mathf.Max(vitesseTime, bonus.RemainningTime());
+                        if (nummusique == 0  && !musiquechange)
+                        {
+                            musiquechange = true;
+                            audioSource.clip = audioClipArray[1];
+                            nummusique = 1;
+                        }
                     }
                     if (bonus is BonusPuissance)
                     {
                         puissanceTime = Mathf.Max(puissanceTime, bonus.RemainningTime());
+                        if (nummusique == 0 && !musiquechange)
+                        {
+                            musiquechange = true;
+                            audioSource.clip = audioClipArray[2];
+                            nummusique = 2;
+                        }
                     }
                     if (bonus is BonusPoussee)
                     {
                         pousseeTime =Mathf.Max(pousseeTime, bonus.RemainningTime());
+                        if (nummusique == 0 && !musiquechange)
+                        {
+                            musiquechange = true;
+                            audioSource.clip = audioClipArray[3];
+                            nummusique = 3;
+                        }
                     }
                     if (bonus is BonusGodMod)
                     {
                         godModeTime =Mathf.Max(godModeTime, bonus.RemainningTime());
+                        if (nummusique == 0 && !musiquechange)
+                        {
+                            audioSource.clip = audioClipArray[4];
+                            musiquechange = true;
+                            nummusique = 4;
+                        }
                     }
+
                 }
             }
+            
+        }
+
+        if (!musiquebonus)
+        {
+            if (nummusique != 0)
+            {
+                musiquechange = true;
+                audioSource.clip = audioClipArray[0];
+                nummusique = 0;
+            }
+        }
+
+        if (musiquechange)
+        {
+            audioSource.Play();
+            musiquechange = false;
         }
 
         gm.vitesseTime = vitesseTime;
