@@ -2,29 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Controle le déplacement du joueur
+/// </summary>
 public class PlayerMovementCreator : MonoBehaviour
 {
     //Attributs
-    public float movingSpeed = 0.3f;
-    public float smoothTime;
+    public float movingSpeed;
     public bool BombSet = false;
-
-    public Rigidbody2D rb;
-    private Vector3 velocity = Vector3.zero;
 
     public GameObject bomb;
     private float startTime;
     private float holdTime;
 
-    void Start()
+    public AudioSource son;
+    public float volume = 0.5f;
+
+    public void Start()
     {
         startTime = Time.time;
-        holdTime = 0.0f;
-        movingSpeed = 0.5f;
+        son = this.gameObject.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Update is called once per frame.
+    /// Si le joueur n'à pas éffectué de mouvement depuis un temps déterminé par movingSpeed, alors déplace le joueur
+    /// </summary>
     void Update()
     {
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
@@ -40,7 +43,7 @@ public class PlayerMovementCreator : MonoBehaviour
         int x = (int)this.transform.position.x;
         int y = (int)this.transform.position.y;
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))//D�tection input bas
+        if (Input.GetKeyDown(KeyCode.UpArrow))//Détection input bas
         {
             if (movingSpeed <= (float)Time.time - (float)startTime)//Pour eviter le bourrage
             {
@@ -52,13 +55,13 @@ public class PlayerMovementCreator : MonoBehaviour
         if ((Input.GetKey(KeyCode.UpArrow) || firstUp) && mapItemsList[x, y + 1] is Sol && !(mapEnnemisList[x, y + 1] != null))
         { //Maintien de la touche
             holdTime = (float)Time.time - (float)startTime;
-            if (movingSpeed <= holdTime || firstUp)//On augmente si le temps de maintien est sup�rieur � la vitesse (=temps entre 2 d�placements)
+            if (movingSpeed <= holdTime || firstUp)//On augmente si le temps de maintien est supérieur é la vitesse (=temps entre 2 déplacements)
             {
+                son.Play();
                 MovePlayer(x, y + 1);
                 startTime = Time.time;
                 firstUp = false;
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -75,6 +78,7 @@ public class PlayerMovementCreator : MonoBehaviour
             holdTime = (float)Time.time - (float)startTime;
             if (movingSpeed <= holdTime || firstDown)
             {
+                son.Play();
                 MovePlayer(x, y - 1);
                 startTime = Time.time;
                 firstDown = false;
@@ -97,6 +101,7 @@ public class PlayerMovementCreator : MonoBehaviour
             holdTime = (float)Time.time - (float)startTime;
             if (movingSpeed <= holdTime || firstLeft)
             {
+                son.Play();
                 MovePlayer(x - 1, y);
                 startTime = Time.time;
                 firstLeft = false;
@@ -119,6 +124,7 @@ public class PlayerMovementCreator : MonoBehaviour
             holdTime = (float)Time.time - (float)startTime;
             if (movingSpeed <= holdTime || firstRight)
             {
+                son.Play();
                 MovePlayer(x + 1, y);
                 startTime = Time.time;
                 firstRight = false;
@@ -126,6 +132,7 @@ public class PlayerMovementCreator : MonoBehaviour
 
         }
 
+        // Place la bombe
         if (Input.GetKeyDown(KeyCode.B) && !BombSet)
         {
             BombSet = true;
@@ -136,13 +143,14 @@ public class PlayerMovementCreator : MonoBehaviour
 
         }
 
+        // Déplace la bombe si le joueur en possède la capacité
         if (GameObject.Find("Player").GetComponent<PlayerBonusCreator>().poussee)
         {
             if (mapEnnemisList[x + 1, y] != null)
             {
-                if ((Input.GetKeyDown(KeyCode.RightArrow)) && mapEnnemisList[x + 1, y].GetComponent<Bomb>()) //Bombe sur le chemin
+                if ((Input.GetKeyDown(KeyCode.RightArrow)) && mapEnnemisList[x + 1, y].GetComponent<BombCreator>()) //Bombe sur le chemin
                 {
-                    if (mapItemsList[x + 2, y] is Sol) //Sol derri�re la bombe
+                    if (mapItemsList[x + 2, y] is Sol) //Sol derriére la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 2, y] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 1, y];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x + 1, y] = null;
@@ -152,9 +160,9 @@ public class PlayerMovementCreator : MonoBehaviour
             }
             if (mapEnnemisList[x - 1, y] != null)
             {
-                if ((Input.GetKeyDown(KeyCode.LeftArrow)) && mapEnnemisList[x - 1, y].GetComponent<Bomb>()) //Bombe sur le chemin
+                if ((Input.GetKeyDown(KeyCode.LeftArrow)) && mapEnnemisList[x - 1, y].GetComponent<BombCreator>()) //Bombe sur le chemin
                 {
-                    if (mapItemsList[x - 2, y] is Sol) //Sol derri�re la bombe
+                    if (mapItemsList[x - 2, y] is Sol) //Sol derriére la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 2, y] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x - 1, y] = null;
@@ -165,9 +173,9 @@ public class PlayerMovementCreator : MonoBehaviour
 
             if (mapEnnemisList[x, y + 1] != null)
             {
-                if ((Input.GetKeyDown(KeyCode.UpArrow)) && mapEnnemisList[x, y + 1].GetComponent<Bomb>()) //Bombe sur le chemin
+                if ((Input.GetKeyDown(KeyCode.UpArrow)) && mapEnnemisList[x, y + 1].GetComponent<BombCreator>()) //Bombe sur le chemin
                 {
-                    if (mapItemsList[x, y + 2] is Sol) //Sol derri�re la bombe
+                    if (mapItemsList[x, y + 2] is Sol) //Sol derriére la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 2] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y + 1] = null;
@@ -178,9 +186,9 @@ public class PlayerMovementCreator : MonoBehaviour
 
             if (mapEnnemisList[x, y - 1] != null)
             {
-                if ((Input.GetKeyDown(KeyCode.DownArrow)) && mapEnnemisList[x, y - 1].GetComponent<Bomb>()) //Bombe sur le chemin
+                if ((Input.GetKeyDown(KeyCode.DownArrow)) && mapEnnemisList[x, y - 1].GetComponent<BombCreator>()) //Bombe sur le chemin
                 {
-                    if (mapItemsList[x, y - 2] is Sol) //Sol derri�re la bombe
+                    if (mapItemsList[x, y - 2] is Sol) //Sol derriére la bombe
                     {
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 2] = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 1];
                         GameObject.Find("Map").GetComponent<Map>().mapEnnemisList[x, y - 1] = null;
@@ -192,15 +200,25 @@ public class PlayerMovementCreator : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Déplace le joueur à la position donnée
+    /// </summary>
+    /// <param name="_horizontalMovement">nouvelle valeur de x </param>
+    /// <param name="_verticalMovement">nouvelle valeur de y </param>
     void MovePlayer(float _horizontalMovement, float _verticalMovement)
     {
         transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
     }
 
+    /// <summary>
+    /// Déplace la bombe à la position donnée
+    /// </summary>
+    /// <param name="_horizontalMovement">nouvelle valeur de x </param>
+    /// <param name="_verticalMovement">nouvelle valeur de y </param>
     void MoveBomb(float _horizontalMovement, float _verticalMovement)
     {
-        Bomb newbomb = GameObject.Find("Bomb(Clone)").GetComponent<Bomb>();
-        newbomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, -3);
+        BombCreator newbomb = GameObject.Find("Bomb(Clone)").GetComponent<BombCreator>();
+        newbomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
 
     }
 }

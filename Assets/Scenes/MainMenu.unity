@@ -3637,8 +3637,8 @@ MonoBehaviour:
   s1: 
   s2: 
   s3: 
-  p: {fileID: 0}
-  saves: {fileID: 0}
+  p: {fileID: 7756699012348997523, guid: acb4a8a36b70108479e16562057bc9f0, type: 3}
+  saves: {fileID: 846389721}
 --- !u!1 &1573055193
 GameObject:
   m_ObjectHideFlags: 0
