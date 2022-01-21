@@ -19,6 +19,7 @@ public class LineType1 : Line
             qqc.name = mur_incassable.name;
             qqc.GetComponent<Draggable>().trash = trash;
             qqc.GetComponent<Draggable>().parentToReturnTo = GameObject.Find("Fond").transform;
+            qqc.GetComponent<CanvasGroup>().blocksRaycasts = false;
         }
         
     }

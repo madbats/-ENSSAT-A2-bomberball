@@ -28,6 +28,7 @@ public class LineType2 : Line
             qqc.transform.SetParent(this.transform);
             qqc.GetComponent<Draggable>().trash = trash;
             qqc.GetComponent<Draggable>().parentToReturnTo = GameObject.Find("Fond").transform;
+            qqc.GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         }
     }

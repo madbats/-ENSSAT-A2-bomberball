@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &12062333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 3282076305022007135, guid: b882dc9f087703144bc3f5577c0180f7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &45659811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +529,9 @@ MonoBehaviour:
   watchman: {fileID: 1032924123277843696, guid: 36def8b44d11f3b40be09bd7b43019e7, type: 3}
   hunter: {fileID: 131549319331210780, guid: 2c27d6e023ba22648877f975bd3555fa, type: 3}
   map: 
+  hasExit: 0
+  hasEnter: 0
+  validMap: 1
   playButton: {fileID: 568169012}
   saveButton: {fileID: 47943053}
 --- !u!4 &76723904
@@ -599,7 +602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &242567025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,7 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &289179932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,7 +859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &332474397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 3697958414106316460, guid: e1f9b4df78847144c816813beaed97f1, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &452845470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,7 +1234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 1901504918546359577, guid: 9fd9569196937bc4b8dcb736f17d8c04, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &583390915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1346,7 +1349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 6669416044551822637, guid: 0786471d0a1449a49aa3751245eca46c, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &681305477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,7 +1465,6 @@ RectTransform:
   - {fileID: 583390913}
   - {fileID: 452845468}
   - {fileID: 12062331}
-  - {fileID: 1777238963}
   m_Father: {fileID: 977971003}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1561,7 +1563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 8259247169376592162, guid: fd48f2bda09f5f645b5c6195602b3355, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &734281376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1678,7 +1680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &758375532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,7 +2005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &892719162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2130,7 +2132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 6155761057860272435, guid: 605182747425dd24881cfca6e8670df6, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &912968919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2349,7 +2351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1042804499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2476,7 +2478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 7484374584652670793, guid: 129677633e00c13449b26acf38af5a24, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1114578456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2593,7 +2595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1123589778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2720,7 +2722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 8348806057773515160, guid: 8c53b99dc9f7695408ac9e733fc11d96, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1181501314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2835,7 +2837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 4488521603297631071, guid: afd710102b18e924ab22ed16589c78ff, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1202327107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3029,7 +3031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1432077959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3219,7 +3221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!1 &1674078888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3274,7 +3276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1674078891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3415,119 +3417,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1777238962
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1777238963}
-  - component: {fileID: 1777238966}
-  - component: {fileID: 1777238965}
-  - component: {fileID: 1777238964}
-  - component: {fileID: 1777238967}
-  m_Layer: 5
-  m_Name: trash
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1777238963
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777238962}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 724240684}
-  m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 616.9999, y: 16.000555}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1777238964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777238962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36cdba59e16812f4e9414eee57dbfe85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1777238965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777238962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.9811321, g: 0.3646849, b: 0.3646849, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1777238966
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777238962}
-  m_CullTransparentMesh: 1
---- !u!114 &1777238967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777238962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 4
-  m_StartCorner: 0
-  m_StartAxis: 0
-  m_CellSize: {x: 30, y: 30}
-  m_Spacing: {x: 0, y: 0}
-  m_Constraint: 0
-  m_ConstraintCount: 2
 --- !u!1 &1786894549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,7 +3469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 8537442483727386978, guid: 48dc80560887d4944b8e3d43fa8094d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1786894552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3695,7 +3584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toGenerate: {fileID: 2403569535010677074, guid: 019f8b48dea84874f944f3d37e3ef21d, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1833904384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3812,7 +3701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &1873841501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3941,7 +3830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mur_incassable: {fileID: 3627897210091542505, guid: 5cd52c32c1902244a8576a7331296eae, type: 3}
   sol: {fileID: 3173081054687693076, guid: 15d8c4e9df776d84ab9e262010cdc4d7, type: 3}
-  trash: {fileID: 1777238963}
+  trash: {fileID: 0}
 --- !u!114 &2100732333
 MonoBehaviour:
   m_ObjectHideFlags: 0
