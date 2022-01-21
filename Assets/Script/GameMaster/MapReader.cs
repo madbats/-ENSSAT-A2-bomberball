@@ -109,7 +109,6 @@ public class MapReader : MonoBehaviour
 					}
 
 					CreateZombie(new Vector2(i, j), b);
-					Paths.Remove(Paths[index]);
 					index++;
 					Debug.Log(index);
 				}
@@ -138,7 +137,6 @@ public class MapReader : MonoBehaviour
 					}
 
 					CreateWatchman(new Vector2(i, j), b);
-					Paths.Remove(Paths[index]);
 					index++;
 					Debug.Log(index);
 				}
