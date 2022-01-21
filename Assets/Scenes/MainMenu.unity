@@ -2978,7 +2978,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1456134849}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: ParametreMenu
         m_Mode: 1
@@ -3470,7 +3470,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1456134849}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: Quitter
         m_Mode: 1
@@ -3653,7 +3653,7 @@ MonoBehaviour:
   s1: 
   s2: 
   s3: 
-  p: {fileID: 7756699012348997523, guid: acb4a8a36b70108479e16562057bc9f0, type: 3}
+  p: {fileID: 118937762}
   saves: {fileID: 846389721}
 --- !u!1 &1573055193
 GameObject:

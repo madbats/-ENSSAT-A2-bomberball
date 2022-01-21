@@ -217,7 +217,7 @@ public class PlayerMovementCreator : MonoBehaviour
     /// <param name="_verticalMovement">nouvelle valeur de y </param>
     void MoveBomb(float _horizontalMovement, float _verticalMovement)
     {
-        BombCreator newbomb = GameObject.Find("Bomb(Clone)").GetComponent<BombCreator>();
+        BombCreator newbomb = GameObject.Find("BombCreator(Clone)").GetComponent<BombCreator>();
         newbomb.transform.position = new Vector3(_horizontalMovement, _verticalMovement, 0);
 
     }

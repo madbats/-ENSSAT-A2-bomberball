@@ -42,6 +42,9 @@ public class BombCreator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        x = (int)transform.position.x;
+        y = (int)transform.position.y;
+
         timeLeft -= Time.deltaTime;
 
 
@@ -111,7 +114,7 @@ public class BombCreator : MonoBehaviour
         }
         x = (int)transform.position.x;
         y = (int)transform.position.y;
-        puissance = GameObject.Find("Player").GetComponent<PlayerBonusCreator>().puissance;
+        puissance = PlayerBonusCreator.puissance;
         /**
          * Parcourt de chaque direction (nord,sud,est,ouest) et destruction des objects/ennemis
          */
