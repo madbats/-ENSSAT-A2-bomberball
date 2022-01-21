@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 131549319331210754}
   - component: {fileID: 131549319331210755}
   - component: {fileID: 7430703884850361888}
+  - component: {fileID: 7764297778974597207}
   m_Layer: 0
   m_Name: Hunter
   m_TagString: Untagged
@@ -115,3 +116,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {x: 0, y: 0}
+--- !u!95 &7764297778974597207
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131549319331210780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af146083b82a93f4c88f1ea4163ee942, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

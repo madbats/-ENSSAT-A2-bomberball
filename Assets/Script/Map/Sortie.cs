@@ -8,20 +8,26 @@ using UnityEngine;
 public class Sortie : Sol
 {
     public GameObject player;
+    bool end;
 
     // Start is called before the first frame update
     void Start()
     {
+        end = false;
         player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.x == transform.position.x && player.transform.position.y == transform.position.y) 
+        if (!end)
         {
-        
-            GameObject.Find("GameMaster").GetComponent<GameMaster>().Win();
+            if (player.transform.position.x == transform.position.x && player.transform.position.y == transform.position.y)
+            {
+                end = true;
+                Debug.Log("Gagne");
+                GameObject.Find("GameMaster").GetComponent<GameMasterCreator>().Win();
+            }
         }
     }
 }

@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Level : MonoBehaviour
 {
-    public GameObject grid;
-
-    public GameObject map;
-    public GameObject player;
-
     public GameObject sol;
     public GameObject mur_cassable;
     public GameObject mur_cassable_puissance;
@@ -24,19 +21,148 @@ public class Level : MonoBehaviour
     public GameObject watchman;
     public GameObject hunter;
 
-    public GameObject mapObject;
+    public string map = "";
+
+    public bool hasExit = false;
+    public bool hasEnter = false;
+    public bool validMap = true;
+
+    public Button playButton;
+    public Button saveButton;
+ 
 
     // Start is called before the first frame update
     void Start()
     {
-        /*GameObject qqc;
-        qqc = Instantiate(grid, new Vector3(0, 0, 0), Quaternion.identity);
-        qqc.transform.SetParent(GameObject.Find("Fond").transform, false);*/
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject fond = GameObject.Find("Fond");
+        GameObject line;
+        hasEnter = false;
+        hasExit = false;
+        validMap = true;
+
+        for (int j = 0; j < 11; j++)
+        {
+            line = fond.transform.GetChild(j).gameObject;
+            if(line.transform.childCount != 13)
+            {
+                validMap = false;
+            }
+            else
+            {
+                for (int i = 0; i < 13; i++)
+                {
+                    if (line.transform.GetChild(i).gameObject.name == "UIentree")
+                    {
+                        hasEnter = true;
+                    }
+                    if (line.transform.GetChild(i).gameObject.name == "UIsortie")
+                    {
+                        hasExit = true;
+                    }
+                }
+            }
+        }
+
+        if(hasEnter && hasExit)
+        {
+            playButton.interactable = true;
+            //playButton.gameObject.GetComponent<MeshRenderer>().material.color = new Color(250, 250, 250, 250);
+            saveButton.interactable = true;
+            //saveButton.gameObject.GetComponent<MeshRenderer>().material.color = new Color(250, 250, 250, 250);
+        }
+
+        if(!hasEnter || !hasExit || !validMap)
+        {
+            playButton.interactable = false;
+            //playButton.gameObject.GetComponent<MeshRenderer>().material.color = new Color(250, 250, 250, 125);
+            saveButton.interactable = false;
+            //saveButton.gameObject.GetComponent<MeshRenderer>().material.color = new Color(250, 250, 250, 125);
+        }
+    }
+
+    public void Lecture()
+    {
+        GameObject fond = GameObject.Find("Fond");
+        GameObject line;
+
+        for (int j = 0; j < 11; j++)
+        {
+            line = fond.transform.GetChild(j).gameObject;
+            for (int i = 0; i < 13; i++)
+            {
+                if (line.transform.GetChild(i).name == "UIentree")
+                {
+                    map += 21;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable")
+                {
+                    map += 10;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable_godMode")
+                {
+                    map += 14;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable_poussee")
+                {
+                    map += 13;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable_puissance")
+                {
+                    map += 11;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_cassable_vitesse")
+                {
+                    map += 12;
+                }
+                else if (line.transform.GetChild(i).name == "UImur_incassable")
+                {
+                    map += 20;
+                }
+                else if (line.transform.GetChild(i).name == "UIsortie")
+                {
+                    map += 22;
+                }
+                else if (line.transform.GetChild(i).name == "UIsol")
+                {
+                    map += "00";
+                }
+                else if (line.transform.GetChild(i).name == "UIzombie")
+                {
+                    map += 30;
+                }
+                else if (line.transform.GetChild(i).name == "UIexplorer")
+                {
+                    map += 31;
+                }
+                else if (line.transform.GetChild(i).name == "UIwatchman")
+                {
+                    map += 32;
+                }
+                else if (line.transform.GetChild(i).name == "UIhunter")
+                {
+                    map += 33;
+                }
+            }
+        }
+        PlayerPrefs.SetString("map", map);
+        PlayerPrefs.Save();
+    }
+
+    public void OnCLickPlay()
+    {
+        Lecture();
+        SceneManager.LoadScene("CreatedLevel");
+    }
+
+    public void OnCLickSave()
+    {
+        Lecture();
+        SceneManager.LoadScene("MainMenu");
     }
 }
