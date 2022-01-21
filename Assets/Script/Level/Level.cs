@@ -27,6 +27,9 @@ public class Level : MonoBehaviour
     public bool hasEnter = false;
     public bool validMap = true;
 
+    int nbEnter;
+    int nbExit;
+
     public Button playButton;
     public Button saveButton;
  
@@ -45,6 +48,8 @@ public class Level : MonoBehaviour
         hasEnter = false;
         hasExit = false;
         validMap = true;
+        nbEnter = 0;
+        nbExit = 0;
 
         for (int j = 0; j < 11; j++)
         {
@@ -60,13 +65,20 @@ public class Level : MonoBehaviour
                     if (line.transform.GetChild(i).gameObject.name == "UIentree")
                     {
                         hasEnter = true;
+                        nbEnter++;
                     }
                     if (line.transform.GetChild(i).gameObject.name == "UIsortie")
                     {
                         hasExit = true;
+                        nbExit++;
                     }
                 }
             }
+        }
+
+        if(nbEnter > 1 || nbExit > 1)
+        {
+            validMap = false;
         }
 
         if(hasEnter && hasExit)
@@ -164,5 +176,10 @@ public class Level : MonoBehaviour
     {
         Lecture();
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnCLickReset()
+    {
+        SceneManager.LoadScene("LevelCreator");
     }
 }
