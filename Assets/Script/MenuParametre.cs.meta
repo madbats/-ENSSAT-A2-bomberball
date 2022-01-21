@@ -3,7 +3,10 @@ guid: 1a9dfd3d5eacef14fbc0e91aea449fcb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - main: {instanceID: 0}
+  - resDropDown: {instanceID: 0}
+  - audMix: {fileID: 24100000, guid: 25126659e78a8294492ffcddb170e091, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

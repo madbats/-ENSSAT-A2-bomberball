@@ -19,7 +19,7 @@ public class BonusGodMod : Bonus
             power += 1;
 
             startTime = Time.time;
-            Debug.Log("Début Bonus God Mod");
+            Debug.Log("Dï¿½but Bonus God Mod");
             GameObject.Find("GameMaster").GetComponent<LifeManager>().hasGodMode = true;
             GameObject.Find("GameMaster").GetComponent<ScoreManager>().scoreNiveau += scoreValue;
             return true;

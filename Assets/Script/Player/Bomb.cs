@@ -15,11 +15,28 @@ public class Bomb : MonoBehaviour
     public Sprite SecondStage;
     public Sprite ThirdStage;
 
+
+    public GameObject ExplosionC;
+    public GameObject ExplosionH;
+    public GameObject ExplosionB;
+    public GameObject ExplosionG;
+    public GameObject ExplosionD;
+
+    /*public AudioSource explosion;
+    public float volume = 0.5f;*/
+
+    public AudioSource explosion;
+
+    public bool explosionlancee = false;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
         x = (int) transform.position.x;
         y = (int) transform.position.y;
+        explosion = GameObject.Find("Explosion").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +45,24 @@ public class Bomb : MonoBehaviour
         timeLeft -= Time.deltaTime;
 
 
+        if (timeLeft > 0.5 && timeLeft < 1)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = SecondStage;
+        } else
+        if (timeLeft <= 0.5 && timeLeft > 0)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = ThirdStage;
+        } else
+        if (timeLeft <= 0)
+        {
+            if (!explosionlancee)
+            {
+                explosionlancee = true;
+                explosion.Play();
+                Explosion();
+            }
+        }
+        /*
         switch (timeLeft) {
         	case float i when i > 5 && i <= timeLeft*0.75:
         		//this.gameObject.GetComponent<SpriteRenderer>().sprite= SecondStage;
@@ -36,17 +71,23 @@ public class Bomb : MonoBehaviour
         		//this.gameObject.GetComponent<SpriteRenderer>().sprite= ThirdStage;
         		break;
         	case float i when i <= 0:
-                Explosion();
+                
+                
         		break;
         	default:
         		break;
-        }
+        }*/
     }
 
     /// <summary>
     /// Explosion de la bombe, l'ensemble des éléments sont détruit dans le rayon de la bombe
     /// </summary>
     void Explosion() {
+
+        //Explosion
+        GameObject newExplosionC = Instantiate(ExplosionC, new Vector3(x, y, -10), Quaternion.identity);
+        newExplosionC.transform.SetParent(this.transform.parent, false);
+
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
         Transform player = GameObject.Find("Player").GetComponent<Transform>();
         GameObject[,] mapEnnemisList = GameObject.Find("Map").GetComponent<Map>().mapEnnemisList;
@@ -100,6 +141,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                GameObject newExplosionH = Instantiate(ExplosionH, new Vector3(x, i, -10), Quaternion.identity);
+                newExplosionH.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[x, i].isBreakable)
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
@@ -133,6 +176,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                GameObject newExplosionB = Instantiate(ExplosionB, new Vector3(x, i, -10), Quaternion.identity);
+                newExplosionB.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[x, i].isBreakable)
                 {
                     ((MurCassable)mapItemsList[x, i]).OnBreak();
@@ -166,6 +211,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                GameObject newExplosionD = Instantiate(ExplosionD, new Vector3( i, y, -10), Quaternion.identity);
+                newExplosionD.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[i, y].isBreakable)
                 {
                     ((MurCassable)mapItemsList[i, y]).OnBreak();
@@ -199,6 +246,8 @@ public class Bomb : MonoBehaviour
             }
             else
             {
+                GameObject newExplosionG = Instantiate(ExplosionG, new Vector3(i, y, -10), Quaternion.identity);
+                newExplosionG.transform.SetParent(this.transform.parent, false);
                 if (mapItemsList[i, y].isBreakable)
                 {
                     ((MurCassable)mapItemsList[i, y]).OnBreak();
@@ -231,6 +280,7 @@ public class Bomb : MonoBehaviour
         {
             GameObject.Find("GameMaster").GetComponent<LifeManager>().Death();
         }
+        explosionlancee = false;
     }
     
 }

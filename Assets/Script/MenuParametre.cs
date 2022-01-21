@@ -13,8 +13,11 @@ public class MenuParametre : MonoBehaviour
     Resolution[] res;
     public Dropdown resDropDown;
     public AudioMixer audMix;
+    public Slider Global;
+
 
     public void Start(){
+        DontDestroyOnLoad(main);
         res = Screen.resolutions;
         resDropDown.ClearOptions();
         List<string> options = new List<string>();
@@ -31,6 +34,7 @@ public class MenuParametre : MonoBehaviour
         resDropDown.AddOptions(options);
         resDropDown.value = c;
         resDropDown.RefreshShownValue();
+        Global.onValueChanged.AddListener(SetVolume);
     }
 
     public void SetResolution(int index){
@@ -44,6 +48,7 @@ public class MenuParametre : MonoBehaviour
     }
 
     public void SetVolume(float v){
+        Debug.Log("appel");
         audMix.SetFloat("v", v);
     }
 }
