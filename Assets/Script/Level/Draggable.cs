@@ -46,7 +46,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             placeholder.transform.SetParent(placeholderParent);
         }*/
 
-        //parentToReturnTo.transform.GetChild(newSiblingIndex).gameObject.SetActive(true);
+        
 
         newSiblingIndex = placeholderParent.childCount;
 
@@ -65,7 +65,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         }
         //placeholder.transform.SetSiblingIndex(newSiblingIndex);
 
-        //parentToReturnTo.transform.GetChild(newSiblingIndex).gameObject.SetActive(false);
+        
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
