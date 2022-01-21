@@ -133,7 +133,7 @@ public class PlayerMovementCreator : MonoBehaviour
         }
 
         // Place la bombe
-        if (Input.GetKeyDown(KeyCode.B) && !BombSet)
+        if (Input.GetKeyDown(KeyCode.Space) && !BombSet)
         {
             BombSet = true;
             GameObject newBomb = Instantiate(bomb, new Vector3(x, y, 0), Quaternion.identity);
