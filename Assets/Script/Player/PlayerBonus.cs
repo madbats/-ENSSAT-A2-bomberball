@@ -20,6 +20,8 @@ public class PlayerBonus : MonoBehaviour
     public bool musiquechange = false;
     public int nummusique = 0;
 
+    public bool debutniv=true;
+
     void Start()
     {
         bonusList = new Bonus[30];
@@ -31,6 +33,13 @@ public class PlayerBonus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (debutniv)
+        {
+            musiquechange = true;
+            audioSource.clip = audioClipArray[0];
+            nummusique = 0;
+            debutniv = false;
+        }
         GameMaster gm = GameObject.Find("GameMaster").GetComponent<GameMaster>();
         MapItem[,] mapItemsList = GameObject.Find("Map").GetComponent<Map>().mapItemsList;
 
@@ -67,7 +76,7 @@ public class PlayerBonus : MonoBehaviour
                     if (bonus is BonusVitesse)
                     {
                         vitesseTime =Mathf.Max(vitesseTime, bonus.RemainningTime());
-                        if (nummusique != 1  && !musiquechange)
+                        if (nummusique == 0  && !musiquechange)
                         {
                             musiquechange = true;
                             audioSource.clip = audioClipArray[1];
@@ -77,7 +86,7 @@ public class PlayerBonus : MonoBehaviour
                     if (bonus is BonusPuissance)
                     {
                         puissanceTime = Mathf.Max(puissanceTime, bonus.RemainningTime());
-                        if (nummusique != 2 && !musiquechange)
+                        if (nummusique == 0 && !musiquechange)
                         {
                             musiquechange = true;
                             audioSource.clip = audioClipArray[2];
@@ -87,7 +96,7 @@ public class PlayerBonus : MonoBehaviour
                     if (bonus is BonusPoussee)
                     {
                         pousseeTime =Mathf.Max(pousseeTime, bonus.RemainningTime());
-                        if (nummusique != 3 && !musiquechange)
+                        if (nummusique == 0 && !musiquechange)
                         {
                             musiquechange = true;
                             audioSource.clip = audioClipArray[3];
@@ -97,7 +106,7 @@ public class PlayerBonus : MonoBehaviour
                     if (bonus is BonusGodMod)
                     {
                         godModeTime =Mathf.Max(godModeTime, bonus.RemainningTime());
-                        if (nummusique != 4 && !musiquechange)
+                        if (nummusique == 0 && !musiquechange)
                         {
                             audioSource.clip = audioClipArray[4];
                             musiquechange = true;
