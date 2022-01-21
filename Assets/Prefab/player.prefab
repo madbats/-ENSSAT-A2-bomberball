@@ -125,12 +125,13 @@ MonoBehaviour:
   audioClipArray:
   - {fileID: 8300000, guid: a6e8b0ffcdcde8846870020e9824a68e, type: 3}
   - {fileID: 8300000, guid: e37663a9fdd443e4a8a77c72ab4f78b1, type: 3}
+  - {fileID: 8300000, guid: dc5620b9bb710f746877b09fb385e868, type: 3}
   - {fileID: 8300000, guid: a0cf855fec7c3c64b8fcf31cf37b3d83, type: 3}
-  - {fileID: 8300000, guid: 84cc0b1e5e7b04c4e966efb3e6f2abac, type: 3}
   - {fileID: 8300000, guid: 409687b73a6b3994590d64fde53bf6c4, type: 3}
   musiquebonus: 0
   musiquechange: 0
   nummusique: 0
+  debutniv: 1
 --- !u!82 &-730536995437490888
 AudioSource:
   m_ObjectHideFlags: 0
