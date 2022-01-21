@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// La sortie sur la map
 /// </summary>
-public class Sortie : Sol
+public class SortieCreator : Sol
 {
     public GameObject player;
     bool end;
@@ -26,7 +26,7 @@ public class Sortie : Sol
             {
                 end = true;
                 Debug.Log("Gagne");
-                GameObject.Find("GameMaster").GetComponent<GameMaster>().Win();
+                GameObject.Find("GameMaster").GetComponent<GameMasterCreator>().Win();
             }
         }
     }

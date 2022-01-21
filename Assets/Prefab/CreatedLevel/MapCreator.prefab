@@ -43,9 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59205f4bdb07b75499d1560554a18a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 0
-  difficulty: 0
-  number: 0
+  positionEntree: {x: 0, y: 0, z: 0}
   sol: {fileID: 4722635489715105607, guid: aa116e37f0d62b64c8928b9d1a994932, type: 3}
   objet_puissance: {fileID: 8263432844061339890, guid: 975fb7a0a3efb0843aa7269fc2e978a7, type: 3}
   objet_deplacement: {fileID: 4841760238337076921, guid: e8a3eedec644b5c44832d4590e979706, type: 3}
@@ -58,10 +56,8 @@ MonoBehaviour:
   mur_cassable_godmode: {fileID: 904300683402167149, guid: 14ad326ae113d87428317b58c49ed71a, type: 3}
   mur_incassable: {fileID: 2347238353782217731, guid: bb36095a93aa93f4e9d14f4eec8bc4e6, type: 3}
   entree: {fileID: 7218087315521409848, guid: 3eaf705999bf73741acfc2a2331477f5, type: 3}
-  sortie: {fileID: 4395624360970510435, guid: 2331ca4ff93089544af82587513adc10, type: 3}
+  sortie: {fileID: 2342056585346194348, guid: d6312d97042647547a5375a20f28519a, type: 3}
   zombie: {fileID: 6607897182255521469, guid: 7df4a5d9cd3dde746894af25d0a1b282, type: 3}
   explorer: {fileID: 7416067592040402234, guid: de4d2fc9dd777f74ab5c325d75003493, type: 3}
   watchman: {fileID: 5496703582569031719, guid: c73c5382471d745498e1428a75303323, type: 3}
   hunter: {fileID: 3629121157156954347, guid: 160555992385ccf4995194da6c50d967, type: 3}
-  waypoint: {fileID: 0}
-  positionEntree: {x: 0, y: 0, z: 0}
